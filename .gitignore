@@ -1,0 +1,7 @@
+# Ignorar todas as pastas de resultados de simulação
+**/resultados/
+
+# Ignorar arquivos de simulação
+*.vcd
+*.vvp
+*.log
