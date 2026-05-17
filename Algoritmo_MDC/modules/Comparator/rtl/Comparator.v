@@ -1,4 +1,4 @@
-module Algoritmo_MDC (
+module Comparator (
 );
 
     // Sua lógica aqui

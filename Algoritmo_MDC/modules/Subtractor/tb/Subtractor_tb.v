@@ -1,13 +1,13 @@
 `timescale 1ns/1ns
 
-module tb_Algoritmo_MDC;
+module tb_Subtractor;
 
-    Algoritmo_MDC dut (
+    Subtractor dut (
     );
 
     initial begin
-        $dumpfile("Algoritmo_MDC.vcd");
-        $dumpvars(0, tb_Algoritmo_MDC);
+        $dumpfile("Subtractor.vcd");
+        $dumpvars(0, tb_Subtractor);
 
         // Inicialização
         #20 reset = 0;

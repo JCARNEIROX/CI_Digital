@@ -1,4 +1,4 @@
-module Algoritmo_LMS (
+module Register (
 );
 
     // Sua lógica aqui

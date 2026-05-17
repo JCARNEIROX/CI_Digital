@@ -1,13 +1,13 @@
 `timescale 1ns/1ns
 
-module tb_Algoritmo_LMS;
+module tb_Register;
 
-    Algoritmo_LMS dut (
+    Register dut (
     );
 
     initial begin
-        $dumpfile("Algoritmo_LMS.vcd");
-        $dumpvars(0, tb_Algoritmo_LMS);
+        $dumpfile("Register.vcd");
+        $dumpvars(0, tb_Register);
 
         // Inicialização
         #20 reset = 0;

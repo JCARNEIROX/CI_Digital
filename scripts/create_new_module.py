@@ -3,15 +3,17 @@ from pathlib import Path
 
 def main():
     # Verifica se o usuário passou o nome do módulo
-    if len(sys.argv) < 2:
-        print("Uso correto: python scripts/create_module.py <nome_do_modulo>")
+    if len(sys.argv) < 3:
+        print("Uso correto: python scripts/create_new_module.py <nome_pasta_projeto> <nome_do_modulo>")
         sys.exit(1)
 
-    module_name = sys.argv[1]
+    # Cria a pasta do projeto 
+    dir_projeto = sys.argv[1]
+    module_name = sys.argv[2]
     
     # Define os caminhos
     project_root = Path(__file__).parent.parent
-    module_dir = project_root / "modules" / module_name
+    module_dir = project_root / dir_projeto / "modules" / module_name
     rtl_dir = module_dir / "rtl"
     tb_dir = module_dir / "tb"
     res_dir = module_dir / "resultados"
@@ -24,6 +26,7 @@ def main():
     print(f"Criando a estrutura para o módulo: {module_name}...")
 
     # Cria as pastas
+    (project_root / dir_projeto).mkdir(parents=True, exist_ok=True)
     rtl_dir.mkdir(parents=True, exist_ok=True)
     tb_dir.mkdir(parents=True, exist_ok=True)
     res_dir.mkdir(parents=True, exist_ok=True)
