@@ -4,12 +4,17 @@ module Subtractor #(
 )(
   input  wire [WIDTH-1:0] x,
   input  wire [WIDTH-1:0] y,
-  input  wire Bin,
+  input  wire Bin,en,
   output reg [WIDTH-1:0] D,
   output reg Bout
 );
   always @(*) begin
-    {Bout, D} = x - y - Bin;
+    if (en) begin
+      {Bout, D} = x - y - Bin;
+    end
+    else begin
+      {Bout, D} = 0;
+    end
   end
   
 endmodule
