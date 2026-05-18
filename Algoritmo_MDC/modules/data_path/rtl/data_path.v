@@ -5,7 +5,7 @@ module data_path #(
     input [WIDTH-1:0] x, y, // Dados de entrada
     input x_sel, y_sel,x_ld, y_ld, x_sub, y_sub, data_en, // Sinais de controle
     output x_gt_y, x_eq_y, x_lt_y, // Sinais de comparação
-    output reg [WIDTH-1:0] result // Resultado final
+    output [WIDTH-1:0] result // Resultado final
 );
 
     // Fios para conexão interna

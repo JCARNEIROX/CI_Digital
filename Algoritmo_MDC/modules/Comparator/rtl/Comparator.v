@@ -10,10 +10,8 @@ module Comparator #(
 );
 
     // Sua lógica aqui
-    if (x==y) begin
-        assign x_eq_y = 1'b1; // ou y, ambos são iguais
-        assign eq_out = x; // ou y, ambos são iguais
-    end 
+    assign eq_out = (x == y) ? x : {N{1'b0}};
+    assign x_eq_y = (x == y) ? 1'b1 : 1'b0; // x=y, x_eq_y = 1 e x_gt_y = 0 e x_lt_y = 0
     assign x_gt_y = (x > y) ? 1'b1 : 1'b0; // x>y, x_gt_y = 1 e x_lt_y = 0
     assign x_lt_y = (x < y) ? 1'b1 : 1'b0; // x<y, x_gt_y = 0 e x_lt_y = 1
 
