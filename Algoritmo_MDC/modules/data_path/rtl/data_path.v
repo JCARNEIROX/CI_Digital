@@ -41,7 +41,7 @@ module data_path #(
     );
     // Registrador de resultado final
     Register #(.N(WIDTH)) result_reg_inst (
-        .clk(data_en), .rst(rst), .en(x_eq_y), .din(eq_out), .dout(result)
+        .clk(clk), .rst(rst), .en(data_en), .din(eq_out), .dout(result)
     );
 
 
