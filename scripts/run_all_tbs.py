@@ -1,9 +1,18 @@
 import subprocess
+import sys
 from pathlib import Path
 
 def main():
-    project_root = Path(__file__).parent.parent
-    modules_dirs = [d for d in project_root.rglob("modules") if d.is_dir()]
+    if len(sys.argv) < 2:
+        print("Uso: python scripts/run_all_tbs.py Nome_da_Pasta")
+        return
+
+    target_root = Path(sys.argv[1]).expanduser().resolve()
+    if not target_root.exists() or not target_root.is_dir():
+        print(f"[ERRO] Caminho invalido: {target_root}")
+        return
+
+    modules_dirs = [d for d in target_root.rglob("modules") if d.is_dir()]
 
     print("Iniciando a bateria de testes...\n")
 
@@ -21,7 +30,7 @@ def main():
             lib_flags.extend(["-y", str(d)])
 
         if not rtl_dirs:
-            print(f"[AVISO] Nenhuma pasta RTL encontrada em {modules_dir.relative_to(project_root)} para ser usada como biblioteca.")
+            print(f"[AVISO] Nenhuma pasta RTL encontrada em {modules_dir.relative_to(target_root)} para ser usada como biblioteca.")
 
         # Itera sobre cada pasta dentro de modules/
         # Descobre cada módulo presente na pasta
@@ -30,7 +39,6 @@ def main():
                 continue
 
             # Extrai o nome do módulo e define os caminhos para rtl, tb e resultados
-            module_name = module_path.name
             rtl_dir = module_path / "rtl"
             tb_dir = module_path / "tb"
             res_dir = module_path / "resultados"
@@ -39,7 +47,7 @@ def main():
             if not rtl_dir.exists() or not tb_dir.exists():
                 continue
 
-            print(f"[{module_path.relative_to(project_root)}] Preparando simulação...")
+            print(f"[{module_path.relative_to(target_root)}] Preparando simulação...")
 
             # Cria a pasta resultados se não existir
             res_dir.mkdir(exist_ok=True)
@@ -47,7 +55,7 @@ def main():
             # Pega APENAS os arquivos do módulo atual (RTL local e TB específico)
             local_files = list(rtl_dir.glob("*.v")) + list(tb_dir.glob("*.v"))
             if not local_files:
-                print(f"[{module_path.relative_to(project_root)}] Nenhum arquivo .v (RTL ou TB) encontrado. Pulando.\n")
+                print(f"[{module_path.relative_to(target_root)}] Nenhum arquivo .v (RTL ou TB) encontrado. Pulando.\n")
                 continue
 
             # Converte os caminhos dos arquivos para strings e define os caminhos de saída
@@ -66,13 +74,13 @@ def main():
             try:
                 # compila de fato
                 subprocess.run(compile_cmd, check=True, capture_output=True, text=True)
-                print(f"[{module_path.relative_to(project_root)}] Compilado com sucesso.")
+                print(f"[{module_path.relative_to(target_root)}] Compilado com sucesso.")
             except subprocess.CalledProcessError as e:
-                print(f"[{module_path.relative_to(project_root)}] ERRO DE COMPILAÇÃO:\n{e.stderr}\n")
+                print(f"[{module_path.relative_to(target_root)}] ERRO DE COMPILAÇÃO:\n{e.stderr}\n")
                 continue
 
             # 2. Execução (mudando o diretório de trabalho para 'resultados')
-            print(f"[{module_path.relative_to(project_root)}] Iniciando simulação...")
+            print(f"[{module_path.relative_to(target_root)}] Iniciando simulação...")
             try:
                 # Ao rodar com cwd=res_dir, qualquer arquivo gerado pelo TB (como .vcd)
                 # será salvo automaticamente dentro da pasta resultados/
@@ -82,13 +90,13 @@ def main():
                     # Como a execução do codigo compilado (sim.vvp) é feita com o diretório de trabalho sendo 'resultados',
                     # os arquivos gerados pelo TB serão salvos diretamente dentro da pasta resultados/ do módulo.
                     subprocess.run(["vvp", "sim.vvp"], cwd=res_dir, stdout=f_out, stderr=subprocess.STDOUT, check=True)
-                print(f"[{module_path.relative_to(project_root)}] Simulação concluída. Log salvo em: {log_file.relative_to(project_root)}")
+                print(f"[{module_path.relative_to(target_root)}] Simulação concluída. Log salvo em: {log_file.relative_to(target_root)}")
             except subprocess.CalledProcessError as e:
-                print(f"[{module_path.relative_to(project_root)}] ERRO NA SIMULAÇÃO. Código de saída: {e.returncode}")
-                print(f"[{module_path.relative_to(project_root)}] Verifique o log em: {log_file.relative_to(project_root)}\n")
+                print(f"[{module_path.relative_to(target_root)}] ERRO NA SIMULAÇÃO. Código de saída: {e.returncode}")
+                print(f"[{module_path.relative_to(target_root)}] Verifique o log em: {log_file.relative_to(target_root)}\n")
                 continue
             except Exception as e:
-                print(f"[{module_path.relative_to(project_root)}] ERRO INESPERADO: {e}\n")
+                print(f"[{module_path.relative_to(target_root)}] ERRO INESPERADO: {e}\n")
                 continue
 
             print("-" * 40)

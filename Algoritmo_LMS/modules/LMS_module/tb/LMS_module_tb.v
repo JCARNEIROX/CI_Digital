@@ -2,25 +2,23 @@
 
 module tb_LMS_module;
 
-    // ------------------------------------------------------------
-    // Parâmetros do testbench
-    // ------------------------------------------------------------
-
+    // Parâmetros do tamanho dos registradores internos do módulo
     parameter integer WIDTH       = 8;
     parameter integer W_WIDTH     = 16;
     parameter integer ACC_WIDTH   = 32;
 
-    // LR = 1/(2^LR_SHIFT_TB)
-    // LR_SHIFT_TB = 4 -> LR = 1/16 = 0,0625
+    // Parâmetros específicos do teste
     parameter integer LR_SHIFT_TB = 4;
-
+    parameter integer FRAC_TB     = 8;
+    parameter integer N_ITER      = 30;
     parameter integer N_SAMPLES   = 6;
-    parameter integer N_EPOCHS    = 10;
 
-    // ------------------------------------------------------------
-    // Sinais do DUT
-    // ------------------------------------------------------------
+    integer iter;
+    integer sample_idx;
+    
+    localparam integer SCALE_TB = (1 << FRAC_TB);
 
+    // Entradas e saídas do DUT
     reg clk;
     reg rst;
     reg valid_in;
@@ -31,30 +29,27 @@ module tb_LMS_module;
     wire done;
     wire signed [ACC_WIDTH-1:0] y_out;
 
-    // ------------------------------------------------------------
-    // Dataset
-    // ------------------------------------------------------------
-
+    // Memória para amostras de teste
     reg signed [WIDTH-1:0] x_mem [0:N_SAMPLES-1];
-    reg signed [WIDTH-1:0] d_mem [0:N_SAMPLES-1];
+    reg signed [WIDTH-1:0] d_mem [0:N_SAMPLES-1];   
+    reg signed [W_WIDTH-1:0] w_before;
+    reg signed [W_WIDTH-1:0] b_before;
+    reg signed [W_WIDTH-1:0] w_after;
+    reg signed [W_WIDTH-1:0] b_after;
+
+    reg signed [ACC_WIDTH-1:0] d_fix_tb;
+    reg signed [ACC_WIDTH-1:0] e_fix_tb;
 
     // ------------------------------------------------------------
-    // Variáveis auxiliares
-    // ------------------------------------------------------------
-
-    integer i;
-    integer epoch;
-    integer e_tb;
-
-    // ------------------------------------------------------------
-    // Instância do módulo LMS
+    // Instância do DUT
     // ------------------------------------------------------------
 
     LMS_module #(
         .WIDTH(WIDTH),
         .W_WIDTH(W_WIDTH),
         .ACC_WIDTH(ACC_WIDTH),
-        .LR_SHIFT(LR_SHIFT_TB)
+        .LR_SHIFT(LR_SHIFT_TB),
+        .FRAC(FRAC_TB)
     ) dut (
         .clk(clk),
         .rst(rst),
@@ -71,7 +66,7 @@ module tb_LMS_module;
 
     initial begin
         clk = 1'b0;
-        forever #5 clk = ~clk;   // período de 10 ns
+        forever #5 clk = ~clk;
     end
 
     // ------------------------------------------------------------
@@ -81,11 +76,15 @@ module tb_LMS_module;
     task send_sample;
         input signed [WIDTH-1:0] x_sample;
         input signed [WIDTH-1:0] d_sample;
-        input integer epoch_idx;
-        input integer sample_idx;
+        input integer iter_idx;
+        input integer sample_idx_in;
 
         begin
-            // Aplica a amostra na entrada
+            // Valores antes da atualização
+            w_before = dut.w;
+            b_before = dut.b;
+
+            // Aplica entrada
             @(negedge clk);
             x_in     = x_sample;
             d_in     = d_sample;
@@ -95,25 +94,48 @@ module tb_LMS_module;
             @(negedge clk);
             valid_in = 1'b0;
 
-            // Espera o módulo terminar o processamento da amostra
+            // Espera o módulo terminar a amostra
             wait(done == 1'b1);
-
-            // Aguarda pequeno tempo para leitura estável
             #1;
 
-            // Erro calculado no próprio testbench
-            e_tb = $signed(d_sample) - $signed(y_out);
+            // Valores depois da atualização
+            w_after = dut.w;
+            b_after = dut.b;
 
-            $display("Epoch=%0d | Sample=%0d | x=%0d | d=%0d | y=%0d | e=%0d | w=%0d | b=%0d",
-                epoch_idx,
-                sample_idx,
+            // Converte d para ponto fixo:
+            // d_fix = d << FRAC
+            d_fix_tb = {{(ACC_WIDTH-WIDTH){d_sample[WIDTH-1]}}, d_sample} <<< FRAC_TB;
+
+            // Erro em ponto fixo:
+            // e_fix = d_fix - y_fix
+            e_fix_tb = d_fix_tb - y_out;
+
+            $display("Iter=%0d | Sample=%0d | x=%0d | d=%0d",
+                iter_idx,
+                sample_idx_in,
                 $signed(x_sample),
-                $signed(d_sample),
-                $signed(y_out),
-                e_tb,
-                $signed(dut.w),
-                $signed(dut.b)
+                $signed(d_sample)
             );
+
+            $display("   FIXED: w_i=%0d | b_i=%0d | y=%0d | e=%0d | w_next=%0d | b_next=%0d",
+                $signed(w_before),
+                $signed(b_before),
+                $signed(y_out),
+                $signed(e_fix_tb),
+                $signed(w_after),
+                $signed(b_after)
+            );
+
+            $display("   REAL : w_i=%f | b_i=%f | y=%f | e=%f | w_next=%f | b_next=%f",
+                $itor($signed(w_before)) / SCALE_TB,
+                $itor($signed(b_before)) / SCALE_TB,
+                $itor($signed(y_out)) / SCALE_TB,
+                $itor($signed(e_fix_tb)) / SCALE_TB,
+                $itor($signed(w_after)) / SCALE_TB,
+                $itor($signed(b_after)) / SCALE_TB
+            );
+
+            $display("");
         end
     endtask
 
@@ -122,8 +144,6 @@ module tb_LMS_module;
     // ------------------------------------------------------------
 
     initial begin
-
-        // Inicialização
         rst      = 1'b1;
         valid_in = 1'b0;
         x_in     = 0;
@@ -148,35 +168,42 @@ module tb_LMS_module;
         $display("==============================================");
         $display("Inicio da simulacao Adaline/LMS");
         $display("N_SAMPLES = %0d", N_SAMPLES);
-        $display("N_EPOCHS  = %0d", N_EPOCHS);
+        $display("N_ITER    = %0d", N_ITER);
         $display("LR_SHIFT  = %0d", LR_SHIFT_TB);
         $display("LR        = 1/(2^%0d)", LR_SHIFT_TB);
+        $display("FRAC      = %0d", FRAC_TB);
+        $display("SCALE     = %0d", SCALE_TB);
         $display("==============================================");
+        $display("");
 
         // --------------------------------------------------------
-        // Treinamento
+        // Treinamento por número total de iterações
         // --------------------------------------------------------
 
-        for (epoch = 0; epoch < N_EPOCHS; epoch = epoch + 1) begin
+        for (iter = 0; iter < N_ITER; iter = iter + 1) begin
+            sample_idx = iter % N_SAMPLES;
 
-            $display("");
-            $display("----------- Epoch %0d -----------", epoch);
-
-            for (i = 0; i < N_SAMPLES; i = i + 1) begin
-                send_sample(x_mem[i], d_mem[i], epoch, i);
-            end
-
+            send_sample(
+                x_mem[sample_idx],
+                d_mem[sample_idx],
+                iter,
+                sample_idx
+            );
         end
 
         // --------------------------------------------------------
         // Resultado final
         // --------------------------------------------------------
 
-        $display("");
         $display("==============================================");
         $display("Simulacao finalizada");
-        $display("Peso final w = %0d", $signed(dut.w));
-        $display("Bias final b = %0d", $signed(dut.b));
+
+        $display("w final fixed = %0d", $signed(dut.w));
+        $display("b final fixed = %0d", $signed(dut.b));
+
+        $display("w final real  = %f", $itor($signed(dut.w)) / SCALE_TB);
+        $display("b final real  = %f", $itor($signed(dut.b)) / SCALE_TB);
+
         $display("==============================================");
 
         #20;
