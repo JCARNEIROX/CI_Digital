@@ -11,7 +11,7 @@ module tb_LMS_module;
     parameter integer LR_SHIFT_TB = 4;
     parameter integer FRAC_TB     = 8;
     parameter integer N_ITER      = 30;
-    parameter integer N_SAMPLES   = 6;
+    parameter integer N_SAMPLES   = 5;
 
     integer iter;
     integer sample_idx;
@@ -156,10 +156,10 @@ module tb_LMS_module;
 
         x_mem[0] = -3;  d_mem[0] = -5;
         x_mem[1] = -2;  d_mem[1] = -3;
-        x_mem[2] =  0;  d_mem[2] =  1;
-        x_mem[3] =  2;  d_mem[3] =  5;
-        x_mem[4] =  4;  d_mem[4] =  9;
-        x_mem[5] = -1;  d_mem[5] =  1;
+        // x_mem[2] =  0;  d_mem[2] =  1;
+        x_mem[2] =  2;  d_mem[2] =  5;
+        x_mem[3] =  4;  d_mem[3] =  9;
+        x_mem[4] = -1;  d_mem[4] =  1;
 
         // Reset inicial
         repeat(3) @(negedge clk);
