@@ -100,6 +100,35 @@ module gcd_a_tb();
         $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
                  a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
 
+        #2;
+
+        // Exemplo com entradas do Exc 1
+        // Passo 1 xo e x2
+        $display("Exemplo com entradas do Exc 1 x(0)= 1 e x(2)=6");
+        a_r = 1;
+        a_i = 0;
+        b_r = 6;
+        b_i = 0;
+        w_r = 1;
+        w_i = 0;
+
+        #1;
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        
+        // Passo 1 x1 e x3
+        $display("Exemplo com entradas do Exc 1 x(1)= 3 e x(2)=4");
+        a_r = 3;
+        a_i = 0;
+        b_r = 4;
+        b_i = 0;
+        w_r = 1;
+        w_i = 0;
+
+        #1;
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+
         #5;
         $finish;
 
