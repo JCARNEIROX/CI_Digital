@@ -18,7 +18,6 @@ module gcd_a_tb();
 
     wire signed [2*WIDTH-1:0] X0;
     wire signed [2*WIDTH-1:0] X1;
-    wire signed [2*WIDTH-1:0] bw;
 
     // Montagem dos valores complexos
     assign A = {a_i, a_r};
@@ -32,9 +31,6 @@ module gcd_a_tb();
     assign x2_r = X1[WIDTH-1:0];
     assign x2_i = X1[2*WIDTH-1:WIDTH];
 
-    assign bw_r = bw[WIDTH-1:0];
-    assign bw_i = bw[2*WIDTH-1:WIDTH];
-
     radix2_2In #(
         .WIDTH(WIDTH)
     ) dut (
@@ -42,8 +38,7 @@ module gcd_a_tb();
         .B(B),
         .W(W),
         .X0(X0),
-        .X1(X1),
-        .bw(bw)
+        .X1(X1)
     );
 
     initial begin
@@ -57,8 +52,8 @@ module gcd_a_tb();
         w_i = 0;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
 
         #2;
 
@@ -70,8 +65,8 @@ module gcd_a_tb();
         w_i = 0;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
 
         #2;
 
@@ -84,8 +79,8 @@ module gcd_a_tb();
         w_i = 0;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
 
         #2;
 
@@ -97,8 +92,8 @@ module gcd_a_tb();
         w_i = -1;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
 
         #2;
 
@@ -113,8 +108,8 @@ module gcd_a_tb();
         w_i = 0;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
         
         // Passo 1 x1 e x3
         $display("Exemplo com entradas do Exc 1 x(1)= 3 e x(2)=4");
@@ -126,8 +121,8 @@ module gcd_a_tb();
         w_i = 0;
 
         #1;
-        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d), bw = (%d + j%d)",
-                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i, bw_r, bw_i);
+        $display("a = (%d + j%d), b = (%d + j%d), w = (%d + j%d) --> x1 = (%d + j%d), x2 = (%d + j%d)",
+                 a_r, a_i, b_r, b_i, w_r, w_i, x1_r, x1_i, x2_r, x2_i);
 
         #5;
         $finish;
