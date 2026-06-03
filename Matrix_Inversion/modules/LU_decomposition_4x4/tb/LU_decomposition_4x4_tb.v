@@ -12,7 +12,7 @@ module tb_LU_Decomposition;
   wire [511:0] U_out;
 
   // Instantiate the LU_Decomposition module
-  LU_Decomposition uut (
+  LU_decomposition_4x4 uut (
     .clk(clk),
     .rst(rst),
     .start(start),

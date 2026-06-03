@@ -16,7 +16,7 @@
 //       L[i][k] = (A[i][k] - sum_{m=0}^{k-1} ( L[i][m] * U[m][k] )) / U[k][k]
 //   and sets L[i][i] = 1.
 //---------------------------------------------------------------------
-module LU_Decomposition(
+module LU_decomposition_4x4(
     input         clk,
     input         rst,
     input         start,
