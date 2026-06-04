@@ -66,7 +66,8 @@ def main():
 
             # Compilação Inteligente
             # O comando passa os arquivos locais E as flags de busca de biblioteca (-y)
-            compile_cmd = ["iverilog", "-o", str(output_vvp)] + lib_flags + file_paths
+            #compile_cmd = ["iverilog", "-o", str(output_vvp)] + lib_flags + file_paths
+            compile_cmd = ["iverilog", "-g2012", "-o", str(output_vvp)] + lib_flags + file_paths
 
             # Compila o modulo RTL e o testbench atual. Caso o modulo instancie outros modulos (ex: mestre instanciando fsm),
             # o compilador vai procurar automaticamente nas pastas listadas nas flags -y.
