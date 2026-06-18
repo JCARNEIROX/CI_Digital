@@ -15,6 +15,7 @@ module pipeline (
   // ----------------------------------------------------------
   reg [31:0] if_id_instr;
 
+  //Entre ID e EX
   reg [31:0] id_ex_rs1_val;   // valor lido de rs1 (32 bits)
   reg [31:0] id_ex_rs2_val;   // valor lido de rs2
   reg [31:0] id_ex_imm;       // imediato estendido
@@ -26,6 +27,7 @@ module pipeline (
   reg        id_ex_alu_src;
   reg [2:0]  id_ex_alu_ctrl;
 
+  //Entre EX e MEM
   reg [31:0] ex_mem_alu_res;
   reg [31:0] ex_mem_rs2_val;
   reg [4:0]  ex_mem_rd;
@@ -33,6 +35,7 @@ module pipeline (
   reg        ex_mem_mem_read;
   reg        ex_mem_mem_write;
 
+  //Entre MEM e WB
   reg [31:0] mem_wb_data;
   reg [4:0]  mem_wb_rd;
   reg        mem_wb_reg_write;
@@ -92,9 +95,9 @@ module pipeline (
 
       // sinais de controle
       id_ex_reg_write <= (if_id_instr[6:0] == 7'b0110011) || (if_id_instr[6:0] == 7'b0000011); // R-type ou lw
-      id_ex_mem_read  <= (if_id_instr[6:0] == 7'b0000011);
-      id_ex_mem_write <= (if_id_instr[6:0] == 7'b0100011);
-      id_ex_alu_src   <= (if_id_instr[6:0] == 7'b0000011) || (if_id_instr[6:0] == 7'b0100011);
+      id_ex_mem_read  <= (if_id_instr[6:0] == 7'b0000011); // lw
+      id_ex_mem_write <= (if_id_instr[6:0] == 7'b0100011); // sw
+      id_ex_alu_src   <= (if_id_instr[6:0] == 7'b0000011) || (if_id_instr[6:0] == 7'b0100011); // lw ou sw
 
       // controle da ALU
       if (if_id_instr[6:0] == 7'b0110011) begin // R-type
@@ -129,7 +132,7 @@ module pipeline (
       reg [31:0] alu_src_b;
       reg [31:0] alu_result;
 
-      alu_src_b = id_ex_alu_src ? id_ex_imm : id_ex_rs2_val;
+      alu_src_b = id_ex_alu_src ? id_ex_imm : id_ex_rs2_val; // escolha entre registrador ou imediato
 
       case (id_ex_alu_ctrl)
         3'b000: alu_result = id_ex_rs1_val + alu_src_b;
