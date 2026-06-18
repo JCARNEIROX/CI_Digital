@@ -26,6 +26,7 @@ module pipeline (
   reg        id_ex_mem_write;
   reg        id_ex_alu_src;
   reg [2:0]  id_ex_alu_ctrl;
+  
 
   //Entre EX e MEM
   reg [31:0] ex_mem_alu_res;
@@ -46,15 +47,34 @@ module pipeline (
   reg [31:0] PC;
 
   // ----------------------------------------------------------
+  // Tratamento de Hazards
+  reg [4:0] id_ex_rs1; // Endereço dos registradores rs1 e rs2 na fase ID/EX
+  reg [4:0] id_ex_rs2;
+  reg [31:0] if_id_pc; // Endereço do PC para beq
+  reg [31:0] id_ex_pc;
+  reg id_ex_branch; // sinal de branch
+  wire branch_taken = id_ex_branch && (id_ex_rs1_val == id_ex_rs2_val); // condição de beq
+  wire [31:0] branch_target;
+  assign branch_target = id_ex_pc + ($signed(id_ex_imm) >>> 2);
+  
+  // ----------------------------------------------------------
   // 4. IF (Instruction Fetch)
   // ----------------------------------------------------------
   always @(posedge clk or posedge reset) begin
     if (reset) begin
       PC <= 32'h0000;          // início do programa
       if_id_instr <= 32'b0;
+      if_id_pc <= 32'b0;
     end else begin
-      if_id_instr <= instr_mem[PC[31:0]];   // índice = palavra
-      PC <= PC + 1;
+      if (branch_taken) begin
+        PC <= branch_target; // desvio para o alvo do branch
+        if_id_instr <= 32'b0; // bolha para limpar a instrução seguinte
+        if_id_pc <= 32'b0; 
+      end else begin
+        if_id_instr <= instr_mem[PC[31:0]];   // índice = palavra
+        if_id_pc <= PC; // salva o PC atual para uso em beq
+        PC <= PC + 1;
+      end
     end
   end
 
@@ -64,7 +84,9 @@ module pipeline (
   always @(posedge clk or posedge reset) begin
     if (reset) begin
       id_ex_rs1_val <= 0;
+      id_ex_rs1 <= 0;
       id_ex_rs2_val <= 0;
+      id_ex_rs2 <= 0;
       id_ex_imm <= 0;
       id_ex_rd <= 0;
       id_ex_op <= 0;
@@ -73,6 +95,8 @@ module pipeline (
       id_ex_mem_write <= 0;
       id_ex_alu_src <= 0;
       id_ex_alu_ctrl <= 0;
+      id_ex_pc <= 0;
+      id_ex_branch <= 0;
     end else begin
 
       // leitura dos valores atuais do banco
@@ -80,6 +104,9 @@ module pipeline (
       id_ex_rs2_val <= reg_bank[if_id_instr[24:20]];
       id_ex_rd <= if_id_instr[11:7];
       id_ex_op <= if_id_instr[6:0];
+      id_ex_rs1 <= if_id_instr[19:15];
+      id_ex_rs2 <= if_id_instr[24:20];
+      id_ex_pc <= if_id_pc; // salva o PC atual para uso em beq
 
       // geração do imediato
       case (if_id_instr[6:0])
@@ -88,7 +115,7 @@ module pipeline (
         7'b0100011: // sw
           id_ex_imm <= {{20{if_id_instr[31]}}, if_id_instr[31:25], if_id_instr[11:7]};
         7'b1100011: // beq
-          id_ex_imm <= {{20{if_id_instr[31]}}, if_id_instr[31], if_id_instr[7], if_id_instr[30:25], if_id_instr[11:8]};
+          id_ex_imm <= {{19{if_id_instr[31]}}, if_id_instr[31], if_id_instr[7], if_id_instr[30:25], if_id_instr[11:8], 1'b0};
         default: // R-type
           id_ex_imm <= 0;
       endcase
@@ -98,6 +125,7 @@ module pipeline (
       id_ex_mem_read  <= (if_id_instr[6:0] == 7'b0000011); // lw
       id_ex_mem_write <= (if_id_instr[6:0] == 7'b0100011); // sw
       id_ex_alu_src   <= (if_id_instr[6:0] == 7'b0000011) || (if_id_instr[6:0] == 7'b0100011); // lw ou sw
+      id_ex_branch    <= (if_id_instr[6:0] == 7'b1100011); // beq
 
       // controle da ALU
       if (if_id_instr[6:0] == 7'b0110011) begin // R-type
@@ -109,7 +137,7 @@ module pipeline (
           14'b0000000_010: id_ex_alu_ctrl <= 3'b100; // slt
           default: id_ex_alu_ctrl <= 0;
         endcase
-      end else if (if_id_instr[6:0] == 7'b0000011) begin // lw
+      end else if (if_id_instr[6:0] == 7'b0000011 || if_id_instr[6:0] == 7'b0100011 ) begin // lw ou sw
         id_ex_alu_ctrl <= 3'b000; // add (base + imediato)
       end else begin
         id_ex_alu_ctrl <= 0;
