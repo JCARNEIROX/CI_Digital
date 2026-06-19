@@ -105,8 +105,6 @@ module pipeline (
   hazard_unit HU (
     .if_id_rs1(if_id_rs1),
     .if_id_rs2(if_id_rs2),
-    .if_id_uses_rs1(if_id_uses_rs1),
-    .if_id_uses_rs2(if_id_uses_rs2),
 
     .id_ex_rs1(id_ex_rs1),
     .id_ex_rs2(id_ex_rs2),
@@ -198,8 +196,18 @@ module pipeline (
     end else begin
 
       // leitura dos valores atuais do banco
-      id_ex_rs1_val <= reg_bank[if_id_instr[19:15]];
-      id_ex_rs2_val <= reg_bank[if_id_instr[24:20]];
+      // leitura dos valores atuais do banco, com bypass de WB para ID
+      if (mem_wb_reg_write && (mem_wb_rd != 5'd0) && (mem_wb_rd == if_id_instr[19:15])) begin
+        id_ex_rs1_val <= mem_wb_data;
+      end else begin
+        id_ex_rs1_val <= reg_bank[if_id_instr[19:15]];
+      end
+
+      if (mem_wb_reg_write && (mem_wb_rd != 5'd0) && (mem_wb_rd == if_id_instr[24:20])) begin
+        id_ex_rs2_val <= mem_wb_data;
+      end else begin
+        id_ex_rs2_val <= reg_bank[if_id_instr[24:20]];
+      end
       id_ex_rd <= if_id_instr[11:7];
       id_ex_op <= if_id_instr[6:0];
       id_ex_rs1 <= if_id_instr[19:15];

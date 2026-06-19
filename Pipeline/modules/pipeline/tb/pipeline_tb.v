@@ -9,6 +9,7 @@ module tb_pipeline;
   );
 
   always #5 clk = ~clk;
+  integer i;
 
   initial begin
     $dumpfile("pipeline.vcd"); 
@@ -25,38 +26,70 @@ module tb_pipeline;
     clk = 0;
     reset = 1;
 
+    // ------------------------------------------------------
+    // Inicialização básica
+    // ------------------------------------------------------
+    for (i = 0; i < 128; i = i + 1)
+      UUT.instr_mem[i] = 32'b0;
+
+    for (i = 0; i < 301; i = i + 1)
+      UUT.data_mem[i] = 32'b0;
+
+    for (i = 0; i < 32; i = i + 1)
+      UUT.reg_bank[i] = 32'b0;
+
+
+// ------------------------------------------------------
+    // Inicializa registradores
+    // ------------------------------------------------------
+    UUT.reg_bank[5] = 32'd6;       // x5 = 6
+    UUT.reg_bank[9] = 32'h0004;    // x9 = 4
+
+    // ------------------------------------------------------
+    // Programa
+    //
+    // 0: lw  x6, -4(x9)
+    // 1: sw  x6, 8(x9)
+    // 2: or  x4, x5, x6
+    // 3: beq x4, x4, L7
+    // ------------------------------------------------------
+    UUT.instr_mem[32'h0000] = 32'hFFC4A303;  // lw x6, -4(x9)
+    UUT.instr_mem[32'h0001] = 32'h0064A423;  // sw x6, 8(x9)
+    UUT.instr_mem[32'h0002] = 32'h0062E233;  // or x4, x5, x6
+    UUT.instr_mem[32'h0003] = 32'hFE420AE3;  // beq x4, x4, L7
+
+    // ------------------------------------------------------
+    // Dados iniciais
+    //
+    // lw x6, -4(x9)
+    // x9 = 4
+    // endereço = 4 - 4 = 0
+    // ------------------------------------------------------
+    UUT.data_mem[32'h0000] = 32'd10;
+
+    // Mantém reset por alguns ciclos
     repeat (2) @(posedge clk);
     reset = 0;
 
-    // 1) Inicializa registradores x5 e x9 
-     UUT.reg_bank[5] = 32'd6;
-     UUT.reg_bank[9] = 32'h0004;
-    
-    // Carrega as instruções nos endereços certos (palavras)
-     UUT.instr_mem[32'h0000] = 32'hFFC4A303;  // lw
-     UUT.instr_mem[32'h0001] = 32'h0064A423;  // sw
-     UUT.instr_mem[32'h0002] = 32'h0062E233;  // or
-     UUT.instr_mem[32'h0003] = 32'hFE420AE3;  // beq
-
-    // Dados iniciais
-     UUT.data_mem[32'h0010] = 32'd10;
-    
-    // Após um ciclo, solta o force para não atrapalhar escritas futuras
-    @(posedge clk);
-    release UUT.reg_bank[5];
-    release UUT.reg_bank[9];
-
-    // Executa por tempo suficiente para executar o codigo
+    // Executa por tempo suficiente
     repeat (30) @(posedge clk);
 
-    // Exibe resultados finais
+    // ------------------------------------------------------
+    // Resultados esperados:
+    //
+    // x6 = 10
+    // x4 = x5 OR x6 = 6 OR 10 = 14
+    // sw x6, 8(x9) => endereço = 4 + 8 = 12
+    // data_mem[12] = 10
+    // ------------------------------------------------------
     $display("\n========== RESULTADO FINAL ==========");
     $display("x4 = %0d", UUT.reg_bank[4]);
     $display("x5 = %0d", UUT.reg_bank[5]);
     $display("x6 = %0d", UUT.reg_bank[6]);
     $display("x9 = %h", UUT.reg_bank[9]);
-    $display("Mem[h0100] = %0d", UUT.data_mem[32'h0100]);
-    $display("Mem[h010C] = %0d", UUT.data_mem[32'h010C]);
+    $display("Mem[0]  = %0d", UUT.data_mem[32'h0000]);
+    $display("Mem[12] = %0d", UUT.data_mem[32'h000C]);
+
     $finish;
   end
 endmodule
