@@ -52,30 +52,113 @@ module pipeline (
   reg [4:0] id_ex_rs2;
   reg [31:0] if_id_pc; // Endereço do PC para beq
   reg [31:0] id_ex_pc;
+
   reg id_ex_branch; // sinal de branch
-  wire branch_taken = id_ex_branch && (id_ex_rs1_val == id_ex_rs2_val); // condição de beq
+
+  wire pc_write;
+  wire if_id_write;
+  wire if_id_flush;
+  wire id_ex_flush;
+
+  wire [1:0] forward_a;
+  wire [1:0] forward_b;
+
+   // Campos da instrução atualmente em IF/ID
+  wire [4:0] if_id_rs1;
+  wire [4:0] if_id_rs2;
+  wire [6:0] if_id_opcode;
+
+  assign if_id_rs1    = if_id_instr[19:15];
+  assign if_id_rs2    = if_id_instr[24:20];
+  assign if_id_opcode = if_id_instr[6:0];
+
+  // Indica se a instrução em IF/ID realmente usa rs1 e rs2
+  wire if_id_uses_rs1;
+  wire if_id_uses_rs2;
+
+   assign if_id_uses_rs1 =
+      (if_id_opcode == 7'b0110011) || // R-type
+      (if_id_opcode == 7'b0000011) || // lw
+      (if_id_opcode == 7'b0100011) || // sw
+      (if_id_opcode == 7'b1100011);   // beq
+
+  assign if_id_uses_rs2 =
+      (if_id_opcode == 7'b0110011) || // R-type
+      (if_id_opcode == 7'b0100011) || // sw
+      (if_id_opcode == 7'b1100011);   // beq
+
+  // ----------------------------------------------------------
+  // Sinais auxiliares para forwarding e ALU
+  // ----------------------------------------------------------
+  reg [31:0] alu_src_a;
+  reg [31:0] rs2_forwarded;
+  reg [31:0] alu_src_b;
+  reg [31:0] alu_result;
+
+  wire branch_taken;
   wire [31:0] branch_target;
+
+  assign branch_taken = id_ex_branch && (alu_src_a == rs2_forwarded);
   assign branch_target = id_ex_pc + ($signed(id_ex_imm) >>> 2);
+
+  // Instanciação da unidade de controle de hazards
+  hazard_unit HU (
+    .if_id_rs1(if_id_rs1),
+    .if_id_rs2(if_id_rs2),
+    .if_id_uses_rs1(if_id_uses_rs1),
+    .if_id_uses_rs2(if_id_uses_rs2),
+
+    .id_ex_rs1(id_ex_rs1),
+    .id_ex_rs2(id_ex_rs2),
+    .id_ex_rd(id_ex_rd),
+    .id_ex_mem_read(id_ex_mem_read),
+
+    .ex_mem_rd(ex_mem_rd),
+    .ex_mem_reg_write(ex_mem_reg_write),
+    .ex_mem_mem_read(ex_mem_mem_read),
+
+    .mem_wb_rd(mem_wb_rd),
+    .mem_wb_reg_write(mem_wb_reg_write),
+
+    .branch_taken(branch_taken),
+
+    .pc_write(pc_write),
+    .if_id_write(if_id_write),
+    .if_id_flush(if_id_flush),
+    .id_ex_flush(id_ex_flush),
+
+    .forward_a(forward_a),
+    .forward_b(forward_b)
+);
+
   
   // ----------------------------------------------------------
   // 4. IF (Instruction Fetch)
   // ----------------------------------------------------------
-  always @(posedge clk or posedge reset) begin
-    if (reset) begin
-      PC <= 32'h0000;          // início do programa
-      if_id_instr <= 32'b0;
-      if_id_pc <= 32'b0;
-    end else begin
-      if (branch_taken) begin
-        PC <= branch_target; // desvio para o alvo do branch
-        if_id_instr <= 32'b0; // bolha para limpar a instrução seguinte
-        if_id_pc <= 32'b0; 
+    always @(posedge clk or posedge reset) begin
+      if (reset) begin
+        PC <= 32'h0000;
+        if_id_instr <= 32'b0;
+        if_id_pc <= 32'b0;
       end else begin
-        if_id_instr <= instr_mem[PC[31:0]];   // índice = palavra
-        if_id_pc <= PC; // salva o PC atual para uso em beq
-        PC <= PC + 1;
+
+        // Atualização do PC
+        if (branch_taken) begin
+          PC <= branch_target;
+        end else if (pc_write) begin
+          PC <= PC + 1;
+        end
+
+        // Atualização do registrador IF/ID
+        if (if_id_flush) begin
+          if_id_instr <= 32'b0;
+          if_id_pc <= 32'b0;
+        end else if (if_id_write) begin
+          if_id_instr <= instr_mem[PC[31:0]];
+          if_id_pc <= PC;
+        end
+
       end
-    end
   end
 
   // ----------------------------------------------------------
@@ -97,6 +180,21 @@ module pipeline (
       id_ex_alu_ctrl <= 0;
       id_ex_pc <= 0;
       id_ex_branch <= 0;
+    end else if(id_ex_flush) begin
+        id_ex_rs1_val <= 0;
+        id_ex_rs1 <= 0;
+        id_ex_rs2_val <= 0;
+        id_ex_rs2 <= 0;
+        id_ex_imm <= 0;
+        id_ex_rd <= 0;
+        id_ex_op <= 0;
+        id_ex_reg_write <= 0;
+        id_ex_mem_read <= 0;
+        id_ex_mem_write <= 0;
+        id_ex_alu_src <= 0;
+        id_ex_alu_ctrl <= 0;
+        id_ex_pc <= 0;
+        id_ex_branch <= 0;
     end else begin
 
       // leitura dos valores atuais do banco
@@ -145,6 +243,36 @@ module pipeline (
     end
   end
 
+  // Criação de Mux para seleção de dados para ALU (forwarding)
+  always @(*) begin
+    case (forward_a)
+      2'b00: alu_src_a = id_ex_rs1_val;
+      2'b10: alu_src_a = ex_mem_alu_res;
+      2'b01: alu_src_a = mem_wb_data;
+      default: alu_src_a = id_ex_rs1_val;
+    endcase
+
+    case (forward_b)
+      2'b00: rs2_forwarded = id_ex_rs2_val;
+      2'b10: rs2_forwarded = ex_mem_alu_res;
+      2'b01: rs2_forwarded = mem_wb_data;
+      default: rs2_forwarded = id_ex_rs2_val;
+    endcase
+
+    // Se for lw/sw, usa imediato.
+    // Se for R-type ou beq, usa rs2_forwarded.
+    alu_src_b = id_ex_alu_src ? id_ex_imm : rs2_forwarded;
+
+    case (id_ex_alu_ctrl)
+      3'b000: alu_result = alu_src_a + alu_src_b;
+      3'b001: alu_result = alu_src_a - alu_src_b;
+      3'b010: alu_result = alu_src_a & alu_src_b;
+      3'b011: alu_result = alu_src_a | alu_src_b;
+      3'b100: alu_result = ($signed(alu_src_a) < $signed(alu_src_b)) ? 32'd1 : 32'd0;
+      default: alu_result = 32'd0;
+    endcase
+  end
+
   // ----------------------------------------------------------
   // 6. EX (Execute / ALU)
   // ----------------------------------------------------------
@@ -157,22 +285,11 @@ module pipeline (
       ex_mem_mem_read <= 0;
       ex_mem_mem_write <= 0;
     end else begin
-      reg [31:0] alu_src_b;
-      reg [31:0] alu_result;
-
-      alu_src_b = id_ex_alu_src ? id_ex_imm : id_ex_rs2_val; // escolha entre registrador ou imediato
-
-      case (id_ex_alu_ctrl)
-        3'b000: alu_result = id_ex_rs1_val + alu_src_b;
-        3'b001: alu_result = id_ex_rs1_val - alu_src_b;
-        3'b010: alu_result = id_ex_rs1_val & alu_src_b;
-        3'b011: alu_result = id_ex_rs1_val | alu_src_b;
-        3'b100: alu_result = ($signed(id_ex_rs1_val) < $signed(alu_src_b)) ? 1 : 0;
-        default: alu_result = 0;
-      endcase
-
       ex_mem_alu_res <= alu_result;
-      ex_mem_rs2_val <= id_ex_rs2_val;
+
+      // Importante para sw com forwarding
+      ex_mem_rs2_val <= rs2_forwarded;
+
       ex_mem_rd <= id_ex_rd;
       ex_mem_reg_write <= id_ex_reg_write;
       ex_mem_mem_read <= id_ex_mem_read;
