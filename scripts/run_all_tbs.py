@@ -90,7 +90,8 @@ def main():
                     # O codigo do TB deve conter as chamadas para gerar os arquivos de saída (como .vcd).
                     # Como a execução do codigo compilado (sim.vvp) é feita com o diretório de trabalho sendo 'resultados',
                     # os arquivos gerados pelo TB serão salvos diretamente dentro da pasta resultados/ do módulo.
-                    subprocess.run(["vvp", "sim.vvp"], cwd=res_dir, stdout=f_out, stderr=subprocess.STDOUT, check=True)
+                    subprocess.run(["vvp", "sim.vvp","-fst"], cwd=res_dir, stdout=f_out, stderr=subprocess.STDOUT, check=True)
+                    # subprocess.run(["vvp","sim.vvp"], cwd=res_dir, stdout=f_out, stderr=subprocess.STDOUT, check=True)
                 print(f"[{module_path.relative_to(target_root)}] Simulação concluída. Log salvo em: {log_file.relative_to(target_root)}")
             except subprocess.CalledProcessError as e:
                 print(f"[{module_path.relative_to(target_root)}] ERRO NA SIMULAÇÃO. Código de saída: {e.returncode}")

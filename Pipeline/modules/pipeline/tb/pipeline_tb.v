@@ -12,7 +12,7 @@ module tb_pipeline;
   integer i;
 
   initial begin
-    $dumpfile("pipeline.vcd"); 
+    $dumpfile("pipeline.fst"); 
     $dumpvars(0, tb_pipeline);
     // Do livro Digital Design RISC-V Harrys
     // { 7'b_imm_func7, 5'br_source2, 5'b_rsource1, 3'b_func3, 5'b_rdest_imm, 7'b_opcode }
@@ -29,13 +29,16 @@ module tb_pipeline;
     // ------------------------------------------------------
     // Inicialização básica
     // ------------------------------------------------------
-    for (i = 0; i < 128; i = i + 1)
+    for (i = 0; i < 10; i = i + 1)
+      $dumpvars(0, UUT.instr_mem[i]);
       UUT.instr_mem[i] = 32'b0;
 
-    for (i = 0; i < 301; i = i + 1)
+    for (i = 0; i < 10; i = i + 1)
+      $dumpvars(0, UUT.data_mem[i]);
       UUT.data_mem[i] = 32'b0;
 
-    for (i = 0; i < 32; i = i + 1)
+    for (i = 0; i < 10; i = i + 1)
+      $dumpvars(0, UUT.reg_bank[i]);
       UUT.reg_bank[i] = 32'b0;
 
 
