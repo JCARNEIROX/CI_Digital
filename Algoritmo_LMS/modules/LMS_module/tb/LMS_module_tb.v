@@ -8,9 +8,9 @@ module tb_LMS_module;
     parameter integer ACC_WIDTH   = 32;
 
     // Parâmetros específicos do teste
-    parameter integer LR_SHIFT_TB = 4;
+    parameter integer LR_SHIFT_TB = 3;
     parameter integer FRAC_TB     = 8;
-    parameter integer N_ITER      = 30;
+    parameter integer N_ITER      = 20;
     parameter integer N_SAMPLES   = 5;
 
     integer iter;
@@ -159,7 +159,7 @@ module tb_LMS_module;
         // x_mem[2] =  0;  d_mem[2] =  1;
         x_mem[2] =  2;  d_mem[2] =  5;
         x_mem[3] =  4;  d_mem[3] =  9;
-        x_mem[4] = -1;  d_mem[4] =  1;
+        x_mem[4] = -1;  d_mem[4] =  -1;
 
         // Reset inicial
         repeat(3) @(negedge clk);
