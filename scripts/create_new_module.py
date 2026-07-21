@@ -32,7 +32,7 @@ def main():
     res_dir.mkdir(parents=True, exist_ok=True)
 
     # Cria o arquivo RTL (.v) com o esqueleto básico
-    rtl_file = rtl_dir / f"{module_name}.v"
+    rtl_file = rtl_dir / f"{module_name}.sv"
     with open(rtl_file, "w") as f:
         f.write(f"module {module_name} (\n")
         f.write(");\n\n")
@@ -40,7 +40,7 @@ def main():
         f.write("endmodule\n")
 
     # Cria o arquivo Testbench (_tb.v) com o esqueleto básico
-    tb_file = tb_dir / f"{module_name}_tb.v"
+    tb_file = tb_dir / f"{module_name}_tb.sv"
     with open(tb_file, "w") as f:
         f.write("`timescale 1ns/1ns\n\n")
         f.write(f"module tb_{module_name};\n\n")
