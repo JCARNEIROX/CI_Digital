@@ -1,3 +1,5 @@
+// Link do EdaPlayground: https://edaplayground.com/x/eBvZ
+
 class adder_test #(
     parameter int WIDTH     = 8,
     parameter int FRAC_BITS = 4 // Número de bits da parte fracionária do ponto fixo
