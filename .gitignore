@@ -1,7 +1,37 @@
 # Ignorar todas as pastas de resultados de simulação
 **/resultados/
 
-# Ignorar arquivos de simulação
-*.vcd
-*.vvp
+# Simulation
 *.log
+*.wlf
+*.vcd
+*.fst
+*.vvp
+
+# Questa / ModelSim
+work/
+transcript
+vsim.wlf
+modelsim.ini
+
+# Verilator
+obj_dir/
+
+# Vivado
+*.jou
+*.str
+*.xpr
+.cache/
+.gen/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

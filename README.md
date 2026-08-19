@@ -1,18 +1,42 @@
-# CI_Digital
-Desenvolvimento de códigos em Verilog no processo de capacitação no Ci Digital
+# Digital Verification & SystemVerilog
 
-## 🛠️ Como Compilar e Simular
+Repository containing exercises, notes, simulations and projects developed
+during my postgraduate studies in Digital Verification and SystemVerilog.
 
-O projeto conta com um script automatizado que varre a estrutura de diretórios, compila os módulos Verilog e executa a simulação principal.
+## Topics
 
-## Scripts
+- SystemVerilog
+- Digital Design Verification
+- Object-Oriented Programming
+- Assertions (SVA)
+- Functional Coverage
+- Constrained Random Verification
+- UVM
+- Testbench Architecture
 
-```
-run_all_tbs.py 
-uso : python scripts/run_all_tbs.py 
-Testa todos os modulos de uma vez e gera os arquivos de log e vcd na respectiva pasta de results
+## Repository Structure
 
-create_new_module.py
-uso: python scripts/create_new_module.py <nome_do_modulo>
-Gera a estrutura de pastas de um modulo novo no repositorio com um esqueleto de testbench e module
-```
+Each directory contains exercises and examples related to a specific topic.
+
+Most exercises are organized as:
+
+- `src/` - Design Under Test (DUT)
+- `tb/` - Testbench
+- `docs/` - Documentation and simulation results
+- `README.md` - Description of the activity
+
+## Tools
+
+Tools used throughout the course may include:
+
+- SystemVerilog
+- QuestaSim / ModelSim
+- Vivado
+- Verilator
+- GTKWave
+- Git / GitHub
+
+## Purpose
+
+This repository serves both as a record of my postgraduate studies and as a
+technical portfolio focused on RTL design verification.
