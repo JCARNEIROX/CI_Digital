@@ -1,2 +1,9 @@
 s1(13Aug2026:19:49:45):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
 s2(13Aug2026:19:54:45):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
+<<<<<<< HEAD
+=======
+s3(20Aug2026:19:42:18):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
+s4(20Aug2026:20:04:04):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
+s5(20Aug2026:20:04:34):  xrun -access +rw -sv cbif_reg.sv tb_cbif_reg.sv -gui 
+s6(20Aug2026:20:04:44):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
+>>>>>>> 2056a744329bc358f204f6fd0a883e1d93d7cad6

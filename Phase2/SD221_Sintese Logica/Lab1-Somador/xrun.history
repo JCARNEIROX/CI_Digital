@@ -1,0 +1,6 @@
+s1(13Aug2026:20:33:41):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s2(13Aug2026:21:32:16):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s3(20Aug2026:19:48:14):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s4(20Aug2026:19:48:31):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s5(20Aug2026:19:49:06):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s6(20Aug2026:20:03:38):  xrun -access +rw -uvm somador.sv somador_uvm.sv -gui 

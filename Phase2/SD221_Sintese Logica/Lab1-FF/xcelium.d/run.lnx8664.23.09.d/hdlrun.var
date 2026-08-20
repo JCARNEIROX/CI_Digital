@@ -86,7 +86,10 @@ define VIEW_MAP ( $VIEW_MAP \
 , .svms => svms \
 , .SVMS => SVMS \
 )
+<<<<<<< HEAD
 define ELAB_SNAPSHOT
 define SNAPSHOT worklib.register_tb:sv
 define ELAB_SNAPSHOT
 define SNAPSHOT worklib.register_tb:sv
+=======
+>>>>>>> 2056a744329bc358f204f6fd0a883e1d93d7cad6
