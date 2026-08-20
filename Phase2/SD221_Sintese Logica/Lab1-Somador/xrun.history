@@ -1,0 +1,2 @@
+s1(13Aug2026:20:33:41):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
+s2(13Aug2026:21:32:16):  xrun -access +rw somador.sv somador_uvm.sv -uvm -gui 
