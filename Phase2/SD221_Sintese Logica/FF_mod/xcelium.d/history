@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(20Aug2026:19:39:51):( xrun -sv +incdir+./classes add_pkg.sv tb_reg_uvm.sv )
+s2::(20Aug2026:19:41:09):( xrun -access +rw -uvm +incdir+./classes add_pkg.sv tb_reg_uvm.sv reg_uvm.sv )
+s3::(20Aug2026:19:44:19):( xrun -access +rw add_pkg.sv reg_uvm.sv tb_reg_uvm.sv -uvm -gui )
+s4::(20Aug2026:19:44:53):( xrun -gui )
+s5::(20Aug2026:19:46:15):( xrun -access +rw add_pkg.sv reg_uvm.sv tb_reg_uvm.sv -uvm -gui )
+s6::(20Aug2026:19:46:25):( xrun -gui )

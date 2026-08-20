@@ -47,11 +47,11 @@ module top_tb;
     logic clk;
     logic rst_n;
 
-    soma_if s_if0(clk);
+    register_if reg_if0(clk);
 
     // DUT instance
-    soma dut (
-        s_if0.DUT
+    simple_register dut (
+        reg_if0.DUT
     );
 
     always #5 clk = ~clk;
@@ -59,16 +59,16 @@ module top_tb;
     // Reset generation
     initial begin
         clk = 0;
-        s_if0.rst_n = 0;
-        repeat(4) @s_if0.clk;
-        s_if0.rst_n = 1;
-	repeat(1) @s_if0.clk;
+        reg_if0.rst_n = 0;
+        repeat(4) @reg_if0.clk;
+        reg_if0.rst_n = 1;
+	repeat(1) @reg_if0.clk;
 
     end
 
     initial begin
         // Set virtual interface
-        uvm_config_db#(virtual soma_if)::set(null, "uvm_test_top.env.agent.*", "vif", s_if0);
+        uvm_config_db#(virtual register_if)::set(null, "uvm_test_top.env.agent.*", "vif", s_if0);
 
         // Run test
         run_test("add_test");

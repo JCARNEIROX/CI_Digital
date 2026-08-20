@@ -1,0 +1,8 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
++incdir+./classes
+add_pkg.sv
+tb_reg_uvm.sv
