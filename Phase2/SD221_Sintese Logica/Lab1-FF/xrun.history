@@ -1,0 +1,2 @@
+s1(13Aug2026:19:49:45):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 
+s2(13Aug2026:19:54:45):  xrun -access +rw cbif_reg.sv tb_cbif_reg.sv -gui 

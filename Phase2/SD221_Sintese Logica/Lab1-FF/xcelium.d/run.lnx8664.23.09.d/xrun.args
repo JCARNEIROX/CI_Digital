@@ -1,0 +1,9 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-access
++rw
+cbif_reg.sv
+tb_cbif_reg.sv
+-gui
