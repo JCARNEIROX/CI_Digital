@@ -1,18 +1,13 @@
 class add_item extends uvm_sequence_item;
     `uvm_object_utils(add_item)
     
-    rand logic [31:0] a;
-    rand logic [31:0] b;
-    logic [31:0] result;
-    logic carry_o;
+    rand logic [7:0] data_in;
+    logic [7:0] data_out;
+    rand logic enable;
     
     // Constraints para valores razoáveis
     constraint reasonable_values {
-        a inside {[0:32'hFFFFFFFF]};
-	b inside {[0:32'hFFFFFFFF]};
-    }
-    constraint limite_values {
-        b > 32'h00FFFFFF;
+        data_in inside {[0:8'hFF]};
     }
     
     function new(string name = "add_item");
@@ -20,8 +15,7 @@ class add_item extends uvm_sequence_item;
     endfunction
     
     function string convert2string();
-        return $sformatf("a=0x%8h, b=0x%8h -> result=0x%8h, carry_o=%0d", 
-                         a, b, result, carry_o);
+        return $sformatf("enable=%b, data_in=0x%2h -> data_out=0x%2h", enable, data_in, data_out);
     endfunction
     
 endclass

@@ -1,0 +1,44 @@
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_message_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_message_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_phase_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_phase_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_object_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_object_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_printer_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_printer_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_tlm_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_tlm_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/tlm1/uvm_tlm_imps.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/tlm1/uvm_tlm_imps.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_sequence_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_sequence_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_callback_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_callback_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_reg_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_reg_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_deprecated_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_deprecated_defines.svh
+./classes/add_item.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_item.sv
+./classes/add_sequence.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_sequence.sv
+./classes/add_sequencer.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_sequencer.sv
+./classes/add_driver.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_driver.sv
+./classes/add_monitor.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_monitor.sv
+./classes/add_agent.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_agent.sv
+./classes/add_scboard.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_scboard.sv
+./classes/add_env.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_env.sv
+./classes/add_test.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod/classes/add_test.sv

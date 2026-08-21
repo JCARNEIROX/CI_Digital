@@ -10,10 +10,17 @@ class add_scboard extends uvm_scoreboard;
     int compared_pass;
     int compared_fail;
 
+    //resultado esperado
+    logic [7:0] expected_data_out;
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
         compared_pass = 0;
         compared_fail = 0;
+
+        //zera após o reset
+        expected_data_out = 8'h00;
+        
     endfunction
 
     task run_phase(uvm_phase phase);
@@ -28,11 +35,8 @@ class add_scboard extends uvm_scoreboard;
     endfunction
 
     function void write(add_item t);
-        logic [31:0] expected_result;
-        logic        expected_carry;
-        {expected_carry, expected_result} = {1'b0, t.a} + {1'b0, t.b};
-
-        if (expected_result == t.result && expected_carry == t.carry_o) begin
+        
+        if (expected_data_out == t.data_out) begin
             compared_pass++;
             `uvm_info(get_type_name(), 
                       $sformatf("PASS: %s", t.convert2string()), 
@@ -40,8 +44,14 @@ class add_scboard extends uvm_scoreboard;
         end else begin
             compared_fail++;
             `uvm_error(get_type_name(), 
-                       $sformatf("FAIL: %s Expected result=0x%8h carry=%0d", 
-                                 t.convert2string(), expected_result, expected_carry))
+                       $sformatf("FAIL: %s | Expected data_out=0x%2h", 
+                                 t.convert2string(), expected_data_out))
         end
+
+        if (t.enable == 1'b1) begin
+            expected_data_out = t.data_in;
+        end
+        // Se enable for 0, o expected_data_out mantém o valor antigo (não muda).
+        
     endfunction
 endclass

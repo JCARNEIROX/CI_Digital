@@ -2,7 +2,10 @@
 // File created by:  xrun
 // Do not modify this file
 //
--sv
+-uvm
 +incdir+./classes
+register_if.sv
 add_pkg.sv
-tb_reg_uvm.sv
+tb_top.sv
++UVM_TESTNAME=add_test
+-gui

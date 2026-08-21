@@ -1,7 +1,7 @@
 class add_monitor extends uvm_monitor;
     `uvm_component_utils(add_monitor)
     
-    virtual soma_if vif;
+    virtual register_if vif;
 
     add_item item_transact;
     
@@ -15,7 +15,7 @@ class add_monitor extends uvm_monitor;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         
-        if (!uvm_config_db #(virtual soma_if)::get(this, "", "vif", vif)) begin
+        if (!uvm_config_db #(virtual register_if)::get(this, "", "vif", vif)) begin
             `uvm_fatal("NOVIF", "Interface nao encontrada!")
         end
         
@@ -25,10 +25,9 @@ class add_monitor extends uvm_monitor;
     task run_phase(uvm_phase phase);
         forever begin
             @(posedge vif.clk);
-            item_transact.a	= vif.a;
-            item_transact.b 	= vif.b;
-	    item_transact.result = vif.result;
-	    item_transact.carry_o = vif.carry_o;
+            item_transact.data_in	= vif.data_in;
+            item_transact.data_out	= vif.data_out;
+            item_transact.enable = vif.data_out;
             
             mon_ap.write(item_transact);
 

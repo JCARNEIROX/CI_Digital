@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 package add_pkg;
     // Imports necessários
     `include "uvm_macros.svh"
