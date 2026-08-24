@@ -16,7 +16,7 @@ class add_agent extends uvm_agent;
         
         driver = add_driver::type_id::create("driver", this);
         sequencer = add_sequencer::type_id::create("sequencer", this);
-	monitor = add_monitor::type_id::create("monitor", this);
+	    monitor = add_monitor::type_id::create("monitor", this);
 
         agent_ap = new("agent_ap",this);
     endfunction
