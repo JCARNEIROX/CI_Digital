@@ -1,0 +1,91 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[21:17:37.360361] Configured Lic search path (22.01-s003): 5280@192.168.2.250
+
+Version: 22.16-s078_1, built Mon Jun 10 10:32:57 PDT 2024
+Options: -files ../scripts/setup_2.tcl 
+Date:    Tue Aug 18 21:17:37 2026
+Host:    saitama (x86_64 w/Linux 4.18.0-553.el8_10.x86_64) (16cores*16cpus*1physical cpu*Common KVM processor 16384KB) (263594812KB)
+PID:     166645
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+Checking out license: Genus_Synthesis
+[21:17:37.270546] Periodic Lic check successful
+[21:17:37.270547] Feature usage summary:
+[21:17:37.270552] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...Using chipware dir from user defined $CW_DIR environment variable set to /tools/cadence/DDI221/GENUS221/tools.lnx86/lib/chipware
+Using chipware simulation model dir from user defined $CW_DIR_SIM environment variable set to /tools/cadence/DDI221/GENUS221/tools.lnx86/lib/chipware/sim
+
+Finished loading tool scripts (11 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source ../scripts/setup_2.tcl
+File '../scripts/setup_2.tcl' does not exist.
+Encountered problems processing file: ../scripts/setup_2.tcl
+WARNING: This version of the tool is 799 days old.
+@genus:root: 2> clear
+@genus:root: 3> ls
+Roteiro.txt
+genus.cmd
+genus.cmd1
+genus.cmd2
+genus.log
+genus.log1
+genus.log2
+reports
+rtl
+scripts
+work
+@genus:root: 4> pwd
+/prj/ci/workarea/aluno3/ProjetosCarneiro/SD221/lab2
+@genus:root: 5> cd ..
+@genus:root: 6> ls
+LAB3
+LAB4
+LEF
+LIB
+RTL
+constraints
+lab2
+@genus:root: 7> cd lab2
+@genus:root: 8> ls
+Roteiro.txt
+genus.cmd
+genus.cmd1
+genus.cmd2
+genus.log
+genus.log1
+genus.log2
+reports
+rtl
+scripts
+work
+@genus:root: 9> cd work
+@genus:root: 10> ls
+fv
+genus.cmd
+genus.cmd1
+genus.log
+genus.log1
+@genus:root: 11> genus -f ../scripts/setup_2.tcl
+@genus:root: 12> exit
+
+Lic Summary:
+[21:27:16.018114] Cdslmd servers: licserver
+[21:27:16.018121] Feature usage summary:
+[21:27:16.018122] Genus_Synthesis
+
+Normal exit.

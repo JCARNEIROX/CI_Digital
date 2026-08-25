@@ -1,0 +1,16 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-timescale
+1ns/10ps
+../outputs/counter_netlist_dft.v
+counter_test.v
+slow_vdd1v0_basicCells.v
+-access
++rwc
+-define
+SDF_TEST
+-sdf_verbose
+-mess
+-gui

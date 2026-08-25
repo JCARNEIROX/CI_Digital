@@ -1,0 +1,11 @@
+s1(09Dec2025:20:41:32):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -sdf_verbose -mess -gui 
+s2(09Dec2025:20:43:20):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s3(09Dec2025:21:06:24):  xrun help 
+s4(09Dec2025:21:09:28):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s5(11Dec2025:21:13:59):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -sdf_verbose -mess -gui 
+s6(11Dec2025:21:16:50):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s7(14Aug2026:20:58:47):  xrun -timescale 1ns/10ps counter_netlist.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s8(14Aug2026:21:01:34):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s9(14Aug2026:21:01:51):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s10(14Aug2026:21:02:45):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s11(14Aug2026:21:06:20):  xrun -timescale 1ns/10ps ../outputs/counter_netlist_dft.v counter_test.v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 

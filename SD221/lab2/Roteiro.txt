@@ -1,0 +1,90 @@
+Exercício: Síntese Logica (Power Optimization)
+
+1.	Síntese sem otimização (default):
+Passo 1: Copiar os arquivos da pasta "SD221" para a área do aluno.
+Passo 2: Configurar o "PROJECT_DIR" no arquivo lab2/scripts/setup_1.tcl para os valores correspondentes a cada aluno.
+Passo 3: Abrir o Terminal e preparar o ambiente (load_ci)
+Passo 4: Ir para a pasta "lab2/work" usando o terminal (cd ...)
+Passo 5: digite "genus" para abrir a ferramenta.
+Passo 6: Uma vez que a ferramenta esteja aberta, no terminal do genus digite: 
+source ../scripts/setup_1.tcl 
+PS: Alternativamente aos Passos 5 e 6 pode ser usado o seguinte comando:
+genus -f ../scripts/setup_1.tcl
+
+Passo 6: Ao finalizar os scripts, analisar os reports e completar a seguinte tabela:
+
+# Configuração 1
+Clock = 100Mhz (T=10ns)
+Slack = 1632.4
+Total Area = 15120.504
+Power leakage = 2.94992e-07
+Power Internal = 4.44275e-04
+Power Switching = 2.76065e-05
+Power Total = 4.72176e-04
+
+2.	Executar o script setup_2.tcl que adiciona os comandos de otimização de potência(fechar o programa digitando "exit" e depois digitar (genus -f ../scripts/setup_1.tcl). Também é possível simplesmente copiar os comandos abaixo e colar no genus(Sem fechar a ferramenta, na continuação do script_1).
+Passo 1:
+
+# enable high-effort power optimization
+set_db design_power_effort high
+# optimize for both leakage and dynamic power equally
+set_db opt_leakage_to_dynamic_ratio 0.5
+syn_generic ${HDL_NAME}
+syn_map ${HDL_NAME}
+report_qor
+report_power -unit W
+
+
+Passo 2: Ao finalizar os scripts, analisar os reports e completar a seguinte tabela:
+
+# Configuração 1 com otimização de potencia
+Clock = 100Mhz (T=10ns)
+Slack = 755.0
+Total Area = 17692.002
+Power leakage = 2.86645e-07
+Power Internal = 2.97842e-04
+Power Switching = 2.19651e-05
+Power Total = 3.20094e-04
+
+3.	Adicionando Otimização geral (Ou rodar o script setup_3.tcl)
+Passo 1: A continuação do script anterior, digite o comando:
+syn_opt
+
+Passo 2: Ao finalizar os scripts, analisar os reports e completar a seguinte tabela:
+
+report_qor
+report_power -unit W
+
+# Configuração 1 com otimização de potencia e depois otimização geral
+Clock = 100Mhz (T=10ns)
+Slack = 664.4
+Total Area = 17330.508
+Power leakage = 2.94955e-07       
+Power Internal = 2.98516e-04
+Power Switching = 2.36345e-05
+Power Total = 3.22445e-04
+
+
+
+4.	Modificar o arquivo "lab2/rtl/constraints/risc_datapath.sdc" para um clock de 200Mhz 
+create_clock -name clock -period 5 [get_ports clk]
+5.	Rodar novamente o exercício 3 (genus -f ../scripts/setup_3.tcl) e completar a seguinte tabela
+# Configuração 2
+Clock = 200Mhz (T=5ns)
+Slack = 0.1
+Total Area = 17316.486
+Power leakage = 2.92793e-07       
+Power Internal = 6.03676e-04
+Power Switching = 5.15218e-05
+Power Total = 6.55491e-04 
+
+5.	Comparar os valores de Area, Total Power e Slack dos exercicios 3 e 4. Como é o comportamento desses valores? 
+A principal redução foi no Slack, a redução no atraso foi de aproximadamente 99.9%. A redução na área foi de aproximadamente 
+
+6.	Comparar os valores de Area, Total Power e Slack dos exercicios 1, 2 e 3. Como é o comportamento desses valores com a adição de otimização? 
+
+
+
+
+
+

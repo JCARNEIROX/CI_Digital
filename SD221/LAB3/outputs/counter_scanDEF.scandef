@@ -1,0 +1,47 @@
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN x3_curto ;
+
+SCANCHAINS 1 ;
+  - top_chain_seg1_clk_rising 
+    + PARTITION p_clk_rising 
+      MAXBITS 30
+    + START PIN scan_in
+    + FLOATING 
+       X1_reg[0] ( IN SI ) ( OUT Q ) 
+       X1_reg[1] ( IN SI ) ( OUT Q ) 
+       X1_reg[2] ( IN SI ) ( OUT Q ) 
+       X1_reg[3] ( IN SI ) ( OUT Q ) 
+       X1_reg[4] ( IN SI ) ( OUT Q ) 
+       X1_reg[5] ( IN SI ) ( OUT Q ) 
+       X1_reg[6] ( IN SI ) ( OUT Q ) 
+       X1_reg[7] ( IN SI ) ( OUT Q ) 
+       X2_reg[0] ( IN SI ) ( OUT Q ) 
+       X2_reg[1] ( IN SI ) ( OUT Q ) 
+       X2_reg[2] ( IN SI ) ( OUT Q ) 
+       X2_reg[3] ( IN SI ) ( OUT Q ) 
+       X2_reg[4] ( IN SI ) ( OUT Q ) 
+       X2_reg[5] ( IN SI ) ( OUT Q ) 
+       X2_reg[6] ( IN SI ) ( OUT Q ) 
+       X2_reg[7] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[2] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[3] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[4] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[5] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[6] ( IN SI ) ( OUT Q ) 
+       XPower2_reg[7] ( IN SI ) ( OUT Q ) 
+       XPower_reg[0] ( IN SI ) ( OUT Q ) 
+       XPower_reg[1] ( IN SI ) ( OUT Q ) 
+       XPower_reg[2] ( IN SI ) ( OUT Q ) 
+       XPower_reg[3] ( IN SI ) ( OUT Q ) 
+       XPower_reg[4] ( IN SI ) ( OUT Q ) 
+       XPower_reg[5] ( IN SI ) ( OUT Q ) 
+       XPower_reg[6] ( IN SI ) ( OUT Q ) 
+       XPower_reg[7] ( IN SI ) ( OUT Q ) 
+    + STOP PIN scan_out
+;
+
+END SCANCHAINS 
+END DESIGN 

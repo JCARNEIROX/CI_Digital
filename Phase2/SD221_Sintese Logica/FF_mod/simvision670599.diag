@@ -1,0 +1,96 @@
+*** Message Type: info ***
+When: Tue Aug 25 08:01:10 PM -03 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.09-s013
+User: aluno3
+Host: saitama
+Platform: Linux/x86_64/4.18.0-553.el8_10.x86_64
+Started: Tue Aug 25 08:01:10 PM -03 2026
+Command: /tools/cadence/XCELIUM2309/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:saitama:42659 -64BIT -nocopyright
+Work Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:01:11 PM -03 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:01:12 PM -03 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:01:13 PM -03 2026
+Connect to Simulator
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Aug 25 08:01:10 PM -03 2026
+  Process ID: 670460
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod
+     Command: xrun -uvm -timescale 1ns/1ps +incdir+./classes register_if.sv add_pkg.sv tb_top.sv +UVM_TESTNAME=add_test -gui -access +rw
+
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:01:13 PM -03 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:01:20 PM -03 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:02:03 PM -03 2026
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:13:58 PM -03 2026
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:14:16 PM -03 2026
+Exit XM-Sim: user
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Aug 25 08:01:10 PM -03 2026
+  Process ID: 670460
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod
+     Command: xrun -uvm -timescale 1ns/1ps +incdir+./classes register_if.sv add_pkg.sv tb_top.sv +UVM_TESTNAME=add_test -gui -access +rw
+
+ 
+*** Message Type: error ***
+When: Tue Aug 25 08:14:17 PM -03 2026
+XM-Sim Crashed:
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Aug 25 08:01:10 PM -03 2026
+  Process ID: 670460
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod
+     Command: xrun -uvm -timescale 1ns/1ps +incdir+./classes register_if.sv add_pkg.sv tb_top.sv +UVM_TESTNAME=add_test -gui -access +rw
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL: xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Aug 25 08:01:10 PM -03 2026
+  Process ID: 670460
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD221_Sintese Logica/FF_mod
+     Command: xrun -uvm -timescale 1ns/1ps +incdir+./classes register_if.sv add_pkg.sv tb_top.sv +UVM_TESTNAME=add_test -gui -access +rw
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Tue Aug 25 08:14:19 PM -03 2026
+SimVision Exit.
+ 
