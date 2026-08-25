@@ -79,10 +79,12 @@ Power Switching = 5.15218e-05
 Power Total = 6.55491e-04 
 
 5.	Comparar os valores de Area, Total Power e Slack dos exercicios 3 e 4. Como é o comportamento desses valores? 
-A principal redução foi no Slack, a redução no atraso foi de aproximadamente 99.9%. A redução na área foi de aproximadamente 
+A principal redução foi no Slack, a redução no atraso foi de aproximadamente 99.9%. A redução na área foi de aproximadamente 0.08% e a potência total reduziu em
+aproximadamente 103.3%.
 
 6.	Comparar os valores de Area, Total Power e Slack dos exercicios 1, 2 e 3. Como é o comportamento desses valores com a adição de otimização? 
-
+Todos reduziram, mas inicialmenta na configuração 1 possuia a menor área porém com maiores atrasos e consumo de potência total. Posteriormente com aplicação
+das otimizações as configurações posteriores reudizaram drasticamente o atraso porém aumentou com relação ao primeiro exercício.
 
 
 
