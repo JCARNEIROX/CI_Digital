@@ -1,1 +1,5 @@
-s1(14Aug2026:20:58:28):  xrun -timescale 1ns/10ps counter_netlist.v counter_test.v -v slow_vdd1v0_basicCells.v -access +rwc -define SDF_TEST -sdf_verbose -mess -gui 
+s1(25Aug2026:15:49:49):  xrun ../RTL/counter.v ../simulation/counter_test.v -access +rwc -gui 
+s2(25Aug2026:15:57:21):  xrun ../RTL/counter.v ../simulation/counter_test.v -access +rwc -gui 
+s3(25Aug2026:15:57:54):  xrun ../RTL/counter.v ../simulation/counter_test.v -access +rwc -gui 
+s4(25Aug2026:16:06:58):  xrun ../RTL/counter.v -access +rwc -gui 
+s5(25Aug2026:16:07:19):  xrun ../simulation/counter_test.v -access +rwc -gui 

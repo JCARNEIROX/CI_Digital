@@ -1,0 +1,8 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+../simulation/counter_test.v
+-access
++rwc
+-gui

@@ -5,11 +5,10 @@
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
 -RUNMODE
-../outputs/counter_netlist_dft.v
+counter_netlist_dft.v
 counter_test.v
+-VFILE
 slow_vdd1v0_basicCells.v
--DEFINE
-SDF_TEST
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib
 -HDLVAR
