@@ -3,21 +3,29 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
 import tb_params_pkg::*;
+
 module top_tb;
     logic clk;
     logic rst_n;
-    dut_if #( tb_params_pkg::DATA_WIDTH,
-    tb_params_pkg::ADDR_WIDTH ) g_if0 ( clk );
+    dut_if #( 
+        tb_params_pkg::DATA_WIDTH,
+        tb_params_pkg::ADDR_WIDTH 
+    ) g_if0 ( clk );
+
     // DUT instance
-    generic #( tb_params_pkg::DATA_WIDTH,
-    tb_params_pkg::ADDR_WIDTH, 2) dut ( g_if0.DUT );
+    generic #( 
+        tb_params_pkg::DATA_WIDTH,
+        tb_params_pkg::ADDR_WIDTH, 2) dut ( g_if0.DUT );
+    
+    // Clock generation
     always #5 clk = ~clk;
 
     // Reset generation
     initial begin
         clk = 0;
         g_if0.rst_n = 0;
-        repeat(4) @g_if0.tb_cb;
+        initial begin
+            repeat(4) @g_if0.tb_cb;
         // Desativa o reset
         g_if0.rst_n = 1;
             repeat(10) @g_if0.tb_cb;
