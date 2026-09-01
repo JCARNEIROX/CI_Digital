@@ -3,6 +3,7 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
 import tb_params_pkg::*;
+import tb_pkg::*;
 
 module top_tb;
     logic clk;
@@ -20,47 +21,20 @@ module top_tb;
     // Clock generation
     always #5 clk = ~clk;
 
-    // Reset generation
+    // Reset is owned by the HDL wrapper; all bus traffic is driven by UVM.
     initial begin
         clk = 0;
         g_if0.rst_n = 0;
-        initial begin
-            repeat(4) @g_if0.tb_cb;
-        // Desativa o reset
+        g_if0.w_en = 0;
+        g_if0.r_en = 0;
+        g_if0.addr = 0;
+        g_if0.data_in = 0;
+        repeat (4) @g_if0.tb_cb;
         g_if0.rst_n = 1;
-            repeat(10) @g_if0.tb_cb;
-
-        g_if0.tb_cb.w_en <= 0;
-        g_if0.tb_cb.data_in <= 0;
-        g_if0.tb_cb.addr <= 0;
-        g_if0.tb_cb.r_en <= 0;
-
-        @g_if0.tb_cb;
-
-            g_if0.tb_cb.w_en <= 1;
-
-            for (int i = 0; i< 50; i++) begin
-                g_if0.tb_cb.data_in <= i;
-                g_if0.tb_cb.addr <= i;
-                @g_if0.tb_cb;
-            end
-
-            g_if0.tb_cb.w_en <= 0;
-            for (int j = 0; j < 50; j++) begin
-                g_if0.tb_cb.r_en <= 1;
-                g_if0.tb_cb.addr <= j;
-                @g_if0.tb_cb;
-            end
-
-            g_if0.tb_cb.r_en <= 0;
-            repeat(15) @g_if0.tb_cb;
-            $finish;
     end
 
     initial begin
-        // Set virtual interface
         uvm_config_db#(dut_vif_t)::set(null, "uvm_test_top.env.agent.*", "vif", g_if0);
-        // Run test
-        //run_test("test");
+        run_test("add_test");
     end
 endmodule
