@@ -5,7 +5,9 @@ import uvm_pkg::*;
 import tb_params_pkg::*;
 import tb_pkg::*;
 
-module top_tb;
+module top_tb #(
+    parameter int READ_LATENCY = 2
+);
     logic clk;
     logic rst_n;
     dut_if #( 
@@ -14,9 +16,11 @@ module top_tb;
     ) g_if0 ( clk );
 
     // DUT instance
-    generic #( 
-        tb_params_pkg::DATA_WIDTH,
-        tb_params_pkg::ADDR_WIDTH, 2) dut ( g_if0.DUT );
+    generic #(
+        .DATA_WIDTH(tb_params_pkg::DATA_WIDTH),
+        .ADDR_WIDTH(tb_params_pkg::ADDR_WIDTH),
+        .READ_LATENCY(READ_LATENCY)
+    ) dut (g_if0.DUT);
     
     // Clock generation
     always #5 clk = ~clk;
@@ -35,6 +39,6 @@ module top_tb;
 
     initial begin
         uvm_config_db#(dut_vif_t)::set(null, "uvm_test_top.env.agent.*", "vif", g_if0);
-        run_test("add_test");
+        run_test();
     end
 endmodule

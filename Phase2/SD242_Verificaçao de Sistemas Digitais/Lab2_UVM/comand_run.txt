@@ -1,9 +1,11 @@
-// Comando para rodar o teste básico com escrita/leitura dos endereços
+// Teste da DUT com latência de leitura de dois clocks.
 xrun -uvm -access +rwc -incdir ./classes \
   interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
-  -gui &
+  -gpg "top_tb.READ_LATENCY => 2" \
+  +UVM_TESTNAME=test_2clk -gui &
 
-// Com o coverage habilitado:
+// Teste da DUT com latência de leitura de três clocks.
 xrun -uvm -access +rwc -incdir ./classes \
   interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
-  +NUM_TRANSACTIONS=20 +ENABLE_COVERAGE=1 -gui &
+  -gpg "top_tb.READ_LATENCY => 3" \
+  +UVM_TESTNAME=test_3clk -gui &
