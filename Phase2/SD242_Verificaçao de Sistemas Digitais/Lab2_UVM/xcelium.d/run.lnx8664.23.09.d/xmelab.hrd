@@ -4,3 +4,5 @@
 //
 -ACCESS
 +rwc
+-GPG
+"top_tb.READ_LATENCY => 4"

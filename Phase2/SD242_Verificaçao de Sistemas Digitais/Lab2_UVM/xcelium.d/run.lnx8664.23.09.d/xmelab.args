@@ -6,6 +6,9 @@
 /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
 -ACCESS
 +rwc
+-GPG
+"top_tb.READ_LATENCY => 4"
++UVM_TESTNAME=test_4clk
 -no_analogsolver
 -MESSAGES
 -XLMODE

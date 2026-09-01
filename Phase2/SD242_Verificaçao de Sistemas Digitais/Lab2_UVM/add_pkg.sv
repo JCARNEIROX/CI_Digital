@@ -19,5 +19,6 @@ package tb_pkg;
     `include "sanity_test.sv"
     `include "test_2clk.sv"
     `include "test_3clk.sv"
+    `include "test_4clk.sv"
 
 endpackage

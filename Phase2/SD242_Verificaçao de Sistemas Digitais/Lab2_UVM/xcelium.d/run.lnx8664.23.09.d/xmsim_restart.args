@@ -8,6 +8,7 @@
 /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
 /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
++UVM_TESTNAME=test_4clk
 -gui
 -MESSAGES
 -SV_LIB
@@ -15,7 +16,7 @@
 +EMGRLOG
 xrun.log
 -XLSTIME
-1788222280
+1788301323
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
@@ -29,4 +30,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	23.09-s013"
 -XLNAME
-./xcelium.d/run.lnx8664.23.09.d/saitama_961089
+./xcelium.d/run.lnx8664.23.09.d/saitama_1031882

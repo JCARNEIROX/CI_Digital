@@ -9,3 +9,9 @@ xrun -uvm -access +rwc -incdir ./classes \
   interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
   -gpg "top_tb.READ_LATENCY => 3" \
   +UVM_TESTNAME=test_3clk -gui &
+
+// Teste da DUT com latência de leitura de quatro clocks.
+xrun -uvm -access +rwc -incdir ./classes \
+  interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
+  -gpg "top_tb.READ_LATENCY => 4" \
+  +UVM_TESTNAME=test_4clk -gui &

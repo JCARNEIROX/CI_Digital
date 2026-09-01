@@ -1,1 +1,1 @@
-s1(20Aug2026:20:12:32):  xrun -gui 
+s1(01Sep2026:18:52:55):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 3" +UVM_TESTNAME=test_3clk -gui 

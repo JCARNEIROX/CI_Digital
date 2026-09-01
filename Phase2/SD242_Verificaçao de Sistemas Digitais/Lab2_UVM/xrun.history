@@ -1,3 +1,12 @@
 s1(31Aug2026:21:22:47):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gui 
 s2(31Aug2026:21:24:10):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv " -gui" 
 s3(31Aug2026:21:24:40):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv " -gui" 
+s4(01Sep2026:18:53:39):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 3" +UVM_TESTNAME=test_3clk -gui 
+s5(01Sep2026:18:54:09):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 3" +UVM_TESTNAME=test_3clk -gui 
+s6(01Sep2026:18:54:38):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 3" +UVM_TESTNAME=test_3clk -gui 
+s7(01Sep2026:19:03:17):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 2" +UVM_TESTNAME=test_2clk -gui 
+s8(01Sep2026:19:07:19):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 3" clear 
+s9(01Sep2026:19:15:36):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 4" +UVM_TESTNAME=test_4clk -gui 
+s10(01Sep2026:19:17:38):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 4" +UVM_TESTNAME=test_4clk -gui 
+s11(01Sep2026:19:20:20):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 4" +UVM_TESTNAME=test_4clk -gui 
+s12(01Sep2026:19:22:03):  xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg "top_tb.READ_LATENCY => 4" +UVM_TESTNAME=test_4clk -gui 

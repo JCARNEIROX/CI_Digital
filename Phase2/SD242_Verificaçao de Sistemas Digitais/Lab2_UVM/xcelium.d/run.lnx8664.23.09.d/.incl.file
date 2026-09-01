@@ -40,3 +40,4 @@
 ./sanity_test.sv
 ./test_2clk.sv
 ./test_3clk.sv
+./test_4clk.sv
