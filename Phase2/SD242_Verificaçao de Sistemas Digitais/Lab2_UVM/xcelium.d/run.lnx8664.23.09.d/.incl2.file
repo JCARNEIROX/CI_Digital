@@ -1,0 +1,58 @@
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_version.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_message_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_message_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_phase_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_phase_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_object_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_object_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_printer_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_printer_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_tlm_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_tlm_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/tlm1/uvm_tlm_imps.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/tlm1/uvm_tlm_imps.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_sequence_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_sequence_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_callback_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_callback_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_reg_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_reg_defines.svh
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_deprecated_defines.svh
+/tools/cadence/XCELIUM2309/tools.lnx86/methodology/UVM/CDNS-1.1d/sv/src/macros/uvm_deprecated_defines.svh
+./classes/add_agent_config.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_agent_config.sv
+./classes/add_env_config.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_env_config.sv
+./classes/add_item.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_item.sv
+./classes/add_coverage.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_coverage.sv
+./classes/add_sequencer.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_sequencer.sv
+./classes/add_driver.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_driver.sv
+./classes/add_monitor.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_monitor.sv
+./classes/add_agent.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_agent.sv
+./classes/add_scoreboard.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_scoreboard.sv
+./classes/add_env.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_env.sv
+./classes/add_sequence.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_sequence.sv
+./classes/add_test_config.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_test_config.sv
+./classes/add_test.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/add_test.sv
+./classes/sanity_test.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/sanity_test.sv
+./classes/test_2clk.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/test_2clk.sv
+./classes/test_3clk.sv
+/prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM/classes/test_3clk.sv

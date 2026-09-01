@@ -1,0 +1,250 @@
+xrun(64): 23.09-s013: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s013: Started on Aug 31, 2026 at 21:24:40 -03
+xrun
+	-uvm
+	-access +rwc
+	-incdir ./classes
+	interface.sv
+	tb_params_pkg.sv
+	generic_if.sv
+	add_pkg.sv
+	top_tb.sv
+	-gui
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+file: interface.sv
+	interface worklib.dut_if:sv
+		errors: 0, warnings: 0
+file: tb_params_pkg.sv
+	package worklib.tb_params_pkg:sv
+		errors: 0, warnings: 0
+file: generic_if.sv
+	module worklib.generic:sv
+		errors: 0, warnings: 0
+file: add_pkg.sv
+	package worklib.tb_pkg:sv
+		errors: 0, warnings: 0
+file: top_tb.sv
+	module worklib.top_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		tb_params_pkg
+		tb_pkg
+		$unit_0x193b7ad9
+		top_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.generic:sv <0x07e6a0c5>
+			streams:   7, words:  2864
+		worklib.top_tb:sv <0x457934f1>
+			streams:   4, words:  4142
+		worklib.dut_if:sv <0x18bf6d38>
+			streams: 748, words: 834763
+		worklib.cdns_uvm_pkg:sv <0x65db9da6>
+			streams: 172, words: 275996
+		worklib.cdns_uvmapi:svp <0x44036da2>
+			streams:  27, words: 30300
+		worklib.cdns_assert2uvm_pkg:sv <0x0c24a2d8>
+			streams:   3, words:  1763
+		worklib.uvm_pkg:sv <0x02e950e4>
+			streams: 4534, words: 7083987
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       2       2
+		Interfaces:                    1       1
+		Verilog packages:              6       6
+		Registers:                 14508   10270
+		Scalar wires:                  1       -
+		Named events:                  4      12
+		Always blocks:                 2       2
+		Initial blocks:              299     159
+		Clocking blocks:               1       1
+		Clocking items:                5       5
+		Parallel blocks:              26      27
+		Pseudo assignments:            1       -
+		Assertions:                    2       2
+		Covergroup Instances:          0       1
+		Compilation units:             1       1
+		SV Class declarations:       203     316
+		SV Class specializations:    399     399
+		Process Clocks:                1       1
+		Simulation timescale:        1ps
+	Writing initial simulation snapshot: worklib.top_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> source /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm top_tb.dut.latency_counter top_tb.dut.mem top_tb.dut.pending_data top_tb.g_if0.DUT.addr top_tb.g_if0.DUT.clk top_tb.g_if0.DUT.data_in top_tb.g_if0.DUT.data_out top_tb.g_if0.DUT.r_en top_tb.g_if0.DUT.rst_n top_tb.g_if0.DUT.w_en
+Created probe 1
+xcelium> reset
+SVSEED default: 1
+Loaded snapshot worklib.top_tb:sv
+xcelium> reset
+SVSEED default: 1
+Loaded snapshot worklib.top_tb:sv
+xcelium> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (23.09-s013)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test add_test...
+UVM_INFO ./classes/add_env.sv(28) @ 0: uvm_test_top.env [add_env] scoreboard=1 coverage=1 sync=1 latency=2
+UVM_INFO ./classes/add_monitor.sv(40) @ 35001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 45000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x0 data_in=0x100 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 45001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 55000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x1 data_in=0x101 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 55001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x0 data_in=0x100 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 65000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x2 data_in=0x102 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 65001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x1 data_in=0x101 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 75000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x3 data_in=0x103 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 75001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x2 data_in=0x102 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 85000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x4 data_in=0x104 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 85001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x3 data_in=0x103 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 95000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x5 data_in=0x105 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 95001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x4 data_in=0x104 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 105000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x6 data_in=0x106 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 105001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x5 data_in=0x105 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 115000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x7 data_in=0x107 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 115001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x6 data_in=0x106 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 125000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x8 data_in=0x108 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 125001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x7 data_in=0x107 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 135000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=1 r_en=0 addr=0x9 data_in=0x109 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 135001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x8 data_in=0x108 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 145000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 145001: uvm_test_top.env.agent.monitor [add_monitor] w_en=1 r_en=0 addr=0x9 data_in=0x109 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 155000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 155001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 165000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 165001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 175000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x1 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 175001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x100
+UVM_INFO ./classes/add_monitor.sv(40) @ 175001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x100
+UVM_INFO ./classes/add_driver.sv(46) @ 185000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 185001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x1 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 195000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 195001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 205000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x2 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 205001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x101
+UVM_INFO ./classes/add_monitor.sv(40) @ 205001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x101
+UVM_INFO ./classes/add_driver.sv(46) @ 215000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 215001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x2 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 225000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 225001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 235000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x3 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 235001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x102
+UVM_INFO ./classes/add_monitor.sv(40) @ 235001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x102
+UVM_INFO ./classes/add_driver.sv(46) @ 245000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 245001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x3 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 255000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 255001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 265000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x4 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 265001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x103
+UVM_INFO ./classes/add_monitor.sv(40) @ 265001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x103
+UVM_INFO ./classes/add_driver.sv(46) @ 275000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 275001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x4 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 285000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 285001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 295000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x5 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 295001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x104
+UVM_INFO ./classes/add_monitor.sv(40) @ 295001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x104
+UVM_INFO ./classes/add_driver.sv(46) @ 305000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 305001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x5 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 315000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 315001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 325000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x6 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 325001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x105
+UVM_INFO ./classes/add_monitor.sv(40) @ 325001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x105
+UVM_INFO ./classes/add_driver.sv(46) @ 335000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 335001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x6 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 345000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 345001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 355000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x7 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 355001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x106
+UVM_INFO ./classes/add_monitor.sv(40) @ 355001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x106
+UVM_INFO ./classes/add_driver.sv(46) @ 365000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 365001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x7 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 375000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 375001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 385000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x8 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 385001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x107
+UVM_INFO ./classes/add_monitor.sv(40) @ 385001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x107
+UVM_INFO ./classes/add_driver.sv(46) @ 395000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 395001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x8 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 405000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 405001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 415000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=1 addr=0x9 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 415001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x108
+UVM_INFO ./classes/add_monitor.sv(40) @ 415001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x108
+UVM_INFO ./classes/add_driver.sv(46) @ 425000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 425001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=1 addr=0x9 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_driver.sv(46) @ 435000: uvm_test_top.env.agent.driver [DRV] Driving: w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0xx
+UVM_INFO ./classes/add_monitor.sv(40) @ 435001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_scoreboard.sv(52) @ 445001: uvm_test_top.env.scboard [add_scboard] PASS: read data 0x109
+UVM_INFO ./classes/add_monitor.sv(40) @ 445001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x109
+UVM_INFO ./classes/add_monitor.sv(40) @ 455001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 465001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 475001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 485001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 495001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 505001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 515001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO ./classes/add_monitor.sv(40) @ 525001: uvm_test_top.env.agent.monitor [add_monitor] w_en=0 r_en=0 addr=0x0 data_in=0x0 data_out=0x0
+UVM_INFO /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 535000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ./classes/add_scoreboard.sv(79) @ 535000: uvm_test_top.env.scboard [add_scboard] Scoreboard: 10 pass, 0 fail
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  104
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[DRV]    40
+[RNTST]     1
+[TEST_DONE]     1
+[add_env]     1
+[add_monitor]    50
+[add_scboard]    11
+Simulation complete via $finish(1) at time 535 NS + 45
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> 

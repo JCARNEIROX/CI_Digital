@@ -1,0 +1,109 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 990x657+389+23}] != ""} {
+    window geometry "Design Browser 1" 990x657+389+23
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::top_tb.dut 
+browser set \
+    -signalsort name
+browser yview see  simulator::top_tb.dut 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x1016+-1+26}] != ""} {
+    window geometry "Waveform 1" 1920x1016+-1+26
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	simulator::top_tb.dut.ADDR_WIDTH
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.dut.DATA_WIDTH
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.dut.DEPTH
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.dut.READ_LATENCY
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.dut.latency_counter
+	} ]
+set id [waveform add -signals  {
+	{simulator::top_tb.dut.mem[0:255]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::top_tb.dut.pending_data[15:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::top_tb.g_if0.DUT.addr[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::top_tb.g_if0.DUT.data_in[15:0]}
+	} ]
+waveform format $id -radix %x
+set id [waveform add -signals  {
+	{simulator::top_tb.g_if0.DUT.data_out[15:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.g_if0.DUT.r_en
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.g_if0.DUT.rst_n
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.g_if0.DUT.w_en
+	} ]
+set id [waveform add -signals  {
+	simulator::top_tb.g_if0.DUT.clk
+	} ]
+
+waveform xview limits 40329ps 307829ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 974x565+872+373
+
+#
+# Layout selection
+#

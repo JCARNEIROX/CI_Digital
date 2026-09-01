@@ -1,0 +1,15 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-uvm
+-access
++rwc
+-incdir
+./classes
+interface.sv
+tb_params_pkg.sv
+generic_if.sv
+add_pkg.sv
+top_tb.sv
+-gui
