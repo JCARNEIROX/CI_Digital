@@ -1,0 +1,96 @@
+*** Message Type: info ***
+When: Tue Sep 01 07:22:06 PM -03 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.09-s013
+User: aluno3
+Host: saitama
+Platform: Linux/x86_64/4.18.0-553.el8_10.x86_64
+Started: Tue Sep 01 07:22:06 PM -03 2026
+Command: /tools/cadence/XCELIUM2309/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:saitama:51423 -64BIT -nocopyright
+Work Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:22:06 PM -03 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:22:08 PM -03 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:22:10 PM -03 2026
+Connect to Simulator
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Sep 01 07:22:05 PM -03 2026
+  Process ID: 1031882
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM
+     Command: xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg {top_tb.READ_LATENCY => 4} +UVM_TESTNAME=test_4clk -gui
+
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:22:11 PM -03 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:22:17 PM -03 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:30:27 PM -03 2026
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:30:28 PM -03 2026
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:30:33 PM -03 2026
+Exit XM-Sim: user
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Sep 01 07:22:05 PM -03 2026
+  Process ID: 1031882
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM
+     Command: xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg {top_tb.READ_LATENCY => 4} +UVM_TESTNAME=test_4clk -gui
+
+ 
+*** Message Type: error ***
+When: Tue Sep 01 07:30:33 PM -03 2026
+XM-Sim Crashed:
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Sep 01 07:22:05 PM -03 2026
+  Process ID: 1031882
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM
+     Command: xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg {top_tb.READ_LATENCY => 4} +UVM_TESTNAME=test_4clk -gui
+      Design: worklib.top_tb:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.09-s013
+        User: aluno3
+        Host: saitama
+Time Started: Tue Sep 01 07:22:05 PM -03 2026
+  Process ID: 1031882
+   Directory: /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Lab2_UVM
+     Command: xrun -uvm -access +rwc -incdir ./classes interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv -gpg {top_tb.READ_LATENCY => 4} +UVM_TESTNAME=test_4clk -gui
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Tue Sep 01 07:30:38 PM -03 2026
+SimVision Exit.
+ 

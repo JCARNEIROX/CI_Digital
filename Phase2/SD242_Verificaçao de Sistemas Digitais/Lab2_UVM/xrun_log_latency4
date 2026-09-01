@@ -272,4 +272,4 @@ UVM_FATAL :    0
 [add_scboard]    11
 Simulation complete via $finish(1) at time 735 NS + 45
 /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
-xcelium> 
+xcelium> TOOL:	xrun(64)	23.09-s013: Exiting on Sep 01, 2026 at 19:30:33 -03  (total: 00:08:30)
