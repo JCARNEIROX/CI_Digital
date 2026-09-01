@@ -1,0 +1,9 @@
+// Comando para rodar o teste básico com escrita/leitura dos endereços
+xrun -uvm -access +rwc -incdir ./classes \
+  interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
+  -gui &
+
+// Com o coverage habilitado:
+xrun -uvm -access +rwc -incdir ./classes \
+  interface.sv tb_params_pkg.sv generic_if.sv add_pkg.sv top_tb.sv \
+  +NUM_TRANSACTIONS=20 +ENABLE_COVERAGE=1 -gui &
