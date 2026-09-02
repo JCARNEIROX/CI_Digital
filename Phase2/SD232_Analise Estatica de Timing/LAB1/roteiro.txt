@@ -1,0 +1,129 @@
+1 - Copiar os arquivos da pasta SD232 para a área de cada aluno(/prj/ci/workarea/aluno??/):
+2 - Abrir o terminal e configurar as ferramentas (load_ci) 
+3 - ir até a pasta LAB1 atraves do terminal: 
+cd /prj/ci/workarea/aluno??/SD232/LAB1
+4 - Rodar a sintese basica com genus.
+genus -f genus_script.tcl
+5 - report timing sem constraints
+ 
+report_timing -from weather_i[1] -to action_o_reg/D -unconstrained
+
+É possivel ver o SLACK? por que?
+Não pois não há clock definido, apenas atrasos relacionados das portas lógicas.
+___________
+6 - Adicionando uma constraint de clock e outra de input delay:
+
+dc::create_clock -name clk -period 10 [dc::get_ports clk]
+dc::set_input_delay -clock [dc::get_clocks clk] 2 [dc::remove_from_collection [all_inputs] "[dc::get_ports clk]"]
+report_timing -from weather_i[1] -to action_o_reg/D
+
+Anote:
+Slack: 7646
+
+7 - Adicionando uma constraint de output delay:
+
+dc::set_output_delay -clock [dc::get_clocks clk] 1.5 [all_outputs]
+report_timing -from weather_i[1] -to action_o_reg/D
+
+Anote:
+Slack: 7646
+Houve alteracao no slack?  Por que?
+Não houve, pois onde está sendo visto o atraso não foi onde foi feita a alteração.
+
+8 - Adicionando uma constraint incerteza (skew) para o clock:
+
+dc::set_clock_uncertainty 0.5 clk
+report_timing -from weather_i[1] -to action_o_reg/D
+
+Anote:
+Slack:7146
+Houve alteracao no slack?  Por que?
+Sim, pois a inclusão da incerteza subtrai do tempo do clock deixando menor
+o tempo disponível para o sinal se propagar entre os pontos analisados.
+
+9 - Adicionando uma constraint latência (clock tree) para o clock:
+
+dc::set_clock_latency 1.25 clk
+report_timing -from weather_i[1] -to action_o_reg/D
+
+Anote:
+Slack:7146
+Houve alteracao no slack?  Por que?
+Não, pois o atraso inserido foi no caminho de onde o clock é gerado até a entrada 
+na porta onde o clock é inserido no design, como o atraso é medido a partir deste ponto
+esse valor não é acrescentado.
+
+10 - Adicionando uma constraint de carga na saída:
+
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_timing -from weather_i[1] -to action_o_reg/D
+
+Anote:
+Slack: 7146
+Houve alteracao no slack? Por que?
+Não, pois a carga é adicionada na saída (actuib_o), como o atraso está sendo 
+medido na entrada da weather_i[1] --> D_ff este atraso não é percebido.
+
+11 - Verificando o relatório de timing para um pino de saída e voltando a carga para ZERO.
+Em seguida verificando o relatório da net que está conectada ao pino de saída.
+
+dc::set_load -pin_load 0.00 [dc::get_ports [all_outputs]]
+report_timing -to action_o
+
+Anote:
+Slack: 7773
+
+12 - Report Design rules
+report_design_rules
+
+Há alguma violacao?
+Não, sem violações de capacitância, transição e fanout.
+
+13 - Aumentando a carga na saída para 50 fF:
+
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_timing -to action_o
+
+Anote:
+Slack: 7131
+
+14 - Report Design rules
+report_design_rules
+
+Há alguma violacao?
+Houve violação de transição na saída, total de 966.
+
+15 - Aumentando a carga na saída para 300 fF:
+
+dc::set_load -pin_load 0.300 [dc::get_ports [all_outputs]] ;# 300 fF
+report_timing -to action_o
+
+Anote:
+Slack: 3775
+
+16 - Vamos voltar a uma situação anterior onde a carga de saída era de 50 pf
+
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_design_rules
+
+Há alguma violacao?
+Sim, a mesma e com as mesmas quantidades quando a carga foi de 300fF.
+
+PS: Antes de realizar o seguinte passo, veja na interface grafica como está o esquematico do circuito.
+
+17 - Realizando otimização:
+
+syn_opt
+
+report_design_rules
+
+Há alguma violacao?
+Agora não houve violação.
+
+
+PS: Volte a verificar o esquematico do circuito na interface grafica e verifique se há alguma alteração.
+
+
+
+
+
