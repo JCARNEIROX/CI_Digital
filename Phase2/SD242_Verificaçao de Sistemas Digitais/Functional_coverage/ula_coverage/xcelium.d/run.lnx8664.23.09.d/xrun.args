@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-access
++rw
+-coverage
+all
+-covoverwrite
+-uvm
+ula_if.sv
+-f
+files.f
+-gui

@@ -3,7 +3,7 @@ interface ula_if (input logic clk);
     logic        rst_n;
     logic [31:0] a;
     logic [31:0] b;
-    logic        opr;
+    logic [2:0]  opr;
     logic [63:0] result;
     logic        carry_o;
     logic        zero;
