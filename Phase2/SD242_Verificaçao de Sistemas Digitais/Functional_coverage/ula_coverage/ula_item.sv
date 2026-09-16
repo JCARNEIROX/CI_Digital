@@ -19,7 +19,7 @@ class ula_item extends uvm_sequence_item;
     localparam OP_NOT = 3'b110;
 
     constraint opr_val {
-	opr inside {[3'b000:3'b110]};
+	opr inside {0,1};
     }
 
     constraint reasonable_values {

@@ -1,0 +1,15 @@
+1789513500 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_if.sv
+1789512166 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/top_tb.sv
+1789514586 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_item.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_driver.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_monitor.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_sequencer.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_sequence.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_agent_config.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_agent.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_scoreboard.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_coverage.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_env_config.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_env.sv
+1789083820 /prj/ci/workarea/aluno3/ProjetosCarneiro/CI_Digital/Phase2/SD242_Verificaçao de Sistemas Digitais/Functional_coverage/ula_coverage/ula_test.sv

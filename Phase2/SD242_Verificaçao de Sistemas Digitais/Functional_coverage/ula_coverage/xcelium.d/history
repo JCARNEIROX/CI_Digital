@@ -1,6 +1,0 @@
-//
-// File created by:  xrun
-// Do not modify this file
-
-s1::(15Sep2026:18:50:41):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
-s2::(15Sep2026:19:56:45):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
