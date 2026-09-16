@@ -81,7 +81,7 @@ module ula (
         end else begin
             u_if.result  <= temp_result;
             u_if.carry_o <= overflow;            // overloaded as overflow/error
-            u_if.zero    <= (temp_result[31:0] == 32'b0);
+            u_if.zero    <= (temp_result == 64'b0);
         end
     end
 
