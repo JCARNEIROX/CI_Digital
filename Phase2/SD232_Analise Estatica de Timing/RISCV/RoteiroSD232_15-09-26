@@ -14,10 +14,13 @@ genus -f ../scripts/setup_riscv_sc.tcl
 Após o final da síntese, usar o comando gui_show e visualize o netlist pela interface gráfica.
 
 Com os respectivos Reports, anotar os seguintes dados:
-Area:
-Power:
-Slack:
+Area: 14917.014 um^2
+Power: 2.25455e-04 W
+Slack: 7635 ps
+
 5.	Baseando-se nos dados obtidos anteriormente, calcular o período (ns) mínimo de clock que poderia suportar o RISCV SC? Qual seria a frequência máxima em Mhz?
+Para o clock de 50 MHz temos um período de 20ns , com o atraso obtido de de 7.635 ns sobram ainda 12.635 ns, ou seja poderiamos ter um clock de aproximadamente 1/12.635 ns ~ 80 MHz.
+
 6.	Modificar o script tcl do RISCV-SC para executar a síntese lógica do RISCV-MC (Multi-cycle pipelined).
 
 7.	Rodar a síntese lógica do RISCV MC seguindo o roteiro da ferramenta Genus.
@@ -25,9 +28,10 @@ Ir a pasta RISCV/MC/work
 genus -f ../scripts/setup_riscv_mc.tcl
 
 Com os respectivos Reports, anotar os seguintes dados:
-Area:
-Power:
-Slack:
+Area: 17435.844 um^2
+Power: 2.71515e-04 W
+Slack: 9726 ps
 
 8.	Baseando-se nos dados obtidos anteriormente, calcular o período (ns) mínimo de clock que poderia suportar o RISCV SC? Qual seria a frequência máxima em Mhz?
+Seguindo o mesmo raciocínio anterior, com o atraso de 9.726 ns sobram 10.274ns, permitindo um clock com uma frequência de aproximadamente 97 MHz.
 
