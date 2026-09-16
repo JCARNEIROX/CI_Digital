@@ -1,0 +1,1 @@
+s1(15Sep2026:21:23:37):  xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -run -exit 
