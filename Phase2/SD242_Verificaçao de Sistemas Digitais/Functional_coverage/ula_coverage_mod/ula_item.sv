@@ -24,7 +24,7 @@ class ula_item extends uvm_sequence_item;
 
     constraint reasonable_values {
         a inside {[32'd1000:32'd2000]};
-	b inside {[32'd1000:32'd2000]};
+	    b inside {[32'd1000:32'd2000]};
     }
 
     constraint operacao_subtrair {
