@@ -1,5 +1,7 @@
 # Executar a cobertura funcional e consultar no IMC
 
+**Sem acesso ao laboratório:** consulte o [fluxo EDA Playground](../eda_playground/README.md). A tentativa com Riviera-PRO foi bloqueada por licença de recursos avançados de SystemVerilog; o guia agora indica Xcelium no navegador como alternativa condicionada à validação da conta. As instruções abaixo são para o ambiente Cadence.
+
 ## Ambiente
 
 Execute no ambiente com Xcelium e IMC configurados e com licença disponível, como o ambiente usado para as métricas anteriores. Na sessão Windows inspecionada, `xrun` e `imc` não foram encontrados no PATH. O teste isolado com Icarus da etapa 1 não gera a base de cobertura funcional deste ambiente UVM para o IMC.

@@ -4,6 +4,8 @@ Este registro apresenta o problema, o código antes/depois e a validação de ca
 
 Para executar a simulação de cobertura e comparar as bases no IMC, consulte [Como simular a cobertura](COMO_SIMULAR_COBERTURA.md).
 
+Para verificar os fontes em casa sem instalar ferramentas comerciais, consulte o [fluxo EDA Playground](../eda_playground/README.md). A preparação cria duas cópias agrupadas, com unidade de tempo explícita e import UVM, preservando os corpos dos fontes. A tentativa com Riviera-PRO foi bloqueada por licença na elaboração do UVM; o README registra a evidência e a alternativa Xcelium condicionada ao acesso validado da conta. Não há métricas de cobertura medidas nessa tentativa.
+
 Os arquivos `.diff` associados são fotografias das alterações: linhas com `-` representam o código anterior e linhas com `+` representam o código posterior. A referência inicial desses diffs é o commit `93f7f4c`.
 
 ## Etapa 0 — Reestruturação do coverage
@@ -157,3 +159,27 @@ A versão anterior deve falhar; a versão posterior deve terminar com `errors=0`
 ### Próxima etapa
 
 Restaurar uma chamada válida de `uvm_error` no scoreboard para reportar divergências como erros UVM. Depois, ajustar as constraints e criar os estímulos dirigidos. Essas mudanças ainda não foram feitas nesta etapa.
+
+## Primeira medição UVM informada pelo usuário — EDA Playground
+
+Após a troca de Riviera-PRO para o fluxo Xcelium, o usuário forneceu o seguinte trecho do log:
+
+```text
+UVM_INFO testbench.sv(590) @ 305000: uvm_test_top.env.coverage [COV] === COBERTURA FUNCIONAL: 30.44% ===
+UVM_INFO testbench.sv(427) @ 305000: uvm_test_top.env.sb [ula_scoreboard] Scoreboard summary: Matches=28, Mismatches=0
+```
+
+| Métrica | Valor observado |
+|---|---:|
+| Cobertura funcional agregada | 30,44% |
+| Amostras com resultado e flags esperados | 28 |
+| Amostras com divergência | 0 |
+| Instante impresso no log | 305000 |
+
+**Interpretação:** a execução chegou à fase de relatório e o scoreboard não encontrou divergências nas 28 amostras recebidas. Elas não representam necessariamente 28 operações distintas: o monitor publica por ciclo e pode conferir novamente operandos mantidos pelo driver, inclusive durante a espera final do teste.
+
+Os 30,44% são uma referência do modelo de coverage reestruturado com os estímulos ainda limitados. Esse valor não significa que 30,44% das operações estejam corretas e não permite identificar sozinho os bins atingidos ou ausentes. As lacunas previstas pelas constraints e pela sequência ainda precisam ser tratadas.
+
+**Proveniência e limites:** resultado executado pelo usuário e transcrito nesta sessão, não executado localmente pelo assistente. O trecho não inclui versão do simulador, seed efetivamente utilizada, resumo completo de erros UVM ou identificação exata dos fontes executados. A configuração recomendada era seed 1, mas o trecho não a confirma. Guarde o log completo e as cópias usadas no Playground para permitir reprodução. Esta medição não é diretamente comparável à porcentagem do modelo antigo, cujos bins e crosses eram diferentes.
+
+**Próximos passos:** restaurar o erro do scoreboard; acrescentar um resumo por coverpoint/cross para localizar as lacunas; depois modificar os estímulos e medir novamente com a mesma configuração.
