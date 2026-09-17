@@ -27,21 +27,16 @@ class ula_item extends uvm_sequence_item;
 	    b inside {[32'd1000:32'd2000]};
     }
 
-    constraint operacao_subtrair {
-        (opr == OP_SUB) -> (a > b);
-    }
-
-    constraint operacao_dividir {
-        (opr == OP_DIV) -> (b != 32'b0);
-    }
+    // SUB com a <= b e DIV por zero sao comportamentos definidos no RTL.
+    // Nao os excluimos: precisam aparecer nos testes e no coverage.
 
     function new(string name = "ula_item");
         super.new(name);
     endfunction
     
     function string convert2string();
-        return $sformatf( "%s: a=0x%8h, b=0x%8h -> result=0x%8h, carry_o=%0d", get_type_name(), 
-                         a, b, result, carry_o);
+        return $sformatf("%s: opr=%0d a=0x%08h b=0x%08h -> result=0x%016h carry=%0b zero=%0b",
+                         get_type_name(), opr, a, b, result, carry_o, zero);
     endfunction
     
 endclass
@@ -64,12 +59,38 @@ class limite_transaction extends ula_item;
     `uvm_object_utils(limite_transaction)
 
     constraint reasonable_values {
-        a > {32'hFFFFFF00};
-	b > {32'hFFFFFF00};
+        a inside {[32'hFFFFFF00:32'hFFFFFFFF]};
+        b inside {[32'hFFFFFF00:32'hFFFFFFFF]};
     }
 
     function new(string name = "limite_transaction");
         super.new(name);
     endfunction
 
+endclass
+
+class corner_transaction extends ula_item;
+    `uvm_object_utils(corner_transaction)
+
+    constraint reasonable_values {
+        a inside {32'd0, 32'd1, 32'hFFFFFFFF, 32'hAAAAAAAA, 32'h55555555};
+        b inside {32'd0, 32'd1, 32'hFFFFFFFF, 32'hAAAAAAAA, 32'h55555555};
+    }
+
+    function new(string name = "corner_transaction");
+        super.new(name);
+    endfunction
+endclass
+
+class full_range_transaction extends ula_item;
+    `uvm_object_utils(full_range_transaction)
+
+    constraint reasonable_values {
+        a inside {[32'd0:32'hFFFFFFFF]};
+        b inside {[32'd0:32'hFFFFFFFF]};
+    }
+
+    function new(string name = "full_range_transaction");
+        super.new(name);
+    endfunction
 endclass

@@ -1,0 +1,17 @@
+Plano dirigido: 499 vetores. Auditoria de metas; nao e medicao UVM.
+opr_cp: 7/7 metas com testemunha
+a_val: 9/9 metas com testemunha
+b_val: 9/9 metas com testemunha
+result_cp: 6/6 metas com testemunha
+carry_cp: 2/2 metas com testemunha
+zero_cp: 2/2 metas com testemunha
+sub_order_cp: 3/3 metas com testemunha
+div_denominator_cp: 3/3 metas com testemunha
+alternating_pair_cp: 4/4 metas com testemunha
+opr_a_cross: 63/63 metas com testemunha
+opr_b_cross: 54/54 metas com testemunha
+logical_pattern_cross: 8/8 metas com testemunha
+opr_carry_cross: 11/11 metas com testemunha
+opr_zero_cross: 14/14 metas com testemunha
+RTL: 499 vetores aprovados; resultado, carry e zero conferidos.
+Pendente: compilacao UVM, sorteio dos cinco tipos e cobertura nativa no Xcelium.

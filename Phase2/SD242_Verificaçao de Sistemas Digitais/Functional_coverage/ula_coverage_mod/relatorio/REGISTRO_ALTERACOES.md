@@ -183,3 +183,9 @@ Os 30,44% são uma referência do modelo de coverage reestruturado com os estím
 **Proveniência e limites:** resultado executado pelo usuário e transcrito nesta sessão, não executado localmente pelo assistente. O trecho não inclui versão do simulador, seed efetivamente utilizada, resumo completo de erros UVM ou identificação exata dos fontes executados. A configuração recomendada era seed 1, mas o trecho não a confirma. Guarde o log completo e as cópias usadas no Playground para permitir reprodução. Esta medição não é diretamente comparável à porcentagem do modelo antigo, cujos bins e crosses eram diferentes.
 
 **Próximos passos:** restaurar o erro do scoreboard; acrescentar um resumo por coverpoint/cross para localizar as lacunas; depois modificar os estímulos e medir novamente com a mesma configuração.
+
+## Etapa 2 — Revisão dos crosses e estímulos para pelo menos 95%
+
+Implementada a revisão solicitada dos quatro pontos: preservação das exclusões válidas de carry, manutenção de todos os bins de zero, aumento para 1.000 transações aleatórias, seleção entre cinco tipos e liberação das constraints que impediam SUB com `a <= b` e DIV por zero. Acrescentadas 499 transações dirigidas, relatório por coverpoint/cross, CSV, meta de 95% e erros ativos no scoreboard.
+
+O [registro detalhado da etapa 2](ETAPA_2_COBERTURA95.md) contém o antes/depois, o [diff completo](02_cobertura95.diff), os parâmetros de execução e a revisão dos pontos solicitados. A auditoria local encontrou testemunhas para as 195 metas atuais e os 499 vetores passaram na simulação do RTL extraído. **A nova porcentagem UVM ainda não foi medida; 30,44% continua sendo a referência anterior.**

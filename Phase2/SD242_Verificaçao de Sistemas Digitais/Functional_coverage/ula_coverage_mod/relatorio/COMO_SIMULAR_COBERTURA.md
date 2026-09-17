@@ -13,21 +13,23 @@ Os comandos abaixo são para o terminal Linux do ambiente Cadence, a partir da p
 ```bash
 xrun -64bit -uvm -access +rw -coverage all \
   -svseed 1 \
-  -covworkdir cov_etapa1 \
-  -covtest etapa1_seed1 \
+  -covworkdir cov_etapa2 \
+  -covtest etapa2_seed1 \
   -f files.f \
-  -l etapa1_seed1.log
+  +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95 \
+  -l etapa2_seed1.log
 ```
 
 - `-coverage all`: habilita a instrumentação de cobertura, incluindo covergroups.
 - `-svseed 1`: fixa a semente de randomização para registrar e repetir esta execução.
-- `-covworkdir cov_etapa1`: usa uma pasta própria para os dados desta etapa.
-- `-covtest etapa1_seed1`: identifica esta execução dentro da base.
-- `-l etapa1_seed1.log`: salva o log.
+- `-covworkdir cov_etapa2`: usa uma pasta própria para os dados desta etapa.
+- `-covtest etapa2_seed1`: identifica esta execução dentro da base.
+- `-l etapa2_seed1.log`: salva o log.
+- Os plusargs configuram 1.000 transações aleatórias após as 499 dirigidas e meta de 95%.
 
 `ula_if.sv` já está em `files.f`; não é necessário repeti-lo na linha de comando. O comando executa compilação, elaboração e simulação, sem abrir o SimVision. Aguarde a conclusão normal do teste para salvar a cobertura.
 
-O comando não usa `-covoverwrite`. Em uma nova execução, escolha outro nome de teste e de log, por exemplo `etapa1_seed1_r2`. Preserve também a pasta original `cov_work` que contém a referência anterior.
+O comando não usa `-covoverwrite`. Em uma nova execução, escolha outro nome de teste e de log, por exemplo `etapa2_seed1_r2`. Preserve também a pasta original `cov_work` e as bases anteriores.
 
 Ao terminar, consulte no log:
 
@@ -36,20 +38,20 @@ Ao terminar, consulte no log:
 Scoreboard summary: Matches=..., Mismatches=...
 ```
 
-A primeira linha vem de `ula_coverage::report_phase`. Confira erros de compilação, erros fatais e a conclusão do teste antes de interpretar a métrica. Nesta etapa, a chamada de `uvm_error` do scoreboard ainda está comentada; confira explicitamente `Mismatches`, mesmo se o resumo UVM mostrar zero erros.
+A primeira linha vem de `ula_coverage::report_phase`. Confira erros de compilação, erros fatais e a conclusão do teste antes de interpretar a métrica. A etapa 2 reativou `uvm_error` do scoreboard. Exija `Matches > 0`, `Mismatches=0`, ausência de erros UVM e a meta atingida em `COV_GOAL`. Consulte `COV_DETAIL` e `ula_coverage.csv` para os totais por coverpoint/cross.
 
 ## 2. Abrir os resultados no IMC
 
 Na mesma pasta:
 
 ```bash
-imc -load ./cov_etapa1/scope/etapa1_seed1
+imc -load ./cov_etapa2/scope/etapa2_seed1
 ```
 
 Alternativamente, abra o IMC e use no console:
 
 ```tcl
-load -run ./cov_etapa1/scope/etapa1_seed1
+load -run ./cov_etapa2/scope/etapa2_seed1
 ```
 
 O caminho considera o scope padrão `scope`. Se houver configuração externa alterando esse nome, consulte a localização produzida pelo simulador. Preserve a árvore de cobertura completa: ela contém tanto o modelo `.ucm` quanto os dados `.ucd`.
@@ -77,11 +79,11 @@ Uma porcentagem menor pode resultar da inclusão de novas metas. Por exemplo, an
 
 A mudança do monitor também afeta a associação entre entradas e saídas. Portanto, a comparação com a base antiga documenta a evolução do ambiente, não apenas uma mudança de estímulos. Para medir o efeito de futuras sequências, use o mesmo coverage e o monitor corrigido em ambas as execuções.
 
-## Lacunas esperadas nesta etapa
+## Evolução dos estímulos e estado da medição
 
-A sequência ainda gera apenas dez transações aleatórias entre `facil_transaction` e `limite_transaction`. Ela não exercita a faixa `mid` nem os padrões alternados. As constraints também impedem subtração com `a <= b` e divisão por zero. Os novos bins correspondentes devem permanecer sem hits até a etapa de ajuste dos estímulos.
+Na medição anterior de 30,44%, a sequência gerava dez transações entre dois tipos e bloqueava vários corners. A etapa 2 acrescentou cinco tipos de item, liberou os casos definidos no RTL e criou 499 transações dirigidas. Veja o [registro da etapa 2](ETAPA_2_COBERTURA95.md). As definições dos bins foram preservadas; o objetivo é preenchê-los com estímulos reais.
 
-**Estado da validação:** este procedimento foi preparado com base no histórico local de `xrun` e nas referências Cadence abaixo. Os comandos ainda não foram executados em Xcelium/IMC nesta sessão; não há novas métricas de cobertura medidas aqui.
+**Estado da validação:** a primeira medição de 30,44% foi informada pelo usuário. Para a etapa 2, os 499 vetores passaram no RTL extraído e têm testemunhas para todas as metas revisadas. A nova compilação UVM e a medição nativa no Xcelium/IMC ainda estão pendentes; o assistente não executou esses simuladores localmente.
 
 ## Referências
 

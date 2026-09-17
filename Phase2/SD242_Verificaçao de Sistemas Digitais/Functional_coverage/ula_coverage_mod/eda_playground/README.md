@@ -12,7 +12,7 @@ Use SystemVerilog e UVM 1.2; mantenha o conteúdo das duas abas indicado abaixo.
 
 ```text
 Compile Options: -coverage all -covoverwrite
-Run Options:     -svseed 1
+Run Options:     -svseed 1 +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95
 ```
 
 Deixe `Use run.do Tcl file` desmarcado e execute com `Run`. Como os arquivos estão reunidos nas duas abas, não adicione `-f files.f`. O log deve conter o resumo do scoreboard e a porcentagem de cobertura. O trecho fornecido pelo usuário confirma a medição agregada, mas não inclui a versão da ferramenta nem a seed efetivamente usada.
@@ -38,9 +38,11 @@ Scoreboard summary: Matches=..., Mismatches=...
 === COBERTURA FUNCIONAL: ...% ===
 ```
 
-Primeiro confirme que a compilação e a simulação terminaram. Depois confira `Mismatches`, que deve ser zero. A chamada de `uvm_error` do scoreboard ainda está comentada, portanto zero erros UVM não basta para concluir que todas as comparações passaram.
+Primeiro confirme que a compilação e a simulação terminaram. Depois confira `Matches > 0`, `Mismatches=0` e ausência de erros UVM. Na etapa 2, `uvm_error` do scoreboard foi reativado e a ausência de amostras também gera erro.
 
-O relatório atual fornece a porcentagem agregada do covergroup. Ele permite acompanhar as primeiras alterações sem o IMC, mas ainda não lista os hits de cada bin. Uma etapa posterior pode acrescentar relatório por coverpoint/cross e exportação CSV. As lacunas dos estímulos atuais ainda existem; uma execução bem-sucedida não implica 100% de cobertura.
+O relatório atual fornece a porcentagem agregada, `COV_DETAIL` por coverpoint/cross e o arquivo `ula_coverage.csv`. Consulte também `SEQ_SUMMARY` (padrão: 499 dirigidas + 1.000 aleatórias) e `COV_GOAL` (meta de 95%). Os detalhes são totais de bins por métrica, não hits individuais. O [antes/depois da etapa 2](../relatorio/ETAPA_2_COBERTURA95.md) contém a auditoria dos estímulos e os limites da validação local. A nova cobertura deve ser medida; os 30,44% são a referência anterior.
+
+Para testar apenas as 499 transações dirigidas, use `+NUM_TRANSACTIONS=0 +RUN_CORNERS=1`. Para testar somente as aleatórias, use `+RUN_CORNERS=0`; nesse modo a meta não é garantida. Ative **Download files after run** para baixar o CSV junto ao log.
 
 Este fluxo não exige gerar nem abrir bases `.ucm/.ucd`. A seed é repetível dentro da mesma configuração do simulador; a mesma seed em Riviera e Xcelium não garante a mesma sequência de valores.
 

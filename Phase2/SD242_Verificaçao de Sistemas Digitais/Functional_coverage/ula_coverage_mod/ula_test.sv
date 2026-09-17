@@ -9,6 +9,8 @@ class ula_test extends uvm_test;
     ula_env_config env_cfg;
 
     int clock_delay;
+    int requested_transactions;
+    int requested_corners;
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -35,6 +37,16 @@ class ula_test extends uvm_test;
 
         env = ula_env::type_id::create("env", this);
         seq = ula_sequence::type_id::create("seq");
+        if ($value$plusargs("NUM_TRANSACTIONS=%d", requested_transactions)) begin
+            if (requested_transactions < 0)
+                `uvm_fatal("TEST_CFG", "NUM_TRANSACTIONS deve ser >= 0")
+            seq.num_transactions = requested_transactions;
+        end
+        if ($value$plusargs("RUN_CORNERS=%d", requested_corners)) begin
+            if (!(requested_corners inside {0, 1}))
+                `uvm_fatal("TEST_CFG", "RUN_CORNERS deve ser 0 ou 1")
+            seq.run_corners = requested_corners;
+        end
     endfunction
     
     virtual task run_phase(uvm_phase phase);

@@ -38,20 +38,20 @@ class ula_scoreboard extends uvm_scoreboard;
             expected.carry_o !== trans.carry_o ||
             expected.zero    !== trans.zero) begin
 
-/*            `uvm_error("SCOREBOARD_MISMATCH",
-                $sformatf("Mismatch detected!\nInputs: opr=%0d, a=%0d, b=%0d\n" \
-                          "Expected: result=%0d, carry_o=%0b, zero=%0b\n" \
-                          "Observed: result=%0d, carry_o=%0b, zero=%0b",
+            `uvm_error("SCOREBOARD_MISMATCH",
+                $sformatf({"opr=%0d a=0x%08h b=0x%08h | ",
+                           "Esperado: result=0x%016h carry=%0b zero=%0b | ",
+                           "Observado: result=0x%016h carry=%0b zero=%0b"},
                           trans.opr, trans.a, trans.b,
                           expected.result, expected.carry_o, expected.zero,
                           trans.result, trans.carry_o, trans.zero) 
-            )*/
+            )
             num_mismatches++;
         end else begin
             `uvm_info("SCOREBOARD_MATCH",
                 $sformatf("Match: result=%0d, carry_o=%0b, zero=%0b",
                           trans.result, trans.carry_o, trans.zero),
-                UVM_LOW)
+                UVM_HIGH)
             num_matches++;
         end
     endfunction
@@ -125,6 +125,12 @@ class ula_scoreboard extends uvm_scoreboard;
             $sformatf("Scoreboard summary: Matches=%0d, Mismatches=%0d",
                       num_matches, num_mismatches),
             UVM_LOW)
+    endfunction
+
+    function void check_phase(uvm_phase phase);
+        super.check_phase(phase);
+        if ((num_matches + num_mismatches) == 0)
+            `uvm_error("SCOREBOARD_EMPTY", "Nenhuma amostra foi conferida")
     endfunction
 
 endclass

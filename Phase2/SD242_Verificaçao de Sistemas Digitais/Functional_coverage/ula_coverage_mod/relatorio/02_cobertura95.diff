@@ -1,0 +1,391 @@
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_coverage.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_coverage.sv"
+index f5d1195..9899a6a 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_coverage.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_coverage.sv"	
+@@ -4,6 +4,8 @@ import uvm_pkg::*;
+ class ula_coverage extends uvm_subscriber #(ula_item);
+     `uvm_component_utils(ula_coverage)
+     ula_item item;
++    real coverage_goal = 95.0;
++    int unsigned samples_observed = 0;
+ 
+     // Covergroup para operações e resultados
+     covergroup cg_ula;
+@@ -87,8 +89,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
+             ignore_bins unused_b = binsof(opr_cp.not_op);
+         }
+ 
+-        // Emprestimo e igualdade sao cenarios validos, mesmo que as
+-        // constraints atuais ainda impecam sua geracao aleatoria.
++        // SUB deve exercitar emprestimo, igualdade e diferenca positiva.
+         sub_order_cp : coverpoint ((item.a < item.b) ? 0 :
+                                   (item.a == item.b) ? 1 : 2)
+             iff (item.opr == ula_item::OP_SUB) {
+@@ -130,7 +131,8 @@ class ula_coverage extends uvm_subscriber #(ula_item);
+                 }) && binsof(carry_cp.carry);
+         }
+ 
+-        // Cross operação × zero
++        // Zero e nao zero sao alcancaveis em TODAS as operacoes.
++        // Ex.: AND(0, max)=0; OR(0, 0)=0; NOT(max)=0.
+         opr_zero_cross : cross opr_cp, zero_cp;
+     endgroup
+ 
+@@ -141,20 +143,81 @@ class ula_coverage extends uvm_subscriber #(ula_item);
+         item   = new("item");
+     endfunction
+ 
++    virtual function void build_phase(uvm_phase phase);
++        super.build_phase(phase);
++        void'($value$plusargs("COV_GOAL=%f", coverage_goal));
++        if (coverage_goal < 0.0 || coverage_goal > 100.0)
++            `uvm_fatal("COV_CFG", "COV_GOAL deve estar entre 0 e 100")
++    endfunction
++
+     // Método write chamado pelo analysis port
+     function void write(ula_item t);
+         if(t == null) return;
+         item = t;
+         cg_ula.sample();
++        samples_observed++;
+     endfunction
+ 
+ 
++    function void report_metric(string metric, real percent,
++                                int covered, int total, int csv);
++        `uvm_info("COV_DETAIL",
++            $sformatf("%s: %.2f%% (%0d/%0d bins)", metric, percent, covered, total),
++            UVM_LOW)
++        if (csv != 0)
++            $fdisplay(csv, "%s,%.6f,%0d,%0d", metric, percent, covered, total);
++    endfunction
++
+     virtual function void report_phase(uvm_phase phase);
+-        real coverage;
++        real coverage, percent;
++        int covered, total, csv;
+         super.report_phase(phase);
+         coverage = cg_ula.get_inst_coverage();
+         `uvm_info("COV", $sformatf("=== COBERTURA FUNCIONAL: %.2f%% ===", coverage), UVM_LOW)
++        `uvm_info("COV_SAMPLES", $sformatf("Amostras observadas=%0d", samples_observed), UVM_LOW)
++
++        csv = $fopen("ula_coverage.csv", "w");
++        if (csv == 0)
++            `uvm_warning("COV_CSV", "Nao foi possivel abrir ula_coverage.csv; consulte o log")
++        else
++            $fdisplay(csv, "metric,percent,covered_bins,total_bins");
++
++        percent = cg_ula.opr_cp.get_inst_coverage(covered, total);
++        report_metric("opr_cp", percent, covered, total, csv);
++        percent = cg_ula.a_val.get_inst_coverage(covered, total);
++        report_metric("a_val", percent, covered, total, csv);
++        percent = cg_ula.b_val.get_inst_coverage(covered, total);
++        report_metric("b_val", percent, covered, total, csv);
++        percent = cg_ula.result_cp.get_inst_coverage(covered, total);
++        report_metric("result_cp", percent, covered, total, csv);
++        percent = cg_ula.carry_cp.get_inst_coverage(covered, total);
++        report_metric("carry_cp", percent, covered, total, csv);
++        percent = cg_ula.zero_cp.get_inst_coverage(covered, total);
++        report_metric("zero_cp", percent, covered, total, csv);
++        percent = cg_ula.sub_order_cp.get_inst_coverage(covered, total);
++        report_metric("sub_order_cp", percent, covered, total, csv);
++        percent = cg_ula.div_denominator_cp.get_inst_coverage(covered, total);
++        report_metric("div_denominator_cp", percent, covered, total, csv);
++        percent = cg_ula.alternating_pair_cp.get_inst_coverage(covered, total);
++        report_metric("alternating_pair_cp", percent, covered, total, csv);
++        percent = cg_ula.opr_a_cross.get_inst_coverage(covered, total);
++        report_metric("opr_a_cross", percent, covered, total, csv);
++        percent = cg_ula.opr_b_cross.get_inst_coverage(covered, total);
++        report_metric("opr_b_cross", percent, covered, total, csv);
++        percent = cg_ula.logical_pattern_cross.get_inst_coverage(covered, total);
++        report_metric("logical_pattern_cross", percent, covered, total, csv);
++        percent = cg_ula.opr_carry_cross.get_inst_coverage(covered, total);
++        report_metric("opr_carry_cross", percent, covered, total, csv);
++        percent = cg_ula.opr_zero_cross.get_inst_coverage(covered, total);
++        report_metric("opr_zero_cross", percent, covered, total, csv);
++        if (csv != 0) $fclose(csv);
++
++        if (samples_observed == 0 || coverage < coverage_goal)
++            `uvm_error("COV_GOAL",
++                $sformatf("Meta nao atingida: %.2f%%; meta=%.2f%%", coverage, coverage_goal))
++        else
++            `uvm_info("COV_GOAL",
++                $sformatf("Meta atingida: %.2f%%; meta=%.2f%%", coverage, coverage_goal), UVM_LOW)
+     endfunction
+ 
+ endclass
+-
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"
+index 31b65c0..572edb1 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"	
+@@ -31,7 +31,7 @@ class ula_driver extends uvm_driver #(ula_item);
+         vif.a <= i_trans.a;
+         vif.b <= i_trans.b;
+         vif.opr <= i_trans.opr;
+-        `uvm_info("DRV", $sformatf("Driving: %s", i_trans.convert2string()), UVM_LOW)
++        `uvm_info("DRV", $sformatf("Driving: %s", i_trans.convert2string()), UVM_HIGH)
+         
+         // Aguarda um ciclo para o DUT processar
+         @(posedge vif.clk);
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_item.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_item.sv"
+index 9177290..5eca72e 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_item.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_item.sv"	
+@@ -27,21 +27,16 @@ class ula_item extends uvm_sequence_item;
+ 	    b inside {[32'd1000:32'd2000]};
+     }
+ 
+-    constraint operacao_subtrair {
+-        (opr == OP_SUB) -> (a > b);
+-    }
+-
+-    constraint operacao_dividir {
+-        (opr == OP_DIV) -> (b != 32'b0);
+-    }
++    // SUB com a <= b e DIV por zero sao comportamentos definidos no RTL.
++    // Nao os excluimos: precisam aparecer nos testes e no coverage.
+ 
+     function new(string name = "ula_item");
+         super.new(name);
+     endfunction
+     
+     function string convert2string();
+-        return $sformatf( "%s: a=0x%8h, b=0x%8h -> result=0x%8h, carry_o=%0d", get_type_name(), 
+-                         a, b, result, carry_o);
++        return $sformatf("%s: opr=%0d a=0x%08h b=0x%08h -> result=0x%016h carry=%0b zero=%0b",
++                         get_type_name(), opr, a, b, result, carry_o, zero);
+     endfunction
+     
+ endclass
+@@ -64,8 +59,8 @@ class limite_transaction extends ula_item;
+     `uvm_object_utils(limite_transaction)
+ 
+     constraint reasonable_values {
+-        a > {32'hFFFFFF00};
+-	b > {32'hFFFFFF00};
++        a inside {[32'hFFFFFF00:32'hFFFFFFFF]};
++        b inside {[32'hFFFFFF00:32'hFFFFFFFF]};
+     }
+ 
+     function new(string name = "limite_transaction");
+@@ -73,3 +68,29 @@ class limite_transaction extends ula_item;
+     endfunction
+ 
+ endclass
++
++class corner_transaction extends ula_item;
++    `uvm_object_utils(corner_transaction)
++
++    constraint reasonable_values {
++        a inside {32'd0, 32'd1, 32'hFFFFFFFF, 32'hAAAAAAAA, 32'h55555555};
++        b inside {32'd0, 32'd1, 32'hFFFFFFFF, 32'hAAAAAAAA, 32'h55555555};
++    }
++
++    function new(string name = "corner_transaction");
++        super.new(name);
++    endfunction
++endclass
++
++class full_range_transaction extends ula_item;
++    `uvm_object_utils(full_range_transaction)
++
++    constraint reasonable_values {
++        a inside {[32'd0:32'hFFFFFFFF]};
++        b inside {[32'd0:32'hFFFFFFFF]};
++    }
++
++    function new(string name = "full_range_transaction");
++        super.new(name);
++    endfunction
++endclass
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_scoreboard.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_scoreboard.sv"
+index c4070a3..eb44fc8 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_scoreboard.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_scoreboard.sv"	
+@@ -38,20 +38,20 @@ class ula_scoreboard extends uvm_scoreboard;
+             expected.carry_o !== trans.carry_o ||
+             expected.zero    !== trans.zero) begin
+ 
+-/*            `uvm_error("SCOREBOARD_MISMATCH",
+-                $sformatf("Mismatch detected!\nInputs: opr=%0d, a=%0d, b=%0d\n" \
+-                          "Expected: result=%0d, carry_o=%0b, zero=%0b\n" \
+-                          "Observed: result=%0d, carry_o=%0b, zero=%0b",
++            `uvm_error("SCOREBOARD_MISMATCH",
++                $sformatf({"opr=%0d a=0x%08h b=0x%08h | ",
++                           "Esperado: result=0x%016h carry=%0b zero=%0b | ",
++                           "Observado: result=0x%016h carry=%0b zero=%0b"},
+                           trans.opr, trans.a, trans.b,
+                           expected.result, expected.carry_o, expected.zero,
+                           trans.result, trans.carry_o, trans.zero) 
+-            )*/
++            )
+             num_mismatches++;
+         end else begin
+             `uvm_info("SCOREBOARD_MATCH",
+                 $sformatf("Match: result=%0d, carry_o=%0b, zero=%0b",
+                           trans.result, trans.carry_o, trans.zero),
+-                UVM_LOW)
++                UVM_HIGH)
+             num_matches++;
+         end
+     endfunction
+@@ -127,4 +127,10 @@ class ula_scoreboard extends uvm_scoreboard;
+             UVM_LOW)
+     endfunction
+ 
++    function void check_phase(uvm_phase phase);
++        super.check_phase(phase);
++        if ((num_matches + num_mismatches) == 0)
++            `uvm_error("SCOREBOARD_EMPTY", "Nenhuma amostra foi conferida")
++    endfunction
++
+ endclass
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_sequence.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_sequence.sv"
+index 4183020..85db452 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_sequence.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_sequence.sv"	
+@@ -1,39 +1,93 @@
+ class ula_sequence extends uvm_sequence #(ula_item);
+     `uvm_object_utils(ula_sequence)
+-    
+-    rand int num_transactions = 10;
+-    rand bit rand_item;
+-    constraint rand_i { rand_item inside {0 , 1}; }
++
++    // Configuracao, nao variaveis rand: o teste define estes valores.
++    int unsigned num_transactions = 1000; // Quantidade da fase aleatoria.
++    bit run_corners = 1;
++    int unsigned directed_count = 0;
++    int unsigned type_count[5] = '{default:0};
++
++    typedef enum int unsigned {
++        ITEM_MID, ITEM_LOW, ITEM_HIGH, ITEM_CORNER, ITEM_FULL
++    } item_kind_t;
+ 
+     function new(string name = "ula_sequence");
+         super.new(name);
+     endfunction
+-    
+-    virtual task body();
+-        ula_item trans_item;
+ 
+-        for (int i = 0; i < num_transactions; i++) begin
++    // Atribuicao dirigida nao usa randomize() nem as restricoes de sorteio.
++    task send_directed(logic [2:0] operation,
++                       logic [31:0] operand_a, logic [31:0] operand_b);
++        ula_item trans;
++        trans = ula_item::type_id::create("directed_item");
++        start_item(trans);
++        trans.opr = operation;
++        trans.a = operand_a;
++        trans.b = operand_b;
++        finish_item(trans);
++        directed_count++;
++    endtask
+ 
++    task send_corner_cases();
++        // Um representante de cada bin de A/B, incluindo other_values.
++        logic [31:0] values[9] = '{
++            32'd0, 32'd1, 32'hFFFFFFFF, 32'hAAAAAAAA, 32'h55555555,
++            32'd2, 32'd1000, 32'hFFFFFFFE, 32'd101
++        };
+ 
+-	    if (!std::randomize(rand_item)) begin
+-                `uvm_error("SEQ", "Randomization failed: std::randomize(rand_item)")
++        // Seis operacoes binarias: 6 * 9 * 9 = 486 transacoes.
++        for (int op = ula_item::OP_ADD; op <= ula_item::OP_OR; op++) begin
++            foreach (values[i]) begin
++                foreach (values[j]) begin
++                    send_directed(op[2:0], values[i], values[j]);
++                end
+             end
++        end
+ 
+-	    `uvm_info("[SEQ1] ", $sformatf("Class sel: %d", rand_item), UVM_LOW)
++        // NOT nao usa B: nove transacoes bastam para as categorias de A.
++        foreach (values[i])
++            send_directed(ula_item::OP_NOT, values[i], 32'd0);
+ 
+-            if (rand_item == 1'b0) trans_item = facil_transaction::type_id::create("facil_transaction");
+-	    else trans_item = limite_transaction::type_id::create("limite_transaction");
++        // Fronteiras adicionais da multiplicacao em torno de 2**32.
++        send_directed(ula_item::OP_MUL, 32'd65535, 32'd65535);
++        send_directed(ula_item::OP_MUL, 32'd65536, 32'd65536);
++        send_directed(ula_item::OP_MUL, 32'd65535, 32'd65536);
++        send_directed(ula_item::OP_MUL, 32'd65536, 32'd65535);
++    endtask
+ 
+-            start_item(trans_item);
++    virtual task body();
++        ula_item trans_item;
++        item_kind_t item_kind;
+ 
+-            if (!trans_item.randomize()) begin
+-                `uvm_error("SEQ", "Randomization failed")
+-            end
++        directed_count = 0;
++        foreach (type_count[i]) type_count[i] = 0;
++        if (run_corners) send_corner_cases();
+ 
+-            finish_item(trans_item);
++        for (int unsigned i = 0; i < num_transactions; i++) begin
++            // O enum permite os cinco tipos com o mesmo peso no sorteio.
++            if (!std::randomize(item_kind))
++                `uvm_fatal("SEQ_RANDOM", "Falha no sorteio do tipo de item")
+ 
+-           `uvm_info("[SEQ] ", $sformatf(" Generated: %s", trans_item.convert2string()), UVM_LOW)
++            case (item_kind)
++                ITEM_MID:    trans_item = ula_item::type_id::create("mid_item");
++                ITEM_LOW:    trans_item = facil_transaction::type_id::create("low_item");
++                ITEM_HIGH:   trans_item = limite_transaction::type_id::create("high_item");
++                ITEM_CORNER: trans_item = corner_transaction::type_id::create("corner_item");
++                ITEM_FULL:   trans_item = full_range_transaction::type_id::create("full_item");
++                default: `uvm_fatal("SEQ_KIND", "Tipo de item invalido")
++            endcase
++
++            start_item(trans_item);
++            if (!trans_item.randomize())
++                `uvm_fatal("SEQ_RANDOM", "Falha ao randomizar operandos/operacao")
++            finish_item(trans_item);
++            type_count[item_kind]++;
+         end
++
++        `uvm_info("SEQ_SUMMARY",
++            $sformatf("Dirigidas=%0d Aleatorias=%0d Total=%0d | mid=%0d low=%0d high=%0d corner=%0d full=%0d",
++                directed_count, num_transactions, directed_count + num_transactions,
++                type_count[ITEM_MID], type_count[ITEM_LOW], type_count[ITEM_HIGH],
++                type_count[ITEM_CORNER], type_count[ITEM_FULL]), UVM_LOW)
+     endtask
+-    
+ endclass
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_test.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_test.sv"
+index 843414a..274ae48 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_test.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_test.sv"	
+@@ -9,6 +9,8 @@ class ula_test extends uvm_test;
+     ula_env_config env_cfg;
+ 
+     int clock_delay;
++    int requested_transactions;
++    int requested_corners;
+ 
+     function new(string name, uvm_component parent);
+         super.new(name, parent);
+@@ -35,6 +37,16 @@ class ula_test extends uvm_test;
+ 
+         env = ula_env::type_id::create("env", this);
+         seq = ula_sequence::type_id::create("seq");
++        if ($value$plusargs("NUM_TRANSACTIONS=%d", requested_transactions)) begin
++            if (requested_transactions < 0)
++                `uvm_fatal("TEST_CFG", "NUM_TRANSACTIONS deve ser >= 0")
++            seq.num_transactions = requested_transactions;
++        end
++        if ($value$plusargs("RUN_CORNERS=%d", requested_corners)) begin
++            if (!(requested_corners inside {0, 1}))
++                `uvm_fatal("TEST_CFG", "RUN_CORNERS deve ser 0 ou 1")
++            seq.run_corners = requested_corners;
++        end
+     endfunction
+     
+     virtual task run_phase(uvm_phase phase);

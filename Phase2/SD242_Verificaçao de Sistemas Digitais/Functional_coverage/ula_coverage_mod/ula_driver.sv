@@ -31,7 +31,7 @@ class ula_driver extends uvm_driver #(ula_item);
         vif.a <= i_trans.a;
         vif.b <= i_trans.b;
         vif.opr <= i_trans.opr;
-        `uvm_info("DRV", $sformatf("Driving: %s", i_trans.convert2string()), UVM_LOW)
+        `uvm_info("DRV", $sformatf("Driving: %s", i_trans.convert2string()), UVM_HIGH)
         
         // Aguarda um ciclo para o DUT processar
         @(posedge vif.clk);

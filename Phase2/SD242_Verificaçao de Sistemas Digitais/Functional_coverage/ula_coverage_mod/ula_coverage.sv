@@ -4,6 +4,8 @@ import uvm_pkg::*;
 class ula_coverage extends uvm_subscriber #(ula_item);
     `uvm_component_utils(ula_coverage)
     ula_item item;
+    real coverage_goal = 95.0;
+    int unsigned samples_observed = 0;
 
     // Covergroup para operações e resultados
     covergroup cg_ula;
@@ -87,8 +89,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             ignore_bins unused_b = binsof(opr_cp.not_op);
         }
 
-        // Emprestimo e igualdade sao cenarios validos, mesmo que as
-        // constraints atuais ainda impecam sua geracao aleatoria.
+        // SUB deve exercitar emprestimo, igualdade e diferenca positiva.
         sub_order_cp : coverpoint ((item.a < item.b) ? 0 :
                                   (item.a == item.b) ? 1 : 2)
             iff (item.opr == ula_item::OP_SUB) {
@@ -130,7 +131,8 @@ class ula_coverage extends uvm_subscriber #(ula_item);
                 }) && binsof(carry_cp.carry);
         }
 
-        // Cross operação × zero
+        // Zero e nao zero sao alcancaveis em TODAS as operacoes.
+        // Ex.: AND(0, max)=0; OR(0, 0)=0; NOT(max)=0.
         opr_zero_cross : cross opr_cp, zero_cp;
     endgroup
 
@@ -141,20 +143,81 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         item   = new("item");
     endfunction
 
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        void'($value$plusargs("COV_GOAL=%f", coverage_goal));
+        if (coverage_goal < 0.0 || coverage_goal > 100.0)
+            `uvm_fatal("COV_CFG", "COV_GOAL deve estar entre 0 e 100")
+    endfunction
+
     // Método write chamado pelo analysis port
     function void write(ula_item t);
         if(t == null) return;
         item = t;
         cg_ula.sample();
+        samples_observed++;
     endfunction
 
 
+    function void report_metric(string metric, real percent,
+                                int covered, int total, int csv);
+        `uvm_info("COV_DETAIL",
+            $sformatf("%s: %.2f%% (%0d/%0d bins)", metric, percent, covered, total),
+            UVM_LOW)
+        if (csv != 0)
+            $fdisplay(csv, "%s,%.6f,%0d,%0d", metric, percent, covered, total);
+    endfunction
+
     virtual function void report_phase(uvm_phase phase);
-        real coverage;
+        real coverage, percent;
+        int covered, total, csv;
         super.report_phase(phase);
         coverage = cg_ula.get_inst_coverage();
         `uvm_info("COV", $sformatf("=== COBERTURA FUNCIONAL: %.2f%% ===", coverage), UVM_LOW)
+        `uvm_info("COV_SAMPLES", $sformatf("Amostras observadas=%0d", samples_observed), UVM_LOW)
+
+        csv = $fopen("ula_coverage.csv", "w");
+        if (csv == 0)
+            `uvm_warning("COV_CSV", "Nao foi possivel abrir ula_coverage.csv; consulte o log")
+        else
+            $fdisplay(csv, "metric,percent,covered_bins,total_bins");
+
+        percent = cg_ula.opr_cp.get_inst_coverage(covered, total);
+        report_metric("opr_cp", percent, covered, total, csv);
+        percent = cg_ula.a_val.get_inst_coverage(covered, total);
+        report_metric("a_val", percent, covered, total, csv);
+        percent = cg_ula.b_val.get_inst_coverage(covered, total);
+        report_metric("b_val", percent, covered, total, csv);
+        percent = cg_ula.result_cp.get_inst_coverage(covered, total);
+        report_metric("result_cp", percent, covered, total, csv);
+        percent = cg_ula.carry_cp.get_inst_coverage(covered, total);
+        report_metric("carry_cp", percent, covered, total, csv);
+        percent = cg_ula.zero_cp.get_inst_coverage(covered, total);
+        report_metric("zero_cp", percent, covered, total, csv);
+        percent = cg_ula.sub_order_cp.get_inst_coverage(covered, total);
+        report_metric("sub_order_cp", percent, covered, total, csv);
+        percent = cg_ula.div_denominator_cp.get_inst_coverage(covered, total);
+        report_metric("div_denominator_cp", percent, covered, total, csv);
+        percent = cg_ula.alternating_pair_cp.get_inst_coverage(covered, total);
+        report_metric("alternating_pair_cp", percent, covered, total, csv);
+        percent = cg_ula.opr_a_cross.get_inst_coverage(covered, total);
+        report_metric("opr_a_cross", percent, covered, total, csv);
+        percent = cg_ula.opr_b_cross.get_inst_coverage(covered, total);
+        report_metric("opr_b_cross", percent, covered, total, csv);
+        percent = cg_ula.logical_pattern_cross.get_inst_coverage(covered, total);
+        report_metric("logical_pattern_cross", percent, covered, total, csv);
+        percent = cg_ula.opr_carry_cross.get_inst_coverage(covered, total);
+        report_metric("opr_carry_cross", percent, covered, total, csv);
+        percent = cg_ula.opr_zero_cross.get_inst_coverage(covered, total);
+        report_metric("opr_zero_cross", percent, covered, total, csv);
+        if (csv != 0) $fclose(csv);
+
+        if (samples_observed == 0 || coverage < coverage_goal)
+            `uvm_error("COV_GOAL",
+                $sformatf("Meta nao atingida: %.2f%%; meta=%.2f%%", coverage, coverage_goal))
+        else
+            `uvm_info("COV_GOAL",
+                $sformatf("Meta atingida: %.2f%%; meta=%.2f%%", coverage, coverage_goal), UVM_LOW)
     endfunction
 
 endclass
-
