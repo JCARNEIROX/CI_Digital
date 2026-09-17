@@ -1,0 +1,45 @@
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"
+index 215b001..31b65c0 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_driver.sv"	
+@@ -24,7 +24,10 @@ class ula_driver extends uvm_driver #(ula_item);
+     endtask
+     
+     virtual task drive_transaction(ula_item i_trans);
+-        @(posedge vif.clk);
++        // So aplica entradas em uma borda com reset desativado e conhecido.
++        do begin
++            @(posedge vif.clk);
++        end while (vif.rst_n !== 1'b1);
+         vif.a <= i_trans.a;
+         vif.b <= i_trans.b;
+         vif.opr <= i_trans.opr;
+diff --git "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_monitor.sv" "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_monitor.sv"
+index 543e848..8e16818 100755
+--- "a/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_monitor.sv"	
++++ "b/Phase2/SD242_Verifica\303\247ao de Sistemas Digitais/Functional_coverage/ula_coverage_mod/ula_monitor.sv"	
+@@ -23,11 +23,23 @@ class ula_monitor extends uvm_monitor;
+         ula_item trans;
+         forever begin
+             @(posedge vif.clk or negedge vif.rst_n);
+-            if (!vif.rst_n) continue;
++            if (vif.rst_n !== 1'b1) continue;
++
++            // Antes do primeiro estimulo, as entradas ainda podem estar em X.
++            if ($isunknown(vif.opr) || $isunknown(vif.a) ||
++                $isunknown(vif.b)) continue;
++
++            // Captura as mesmas entradas que o DUT usa nesta borda,
++            // antes das atribuicoes nao bloqueantes do driver.
+             trans = ula_item::type_id::create("trans");
+             trans.opr     = vif.opr;
+             trans.a       = vif.a;
+             trans.b       = vif.b;
++
++            // As saidas registradas ja estao estaveis na borda de descida.
++            // Se houver reset durante a espera, descarta esta amostra.
++            @(negedge vif.clk or negedge vif.rst_n);
++            if (vif.rst_n !== 1'b1) continue;
+             trans.result  = vif.result;
+             trans.carry_o = vif.carry_o;
+             trans.zero    = vif.zero;

@@ -23,11 +23,23 @@ class ula_monitor extends uvm_monitor;
         ula_item trans;
         forever begin
             @(posedge vif.clk or negedge vif.rst_n);
-            if (!vif.rst_n) continue;
+            if (vif.rst_n !== 1'b1) continue;
+
+            // Antes do primeiro estimulo, as entradas ainda podem estar em X.
+            if ($isunknown(vif.opr) || $isunknown(vif.a) ||
+                $isunknown(vif.b)) continue;
+
+            // Captura as mesmas entradas que o DUT usa nesta borda,
+            // antes das atribuicoes nao bloqueantes do driver.
             trans = ula_item::type_id::create("trans");
             trans.opr     = vif.opr;
             trans.a       = vif.a;
             trans.b       = vif.b;
+
+            // As saidas registradas ja estao estaveis na borda de descida.
+            // Se houver reset durante a espera, descarta esta amostra.
+            @(negedge vif.clk or negedge vif.rst_n);
+            if (vif.rst_n !== 1'b1) continue;
             trans.result  = vif.result;
             trans.carry_o = vif.carry_o;
             trans.zero    = vif.zero;

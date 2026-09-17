@@ -1,0 +1,5 @@
+Teste isolado de temporizacao, 17/09/2026
+Antes: samples=22 errors=12 seen=1111111111 (falha esperada)
+Depois: samples=19 errors=0 seen=1111111111 (aprovado)
+Ambas as versoes usam o driver com espera do reset.
+Nao representa uma simulacao UVM completa.

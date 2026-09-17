@@ -24,7 +24,10 @@ class ula_driver extends uvm_driver #(ula_item);
     endtask
     
     virtual task drive_transaction(ula_item i_trans);
-        @(posedge vif.clk);
+        // So aplica entradas em uma borda com reset desativado e conhecido.
+        do begin
+            @(posedge vif.clk);
+        end while (vif.rst_n !== 1'b1);
         vif.a <= i_trans.a;
         vif.b <= i_trans.b;
         vif.opr <= i_trans.opr;
