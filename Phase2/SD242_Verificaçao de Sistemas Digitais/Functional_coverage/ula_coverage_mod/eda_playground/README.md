@@ -33,6 +33,8 @@ Esses dois arquivos já reúnem todos os fontes da lista: não adicione `-f file
 
 ## O que verificar no log
 
+**Se aparecer `COVNSM` e todas as métricas indicarem `0/0 bins`:** o simulador informa que a coleta do covergroup está desabilitada. Confira se a linha de `xrun` no início do log contém `-coverage all` e execute novamente com essa opção em Compile Options. `-covoverwrite` sozinho não habilita cobertura. Um contador positivo de amostras recebidas não comprova que os bins foram contabilizados. Essa execução não fornece uma porcentagem válida para comparar com as anteriores.
+
 ```text
 Scoreboard summary: Matches=..., Mismatches=...
 === COBERTURA FUNCIONAL: ...% ===

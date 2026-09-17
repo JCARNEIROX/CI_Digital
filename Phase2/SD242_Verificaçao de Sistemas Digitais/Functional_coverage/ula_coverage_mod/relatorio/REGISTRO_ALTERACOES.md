@@ -189,3 +189,25 @@ Os 30,44% são uma referência do modelo de coverage reestruturado com os estím
 Implementada a revisão solicitada dos quatro pontos: preservação das exclusões válidas de carry, manutenção de todos os bins de zero, aumento para 1.000 transações aleatórias, seleção entre cinco tipos e liberação das constraints que impediam SUB com `a <= b` e DIV por zero. Acrescentadas 499 transações dirigidas, relatório por coverpoint/cross, CSV, meta de 95% e erros ativos no scoreboard.
 
 O [registro detalhado da etapa 2](ETAPA_2_COBERTURA95.md) contém o antes/depois, o [diff completo](02_cobertura95.diff), os parâmetros de execução e a revisão dos pontos solicitados. A auditoria local encontrou testemunhas para as 195 metas atuais e os 499 vetores passaram na simulação do RTL extraído. **A nova porcentagem UVM ainda não foi medida; 30,44% continua sendo a referência anterior.**
+
+### Execução da etapa 2 informada pelo usuário — coleta de cobertura desabilitada
+
+O log fornecido identifica a instalação `/xcelium25.03` e a biblioteca `CDNS-1.2`. Foram observados:
+
+| Informação | Resultado |
+|---|---:|
+| Transações dirigidas | 499 |
+| Transações aleatórias | 1.000 |
+| Total enviado | 1.499 |
+| Tipos aleatórios mid / low / high / corner / full | 191 / 206 / 191 / 192 / 220 |
+| Amostras recebidas pelo coverage | 3.006 |
+| Matches / mismatches | 3.006 / 0 |
+| Cobertura impressa | 0,00%, com 0/0 bins em todas as métricas |
+
+O simulador emitiu `COVNSM`, informando que a amostragem de `ula_coverage::cg_ula` não estava habilitada e que os métodos de consulta retornariam zero. Consequentemente, o teste emitiu `UVM_ERROR [COV_GOAL]`.
+
+**Conclusão:** a geração de estímulos e a conferência do scoreboard executaram, sem divergências nas amostras observadas. Entretanto, **a cobertura não foi coletada**. O valor 0,00% não é uma regressão válida frente aos 30,44% anteriores; esta execução deve ser registrada como cobertura indisponível por configuração.
+
+`samples_observed` conta chamadas a `write()`/`sample()` e não confirma que o simulador contabilizou os bins. A ausência de instrumentação é a primeira hipótese a verificar: a linha efetiva de `xrun` deve conter `-coverage all`. O trecho recebido não contém essa linha, portanto não permite determinar se a opção foi omitida ou se outra configuração desabilitou a coleta.
+
+**Ação para repetir:** no Playground, usar `-coverage all -covoverwrite` em Compile Options e `-svseed 1 +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95` em Run Options. Executar novamente pelo botão Run para compilar/elaborar com cobertura habilitada. Confirmar a ausência de `COVNSM` e denominadores não nulos, por exemplo `opr_cp` com sete bins, antes de interpretar o percentual. Nenhum código SystemVerilog foi modificado para tratar este aviso.
