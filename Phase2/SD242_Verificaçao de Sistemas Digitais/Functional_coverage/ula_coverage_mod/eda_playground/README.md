@@ -11,11 +11,11 @@ O usuário confirmou que a conta já está validada e, após a orientação de t
 Use SystemVerilog e UVM 1.2; mantenha o conteúdo das duas abas indicado abaixo. Selecione **Cadence Xcelium** e substitua as opções do Riviera por:
 
 ```text
-Compile Options: -coverage all -covoverwrite
+Compile Options: -coverage all -covoverwrite -covfile coverage.ccf
 Run Options:     -svseed 1 +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95
 ```
 
-Deixe `Use run.do Tcl file` desmarcado e execute com `Run`. Como os arquivos estão reunidos nas duas abas, não adicione `-f files.f`. O log deve conter o resumo do scoreboard e a porcentagem de cobertura. O trecho fornecido pelo usuário confirma a medição agregada, mas não inclui a versão da ferramenta nem a seed efetivamente usada.
+Crie também o terceiro arquivo **`coverage.ccf`** no Playground e cole nele o conteúdo de [coverage.ccf](coverage.ccf). Deixe `Use run.do Tcl file` desmarcado e execute com `Run`. Como os fontes SystemVerilog estão reunidos nas duas abas, não adicione `-f files.f`. O log deve conter o resumo do scoreboard e a porcentagem de cobertura.
 
 ## Configuração Riviera anteriormente tentada (bloqueada por licença)
 
@@ -33,7 +33,7 @@ Esses dois arquivos já reúnem todos os fontes da lista: não adicione `-f file
 
 ## O que verificar no log
 
-**Se aparecer `COVNSM` e todas as métricas indicarem `0/0 bins`:** o simulador informa que a coleta do covergroup está desabilitada. Confira se a linha de `xrun` no início do log contém `-coverage all` e execute novamente com essa opção em Compile Options. `-covoverwrite` sozinho não habilita cobertura. Um contador positivo de amostras recebidas não comprova que os bins foram contabilizados. Essa execução não fornece uma porcentagem válida para comparar com as anteriores.
+**Se aparecer `COVNSM` e todas as métricas indicarem `0/0 bins`:** o simulador informa que a coleta do covergroup está desabilitada. Confira se a linha de `xrun` no início do log contém `-coverage all -covfile coverage.ccf` e que o arquivo foi criado no Playground. `-covoverwrite` sozinho não habilita cobertura. Um contador positivo de amostras recebidas não comprova que os bins foram contabilizados. Essa execução não fornece uma porcentagem válida para comparar com as anteriores.
 
 ```text
 Scoreboard summary: Matches=..., Mismatches=...
@@ -57,7 +57,7 @@ python eda_playground/preparar.py
 python eda_playground/preparar.py --check
 ```
 
-Cole novamente os dois arquivos gerados nas abas do Playground. Os comentários `BEGIN SOURCE` e `END SOURCE` identificam o arquivo original de cada trecho.
+Cole novamente os dois arquivos gerados nas abas do Playground e o `coverage.ccf`. Os comentários `BEGIN SOURCE` e `END SOURCE` identificam o arquivo original de cada trecho.
 
 ## Antes/depois da preparação
 

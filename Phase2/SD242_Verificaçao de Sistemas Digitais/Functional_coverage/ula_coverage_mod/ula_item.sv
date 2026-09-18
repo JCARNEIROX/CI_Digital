@@ -1,7 +1,7 @@
 
 class ula_item extends uvm_sequence_item;
     `uvm_object_utils(ula_item)
-    
+
     rand logic [31:0] a;
     rand logic [31:0] b;
     rand logic [2:0] opr;
@@ -10,30 +10,30 @@ class ula_item extends uvm_sequence_item;
     logic zero;
 
     // Operações (mesmos códigos usados no RTL)
-    localparam OP_ADD = 3'b000;
-    localparam OP_SUB = 3'b001;
-    localparam OP_MUL = 3'b010;
-    localparam OP_DIV = 3'b011;
-    localparam OP_AND = 3'b100;
-    localparam OP_OR  = 3'b101;
-    localparam OP_NOT = 3'b110;
+    localparam logic [2:0] OP_ADD = 3'b000;
+    localparam logic [2:0] OP_SUB = 3'b001;
+    localparam logic [2:0] OP_MUL = 3'b010;
+    localparam logic [2:0] OP_DIV = 3'b011;
+    localparam logic [2:0] OP_AND = 3'b100;
+    localparam logic [2:0] OP_OR  = 3'b101;
+    localparam logic [2:0] OP_NOT = 3'b110;
 
     constraint opr_val {
-	opr inside {[3'b000:3'b110]};
+        opr inside {[OP_ADD:OP_NOT]};
     }
 
     constraint reasonable_values {
         a inside {[32'd1000:32'd2000]};
-	    b inside {[32'd1000:32'd2000]};
+        b inside {[32'd1000:32'd2000]};
     }
 
     // SUB com a <= b e DIV por zero sao comportamentos definidos no RTL.
-    // Nao os excluimos: precisam aparecer nos testes e no coverage.
+    // Não os excluímos: precisam aparecer nos testes e no coverage.
 
     function new(string name = "ula_item");
         super.new(name);
     endfunction
-    
+
     function string convert2string();
         return $sformatf("%s: opr=%0d a=0x%08h b=0x%08h -> result=0x%016h carry=%0b zero=%0b",
                          get_type_name(), opr, a, b, result, carry_o, zero);
@@ -46,7 +46,7 @@ class facil_transaction extends ula_item;
 
     constraint reasonable_values {
         a inside {[0:32'd100]};
-	b inside {[0:32'd100]};
+        b inside {[32'd0:32'd100]};
     }
 
     function new(string name = "facil_transaction");

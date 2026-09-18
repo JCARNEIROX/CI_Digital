@@ -10,11 +10,11 @@ interface ula_if (input logic clk);
 
     // Clocking Block para o Testbench (TB)
     clocking tb_cb @(posedge clk);
-        default input #1step output #2ns; // Configuração de timing padrão
-        
+        default input #1step output #2ns;
+
         // Sinais que o TB lê (saídas do DUT)
-        input  result, carry_o, zero;
-        
+        input result, carry_o, zero;
+
         // Sinais que o TB escreve (entradas do DUT)
         output a, b, opr, rst_n;
     endclocking
@@ -31,6 +31,4 @@ interface ula_if (input logic clk);
         output carry_o,
         output zero
     );
-
-
 endinterface

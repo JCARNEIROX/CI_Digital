@@ -21,8 +21,14 @@ def main():
     item = (ROOT / "ula_item.sv").read_text(encoding="utf-8-sig")
     sequence = (ROOT / "ula_sequence.sv").read_text(encoding="utf-8-sig")
     coverage = (ROOT / "ula_coverage.sv").read_text(encoding="utf-8-sig")
-    operations = dict((name, int(bits, 2)) for name, bits in
-                      re.findall(r"localparam\s+(OP_\w+)\s*=\s*3'b([01]+)", item))
+    operations = dict(
+        (name, int(bits, 2))
+        for name, bits in re.findall(
+            r"localparam(?:\s+(?:logic|bit|reg|wire))?(?:\s*\[[^]]+\])?\s+"
+            r"(OP_\w+)\s*=\s*3'b([01]+)",
+            item,
+        )
+    )
     assert list(operations.values()) == list(range(7)), operations
 
     def number(text):

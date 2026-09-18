@@ -14,11 +14,11 @@ interface ula_if (input logic clk);
 
     // Clocking Block para o Testbench (TB)
     clocking tb_cb @(posedge clk);
-        default input #1step output #2ns; // Configuração de timing padrão
-        
+        default input #1step output #2ns;
+
         // Sinais que o TB lê (saídas do DUT)
-        input  result, carry_o, zero;
-        
+        input result, carry_o, zero;
+
         // Sinais que o TB escreve (entradas do DUT)
         output a, b, opr, rst_n;
     endclocking
@@ -35,8 +35,6 @@ interface ula_if (input logic clk);
         output carry_o,
         output zero
     );
-
-
 endinterface
 
 // END SOURCE: ula_if.sv
@@ -48,48 +46,48 @@ module ula (
 );
 
     // Operation codes (opr width must be 3 bits)
-    localparam OP_ADD = 3'b000,
-               OP_SUB = 3'b001,
-               OP_MUL = 3'b010,
-               OP_DIV = 3'b011,
-               OP_AND = 3'b100,
-               OP_OR  = 3'b101,
-               OP_NOT = 3'b110;
+    localparam logic [2:0] OP_ADD = 3'b000,
+                           OP_SUB = 3'b001,
+                           OP_MUL = 3'b010,
+                           OP_DIV = 3'b011,
+                           OP_AND = 3'b100,
+                           OP_OR  = 3'b101,
+                           OP_NOT = 3'b110;
 
     // Internal signals
-    logic [63:0] temp_result;   // 64?bit intermediate for all operations
-    logic        overflow;      // carry/borrow/overflow/error flag
+    logic [63:0] temp_result; // Resultado intermediário de todas as operações
+    logic        overflow;    // Carry, borrow, overflow ou erro de divisão
 
-    // Combinational logic ? compute result and overflow
+    // Calcula combinacionalmente o resultado e a flag associada.
     always_comb begin
         temp_result = 64'b0;
         overflow    = 1'b0;
 
         case (u_if.opr)
             OP_ADD: begin
-                // 64?bit zero?extended addition; carry out is at bit 32
+                // Soma sem sinal com extensão para 64 bits; carry em bit 32.
                 temp_result = {32'b0, u_if.a} + {32'b0, u_if.b};
-                overflow    = temp_result[32];          // carry out
+                overflow    = temp_result[32];
             end
 
             OP_SUB: begin
-                // 64?bit zero?extended subtraction; borrow out is at bit 32
+                // Subtração sem sinal com extensão para 64 bits; borrow em bit 32.
                 temp_result = {32'b0, u_if.a} - {32'b0, u_if.b};
-                overflow    = temp_result[32];          // borrow out
+                overflow    = temp_result[32];
             end
 
             OP_MUL: begin
-                // 32?bit × 32?bit unsigned multiplication ? 64?bit product
+                // Multiplicação sem sinal de 32 por 32 bits.
                 temp_result = {32'b0, u_if.a} * {32'b0, u_if.b};
-                overflow    = |temp_result[63:32];      // set if product > 32 bits
+                overflow    = |temp_result[63:32];
             end
 
             OP_DIV: begin
                 if (u_if.b == 32'b0) begin
                     temp_result = 64'b0;
-                    overflow    = 1'b1;                 // division by zero
+                    overflow    = 1'b1;
                 end else begin
-                    temp_result = {32'b0, u_if.a / u_if.b}; // unsigned quotient
+                    temp_result = {32'b0, u_if.a / u_if.b};
                     overflow    = 1'b0;
                 end
             end
@@ -105,7 +103,7 @@ module ula (
             end
 
             OP_NOT: begin
-                temp_result = {32'b0, ~u_if.a};         // bitwise NOT of a
+                temp_result = {32'b0, ~u_if.a};
                 overflow    = 1'b0;
             end
 
@@ -116,15 +114,15 @@ module ula (
         endcase
     end
 
-    // Sequential logic ? register results on clock edge
+    // Registra as saídas na borda de subida do clock.
     always_ff @(posedge u_if.clk or negedge u_if.rst_n) begin
         if (!u_if.rst_n) begin
-            u_if.result  <= 32'b0;
+            u_if.result  <= 64'b0;
             u_if.carry_o <= 1'b0;
             u_if.zero    <= 1'b0;
         end else begin
             u_if.result  <= temp_result;
-            u_if.carry_o <= overflow;            // overloaded as overflow/error
+            u_if.carry_o <= overflow;
             u_if.zero    <= (temp_result == 64'b0);
         end
     end

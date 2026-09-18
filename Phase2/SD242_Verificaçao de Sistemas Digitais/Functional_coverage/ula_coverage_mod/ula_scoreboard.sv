@@ -5,35 +5,33 @@ import uvm_pkg::*;
 class ula_scoreboard extends uvm_scoreboard;
     `uvm_component_utils(ula_scoreboard)
 
-    // Analysis port to receive observed transactions from monitor
+    // Recebe transações observadas pelo monitor.
     uvm_analysis_imp #(ula_item, ula_scoreboard) analysis_imp;
 
-    // Statistics
+    // Estatísticas
     int num_matches;
     int num_mismatches;
 
-    // Constructor
     function new(string name, uvm_component parent);
         super.new(name, parent);
         analysis_imp = new("analysis_imp", this);
     endfunction
 
-    // Build phase
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         num_matches    = 0;
         num_mismatches = 0;
     endfunction
 
-    // Write method ? called whenever monitor sends a transaction
+    // Chamado sempre que o monitor publica uma transação.
     function void write(ula_item trans);
         ula_item expected;
-        expected = new("expected");
+        expected = ula_item::type_id::create("expected");
 
-        // Compute expected outputs using reference model
+        // Calcula as saídas esperadas pelo modelo de referência.
         compute_expected(trans, expected);
 
-        // Compare with actual observed values
+        // Compara as saídas esperadas com as observadas.
         if (expected.result  !== trans.result ||
             expected.carry_o !== trans.carry_o ||
             expected.zero    !== trans.zero) begin
@@ -44,7 +42,7 @@ class ula_scoreboard extends uvm_scoreboard;
                            "Observado: result=0x%016h carry=%0b zero=%0b"},
                           trans.opr, trans.a, trans.b,
                           expected.result, expected.carry_o, expected.zero,
-                          trans.result, trans.carry_o, trans.zero) 
+                          trans.result, trans.carry_o, trans.zero)
             )
             num_mismatches++;
         end else begin
@@ -56,9 +54,7 @@ class ula_scoreboard extends uvm_scoreboard;
         end
     endfunction
 
-    // -----------------------------------------------
-    // Reference model ? exact replica of ALU behaviour
-    // -----------------------------------------------
+    // Modelo de referência que replica o comportamento da ULA.
     function void compute_expected(ula_item in, ula_item out);
         logic [63:0] temp_result;
         logic        overflow;
@@ -67,22 +63,22 @@ class ula_scoreboard extends uvm_scoreboard;
         overflow    = 1'b0;
 
         case (in.opr)
-            3'b000: begin  // ADD
+            ula_item::OP_ADD: begin
                 temp_result = {32'b0, in.a} + {32'b0, in.b};
                 overflow    = temp_result[32];
             end
 
-            3'b001: begin  // SUB
+            ula_item::OP_SUB: begin
                 temp_result = {32'b0, in.a} - {32'b0, in.b};
                 overflow    = temp_result[32];
             end
 
-            3'b010: begin  // MUL
+            ula_item::OP_MUL: begin
                 temp_result = {32'b0, in.a} * {32'b0, in.b};
                 overflow    = |temp_result[63:32];
             end
 
-            3'b011: begin  // DIV
+            ula_item::OP_DIV: begin
                 if (in.b == 32'b0) begin
                     temp_result = 64'b0;
                     overflow    = 1'b1;
@@ -92,17 +88,17 @@ class ula_scoreboard extends uvm_scoreboard;
                 end
             end
 
-            3'b100: begin  // AND
+            ula_item::OP_AND: begin
                 temp_result = {32'b0, in.a & in.b};
                 overflow    = 1'b0;
             end
 
-            3'b101: begin  // OR
+            ula_item::OP_OR: begin
                 temp_result = {32'b0, in.a | in.b};
                 overflow    = 1'b0;
             end
 
-            3'b110: begin  // NOT
+            ula_item::OP_NOT: begin
                 temp_result = {32'b0, ~in.a};
                 overflow    = 1'b0;
             end
@@ -115,10 +111,10 @@ class ula_scoreboard extends uvm_scoreboard;
 
         out.result  = temp_result;
         out.carry_o = overflow;
-        out.zero    = (out.result == 32'b0);
+        out.zero    = (out.result == 64'b0);
     endfunction
 
-    // Report phase ? print final statistics
+    // Exibe as estatísticas finais.
     function void report_phase(uvm_phase phase);
         super.report_phase(phase);
         `uvm_info(get_type_name(),

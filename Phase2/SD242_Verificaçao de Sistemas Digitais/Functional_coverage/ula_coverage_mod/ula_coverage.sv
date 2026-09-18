@@ -22,17 +22,17 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins not_op = {ula_item::OP_NOT};
         }
 
-        // Corner cases individuais: um hit em low/high nao substitui estes bins.
-        // Faixas disjuntas cobrem tambem os valores entre low, mid e high.
+        // Corner cases individuais: um hit em low/high não substitui estes bins.
+        // Faixas disjuntas cobrem também os valores entre low, mid e high.
         a_val : coverpoint item.a {
-            bins zero  = {32'd0};
-            bins one   = {32'd1};
-            bins max_unsigned = {32'hFFFFFFFF};
-            bins alternating_10 = {32'hAAAAAAAA}; // Testar OR e AND com 10101010
-            bins alternating_01 = {32'h55555555}; // Facilitar identificação de erros nas operações bitwise
-            bins low  = {[32'd2:32'd100]};
-            bins mid  = {[32'd1000:32'd2000]};
-            bins high = {[32'hFFFFFF00:32'hFFFFFFFE]};
+            bins zero           = {32'd0};
+            bins one            = {32'd1};
+            bins max_unsigned   = {32'hFFFFFFFF};
+            bins alternating_10 = {32'hAAAAAAAA};
+            bins alternating_01 = {32'h55555555};
+            bins low            = {[32'd2:32'd100]};
+            bins mid            = {[32'd1000:32'd2000]};
+            bins high           = {[32'hFFFFFF00:32'hFFFFFFFE]};
             bins other_values = {
                 [32'd101:32'd999],
                 [32'd2001:32'h55555554],
@@ -42,14 +42,14 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         }
 
         b_val : coverpoint item.b {
-            bins zero  = {32'd0};
-            bins one   = {32'd1};
-            bins max_unsigned = {32'hFFFFFFFF};
+            bins zero           = {32'd0};
+            bins one            = {32'd1};
+            bins max_unsigned   = {32'hFFFFFFFF};
             bins alternating_10 = {32'hAAAAAAAA};
             bins alternating_01 = {32'h55555555};
-            bins low  = {[32'd2:32'd100]};
-            bins mid  = {[32'd1000:32'd2000]};
-            bins high = {[32'hFFFFFF00:32'hFFFFFFFE]};
+            bins low            = {[32'd2:32'd100]};
+            bins mid            = {[32'd1000:32'd2000]};
+            bins high           = {[32'hFFFFFF00:32'hFFFFFFFE]};
             bins other_values = {
                 [32'd101:32'd999],
                 [32'd2001:32'h55555554],
@@ -58,7 +58,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             };
         }
 
-        // Bins explicitos participam da metrica, ao contrario de bins default.
+        // Bins explícitos participam da métrica, ao contrário de bins default.
         result_cp : coverpoint item.result {
             bins zero = {64'd0};
             bins one  = {64'd1};
@@ -82,16 +82,16 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins not_zero   = {0};
         }
 
-        // Cada operacao deve exercitar cada categoria de A e B.
+        // Cada operação deve exercitar cada categoria de A e B.
         opr_a_cross : cross opr_cp, a_val;
         opr_b_cross : cross opr_cp, b_val {
             // NOT usa somente A; B nao afeta o resultado.
             ignore_bins unused_b = binsof(opr_cp.not_op);
         }
 
-        // SUB deve exercitar emprestimo, igualdade e diferenca positiva.
+        // SUB deve exercitar empréstimo, igualdade e diferença positiva.
         sub_order_cp : coverpoint ((item.a < item.b) ? 0 :
-                                  (item.a == item.b) ? 1 : 2)
+                                   (item.a == item.b) ? 1 : 2)
             iff (item.opr == ula_item::OP_SUB) {
             bins borrow = {0};
             bins equal_operands = {1};
@@ -105,8 +105,8 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins other_divisors = {[32'd2:32'hFFFFFFFF]};
         }
 
-        // Verifica que os padroes alternados foram usados juntos nas
-        // operacoes binarias, alem dos hits individuais em cada operando.
+        // Verifica que os padrões alternados foram usados juntos nas
+        // operações binárias, além dos hits individuais em cada operando.
         alternating_pair_cp : coverpoint {item.a, item.b}
             iff (item.opr inside {ula_item::OP_AND, ula_item::OP_OR}) {
             bins complementary_10_01 = {64'hAAAAAAAA55555555};
@@ -123,7 +123,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         }
 
         // Apenas AND, OR e NOT nunca geram carry neste RTL.
-        // SUB com emprestimo e DIV por zero continuam sendo metas validas.
+        // SUB com empréstimo e DIV por zero continuam sendo metas válidas.
         opr_carry_cross : cross opr_cp, carry_cp {
             ignore_bins logical_carry =
                 (binsof(opr_cp) intersect {
@@ -131,15 +131,15 @@ class ula_coverage extends uvm_subscriber #(ula_item);
                 }) && binsof(carry_cp.carry);
         }
 
-        // Zero e nao zero sao alcancaveis em TODAS as operacoes.
+        // Zero e não zero são alcançáveis em todas as operações.
         // Ex.: AND(0, max)=0; OR(0, 0)=0; NOT(max)=0.
         opr_zero_cross : cross opr_cp, zero_cp;
     endgroup
 
-    // Construtor
     function new(string name, uvm_component parent);
         super.new(name, parent);
         cg_ula = new();
+        cg_ula.start();
         item   = new("item");
     endfunction
 
@@ -150,14 +150,15 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             `uvm_fatal("COV_CFG", "COV_GOAL deve estar entre 0 e 100")
     endfunction
 
-    // Método write chamado pelo analysis port
+    // Chamado pelo analysis port para amostrar a transação observada.
     function void write(ula_item t);
-        if(t == null) return;
+        if (t == null) begin
+            return;
+        end
         item = t;
         cg_ula.sample();
         samples_observed++;
     endfunction
-
 
     function void report_metric(string metric, real percent,
                                 int covered, int total, int csv);
@@ -210,7 +211,9 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         report_metric("opr_carry_cross", percent, covered, total, csv);
         percent = cg_ula.opr_zero_cross.get_inst_coverage(covered, total);
         report_metric("opr_zero_cross", percent, covered, total, csv);
-        if (csv != 0) $fclose(csv);
+        if (csv != 0) begin
+            $fclose(csv);
+        end
 
         if (samples_observed == 0 || coverage < coverage_goal)
             `uvm_error("COV_GOAL",

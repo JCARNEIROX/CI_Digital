@@ -1,4 +1,4 @@
-"""Reune os fontes atuais em duas abas para o EDA Playground, sem dependencias."""
+"""Reúne os fontes e a configuração de cobertura para o EDA Playground."""
 
 import argparse
 from pathlib import Path
@@ -6,16 +6,16 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="Verifica se as copias estao atualizadas.")
+    parser.add_argument("--check", action="store_true", help="Verifica se as cópias estão atualizadas.")
     args = parser.parse_args()
     output = Path(__file__).resolve().parent
     source = output.parent
     files = (source / "files.f").read_text(encoding="utf-8-sig").split()
     if len(files) != len(set(files)):
-        raise SystemExit("files.f contem entradas duplicadas.")
+        raise SystemExit("files.f contém entradas duplicadas.")
     for name in files:
         if Path(name).name != name or not name.endswith(".sv"):
-            raise SystemExit(f"Entrada nao suportada em files.f: {name}")
+            raise SystemExit(f"Entrada não suportada em files.f: {name}")
     required = {"ula_if.sv", "ula.sv", "top_tb.sv"}
     if not required.issubset(files):
         raise SystemExit("files.f deve listar ula_if.sv, ula.sv e top_tb.sv.")
@@ -43,8 +43,19 @@ def main():
         else:
             target.write_text(content, encoding="utf-8", newline="\n")
             print(f"Gerado {filename}: {len(inputs)} fontes")
+    coverage_source = source / "coverage.ccf"
+    coverage_target = output / "coverage.ccf"
+    coverage_content = coverage_source.read_text(encoding="utf-8-sig")
+    if args.check:
+        if (not coverage_target.exists() or
+                coverage_target.read_text(encoding="utf-8") != coverage_content):
+            stale.append("coverage.ccf")
+    else:
+        coverage_target.write_text(coverage_content, encoding="utf-8", newline="\n")
+        print("Gerado coverage.ccf")
+
     if stale:
-        raise SystemExit("Copias desatualizadas: " + ", ".join(stale))
+        raise SystemExit("Cópias desatualizadas: " + ", ".join(stale))
     if args.check:
         print(f"OK: {len(files)} fontes preservados nas duas abas.")
 

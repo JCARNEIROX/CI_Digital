@@ -11,7 +11,7 @@ Os comandos abaixo são para o terminal Linux do ambiente Cadence, a partir da p
 ## 1. Executar o estado atual
 
 ```bash
-xrun -64bit -uvm -access +rw -coverage all \
+xrun -64bit -uvm -access +rw -coverage all -covfile coverage.ccf \
   -svseed 1 \
   -covworkdir cov_etapa2 \
   -covtest etapa2_seed1 \
@@ -20,7 +20,7 @@ xrun -64bit -uvm -access +rw -coverage all \
   -l etapa2_seed1.log
 ```
 
-- `-coverage all`: habilita a instrumentação de cobertura, incluindo covergroups.
+- `-coverage all -covfile coverage.ccf`: habilita a instrumentação de cobertura e seleciona os covergroups funcionais.
 - `-svseed 1`: fixa a semente de randomização para registrar e repetir esta execução.
 - `-covworkdir cov_etapa2`: usa uma pasta própria para os dados desta etapa.
 - `-covtest etapa2_seed1`: identifica esta execução dentro da base.

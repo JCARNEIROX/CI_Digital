@@ -210,4 +210,38 @@ O simulador emitiu `COVNSM`, informando que a amostragem de `ula_coverage::cg_ul
 
 `samples_observed` conta chamadas a `write()`/`sample()` e não confirma que o simulador contabilizou os bins. A ausência de instrumentação é a primeira hipótese a verificar: a linha efetiva de `xrun` deve conter `-coverage all`. O trecho recebido não contém essa linha, portanto não permite determinar se a opção foi omitida ou se outra configuração desabilitou a coleta.
 
-**Ação para repetir:** no Playground, usar `-coverage all -covoverwrite` em Compile Options e `-svseed 1 +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95` em Run Options. Executar novamente pelo botão Run para compilar/elaborar com cobertura habilitada. Confirmar a ausência de `COVNSM` e denominadores não nulos, por exemplo `opr_cp` com sete bins, antes de interpretar o percentual. Nenhum código SystemVerilog foi modificado para tratar este aviso.
+**Ação para repetir:** no Playground, usar `-coverage all -covoverwrite -covfile coverage.ccf` em Compile Options e `-svseed 1 +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95` em Run Options. O arquivo `coverage.ccf` foi incluído para selecionar explicitamente os covergroups funcionais. Executar novamente pelo botão Run para compilar/elaborar com cobertura habilitada. Confirmar a ausência de `COVNSM` e denominadores não nulos, por exemplo `opr_cp` com sete bins, antes de interpretar o percentual.
+
+## Etapa 3 — Revisão de estilo e preparação da coleta funcional
+
+**Data:** 18/09/2026.
+
+**Arquivos principais:** `ula.sv`, `ula_if.sv`, `ula_item.sv`, `ula_driver.sv`, `ula_monitor.sv`, `ula_scoreboard.sv`, `ula_coverage.sv`, sequência, ambiente, teste, `files.f` e arquivos do EDA Playground.
+
+### Antes e depois
+
+| Ponto | Antes | Depois |
+|---|---|---|
+| Formatação | Mistura de tabs/espaços, blocos de uma linha e comentários com caracteres corrompidos | Quatro espaços, blocos explícitos e comentários revisados |
+| Lista de compilação | Todos os arquivos em uma linha e `top_tb.sv` antes das classes | Um arquivo por linha, em ordem de dependência, com `top_tb.sv` ao final |
+| Reset do resultado | `u_if.result <= 32'b0` para sinal de 64 bits | `u_if.result <= 64'b0` |
+| Modelo de referência | Comparava `result[63:0]` com `32'b0`; códigos da operação repetidos em literais | Compara com `64'b0` e usa `ula_item::OP_*` |
+| Monitor | Declarava e criava `trans_collected`, que não era usado | Variável e criação removidas |
+| Coleta no Xcelium | O aviso `COVNSM` resultava em todos os bins `0/0` | Adicionados `coverage.ccf` e instruções para `-covfile coverage.ccf` |
+
+O `coverage.ccf` contém `select_functional` e `select_coverage covergroup`. A chamada `cg_ula.start()` também deixa explícito, no código, que a instância deve aceitar amostras. Ela não substitui a instrumentação do simulador: a confirmação definitiva ainda depende de executar Xcelium sem `COVNSM`.
+
+O gerador `eda_playground/preparar.py` passou a copiar o arquivo de configuração, além de `design.sv` e `testbench.sv`. Após editar fontes, execute:
+
+```powershell
+python eda_playground/preparar.py
+python eda_playground/preparar.py --check
+```
+
+### Validação
+
+- `preparar.py --check`: cópias do Playground atualizadas.
+- `validar_metas.py`: 499 vetores dirigidos aprovados; 195 de 195 metas têm uma testemunha no plano dirigido.
+- `monitor_depois.sv`: Icarus concluiu com `samples=19`, `errors=0` e os dez vetores observados.
+
+O Icarus não elabora a interface completa com `clocking block`/`modport` usada pelo UVM. Por isso, a validação RTL extrai a lógica da ULA para sinais locais; a compilação e a coleta de cobertura completas continuam pendentes no Xcelium.

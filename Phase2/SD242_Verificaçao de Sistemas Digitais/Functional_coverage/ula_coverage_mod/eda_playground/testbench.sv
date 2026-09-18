@@ -7,7 +7,7 @@ import uvm_pkg::*;
 
 class ula_item extends uvm_sequence_item;
     `uvm_object_utils(ula_item)
-    
+
     rand logic [31:0] a;
     rand logic [31:0] b;
     rand logic [2:0] opr;
@@ -16,30 +16,30 @@ class ula_item extends uvm_sequence_item;
     logic zero;
 
     // Operações (mesmos códigos usados no RTL)
-    localparam OP_ADD = 3'b000;
-    localparam OP_SUB = 3'b001;
-    localparam OP_MUL = 3'b010;
-    localparam OP_DIV = 3'b011;
-    localparam OP_AND = 3'b100;
-    localparam OP_OR  = 3'b101;
-    localparam OP_NOT = 3'b110;
+    localparam logic [2:0] OP_ADD = 3'b000;
+    localparam logic [2:0] OP_SUB = 3'b001;
+    localparam logic [2:0] OP_MUL = 3'b010;
+    localparam logic [2:0] OP_DIV = 3'b011;
+    localparam logic [2:0] OP_AND = 3'b100;
+    localparam logic [2:0] OP_OR  = 3'b101;
+    localparam logic [2:0] OP_NOT = 3'b110;
 
     constraint opr_val {
-	opr inside {[3'b000:3'b110]};
+        opr inside {[OP_ADD:OP_NOT]};
     }
 
     constraint reasonable_values {
         a inside {[32'd1000:32'd2000]};
-	    b inside {[32'd1000:32'd2000]};
+        b inside {[32'd1000:32'd2000]};
     }
 
     // SUB com a <= b e DIV por zero sao comportamentos definidos no RTL.
-    // Nao os excluimos: precisam aparecer nos testes e no coverage.
+    // Não os excluímos: precisam aparecer nos testes e no coverage.
 
     function new(string name = "ula_item");
         super.new(name);
     endfunction
-    
+
     function string convert2string();
         return $sformatf("%s: opr=%0d a=0x%08h b=0x%08h -> result=0x%016h carry=%0b zero=%0b",
                          get_type_name(), opr, a, b, result, carry_o, zero);
@@ -52,7 +52,7 @@ class facil_transaction extends ula_item;
 
     constraint reasonable_values {
         a inside {[0:32'd100]};
-	b inside {[0:32'd100]};
+        b inside {[32'd0:32'd100]};
     }
 
     function new(string name = "facil_transaction");
@@ -106,21 +106,21 @@ endclass
 // BEGIN SOURCE: ula_driver.sv
 class ula_driver extends uvm_driver #(ula_item);
     `uvm_component_utils(ula_driver)
-    
+
     virtual ula_if vif;
     ula_item req;
-    
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction
-    
+
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         if (!uvm_config_db#(virtual ula_if)::get(this, "", "vif", vif)) begin
             `uvm_fatal("NOVIF", "Virtual interface not set")
         end
     endfunction
-    
+
     virtual task run_phase(uvm_phase phase);
         forever begin
             seq_item_port.get_next_item(req);
@@ -130,7 +130,7 @@ class ula_driver extends uvm_driver #(ula_item);
     endtask
     
     virtual task drive_transaction(ula_item i_trans);
-        // So aplica entradas em uma borda com reset desativado e conhecido.
+        // Só aplica entradas em uma borda com reset desativado e conhecido.
         do begin
             @(posedge vif.clk);
         end while (vif.rst_n !== 1'b1);
@@ -138,11 +138,11 @@ class ula_driver extends uvm_driver #(ula_item);
         vif.b <= i_trans.b;
         vif.opr <= i_trans.opr;
         `uvm_info("DRV", $sformatf("Driving: %s", i_trans.convert2string()), UVM_HIGH)
-        
+
         // Aguarda um ciclo para o DUT processar
         @(posedge vif.clk);
     endtask
-    
+
 endclass
 
 
@@ -151,34 +151,34 @@ endclass
 // BEGIN SOURCE: ula_monitor.sv
 class ula_monitor extends uvm_monitor;
     `uvm_component_utils(ula_monitor)
-    
+
     virtual ula_if vif;
     uvm_analysis_port #(ula_item) item_collected_port;
-    
-    ula_item trans_collected;
-    
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
         item_collected_port = new("item_collected_port", this);
     endfunction
-    
+
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         if (!uvm_config_db#(virtual ula_if)::get(this, "", "vif", vif)) begin
             `uvm_fatal("NOVIF", "Virtual interface not set")
         end
-        trans_collected = ula_item::type_id::create("trans_collected");
     endfunction
-    
-    task run_phase(uvm_phase phase);
+
+    virtual task run_phase(uvm_phase phase);
         ula_item trans;
         forever begin
             @(posedge vif.clk or negedge vif.rst_n);
-            if (vif.rst_n !== 1'b1) continue;
+            if (vif.rst_n !== 1'b1) begin
+                continue;
+            end
 
             // Antes do primeiro estimulo, as entradas ainda podem estar em X.
-            if ($isunknown(vif.opr) || $isunknown(vif.a) ||
-                $isunknown(vif.b)) continue;
+            if ($isunknown(vif.opr) || $isunknown(vif.a) || $isunknown(vif.b)) begin
+                continue;
+            end
 
             // Captura as mesmas entradas que o DUT usa nesta borda,
             // antes das atribuicoes nao bloqueantes do driver.
@@ -190,14 +190,16 @@ class ula_monitor extends uvm_monitor;
             // As saidas registradas ja estao estaveis na borda de descida.
             // Se houver reset durante a espera, descarta esta amostra.
             @(negedge vif.clk or negedge vif.rst_n);
-            if (vif.rst_n !== 1'b1) continue;
+            if (vif.rst_n !== 1'b1) begin
+                continue;
+            end
             trans.result  = vif.result;
             trans.carry_o = vif.carry_o;
             trans.zero    = vif.zero;
             item_collected_port.write(trans);
         end
     endtask
-    
+
 endclass
 
 // END SOURCE: ula_monitor.sv
@@ -205,7 +207,7 @@ endclass
 // BEGIN SOURCE: ula_sequencer.sv
 class ula_sequencer extends uvm_sequencer #(ula_item);
     `uvm_component_utils(ula_sequencer)
-    
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction
@@ -218,11 +220,11 @@ endclass
 class ula_sequence extends uvm_sequence #(ula_item);
     `uvm_object_utils(ula_sequence)
 
-    // Configuracao, nao variaveis rand: o teste define estes valores.
-    int unsigned num_transactions = 1000; // Quantidade da fase aleatoria.
+    // Configuração, não variáveis rand: o teste define estes valores.
+    int unsigned num_transactions = 1000; // Quantidade da fase aleatória.
     bit run_corners = 1;
     int unsigned directed_count = 0;
-    int unsigned type_count[5] = '{default:0};
+    int unsigned type_count[5] = '{default: 0};
 
     typedef enum int unsigned {
         ITEM_MID, ITEM_LOW, ITEM_HIGH, ITEM_CORNER, ITEM_FULL
@@ -232,15 +234,15 @@ class ula_sequence extends uvm_sequence #(ula_item);
         super.new(name);
     endfunction
 
-    // Atribuicao dirigida nao usa randomize() nem as restricoes de sorteio.
+    // Atribuição dirigida não usa randomize() nem as restrições de sorteio.
     task send_directed(logic [2:0] operation,
                        logic [31:0] operand_a, logic [31:0] operand_b);
         ula_item trans;
         trans = ula_item::type_id::create("directed_item");
         start_item(trans);
         trans.opr = operation;
-        trans.a = operand_a;
-        trans.b = operand_b;
+        trans.a   = operand_a;
+        trans.b   = operand_b;
         finish_item(trans);
         directed_count++;
     endtask
@@ -252,7 +254,7 @@ class ula_sequence extends uvm_sequence #(ula_item);
             32'd2, 32'd1000, 32'hFFFFFFFE, 32'd101
         };
 
-        // Seis operacoes binarias: 6 * 9 * 9 = 486 transacoes.
+        // Seis operações binárias: 6 * 9 * 9 = 486 transações.
         for (int op = ula_item::OP_ADD; op <= ula_item::OP_OR; op++) begin
             foreach (values[i]) begin
                 foreach (values[j]) begin
@@ -261,11 +263,12 @@ class ula_sequence extends uvm_sequence #(ula_item);
             end
         end
 
-        // NOT nao usa B: nove transacoes bastam para as categorias de A.
-        foreach (values[i])
+        // NOT não usa B: nove transações bastam para as categorias de A.
+        foreach (values[i]) begin
             send_directed(ula_item::OP_NOT, values[i], 32'd0);
+        end
 
-        // Fronteiras adicionais da multiplicacao em torno de 2**32.
+        // Fronteiras adicionais da multiplicação em torno de 2**32.
         send_directed(ula_item::OP_MUL, 32'd65535, 32'd65535);
         send_directed(ula_item::OP_MUL, 32'd65536, 32'd65536);
         send_directed(ula_item::OP_MUL, 32'd65535, 32'd65536);
@@ -277,13 +280,18 @@ class ula_sequence extends uvm_sequence #(ula_item);
         item_kind_t item_kind;
 
         directed_count = 0;
-        foreach (type_count[i]) type_count[i] = 0;
-        if (run_corners) send_corner_cases();
+        foreach (type_count[i]) begin
+            type_count[i] = 0;
+        end
+        if (run_corners) begin
+            send_corner_cases();
+        end
 
         for (int unsigned i = 0; i < num_transactions; i++) begin
             // O enum permite os cinco tipos com o mesmo peso no sorteio.
-            if (!std::randomize(item_kind))
+            if (!std::randomize(item_kind)) begin
                 `uvm_fatal("SEQ_RANDOM", "Falha no sorteio do tipo de item")
+            end
 
             case (item_kind)
                 ITEM_MID:    trans_item = ula_item::type_id::create("mid_item");
@@ -291,21 +299,22 @@ class ula_sequence extends uvm_sequence #(ula_item);
                 ITEM_HIGH:   trans_item = limite_transaction::type_id::create("high_item");
                 ITEM_CORNER: trans_item = corner_transaction::type_id::create("corner_item");
                 ITEM_FULL:   trans_item = full_range_transaction::type_id::create("full_item");
-                default: `uvm_fatal("SEQ_KIND", "Tipo de item invalido")
+                default: `uvm_fatal("SEQ_KIND", "Tipo de item inválido")
             endcase
 
             start_item(trans_item);
-            if (!trans_item.randomize())
+            if (!trans_item.randomize()) begin
                 `uvm_fatal("SEQ_RANDOM", "Falha ao randomizar operandos/operacao")
+            end
             finish_item(trans_item);
             type_count[item_kind]++;
         end
 
         `uvm_info("SEQ_SUMMARY",
             $sformatf("Dirigidas=%0d Aleatorias=%0d Total=%0d | mid=%0d low=%0d high=%0d corner=%0d full=%0d",
-                directed_count, num_transactions, directed_count + num_transactions,
-                type_count[ITEM_MID], type_count[ITEM_LOW], type_count[ITEM_HIGH],
-                type_count[ITEM_CORNER], type_count[ITEM_FULL]), UVM_LOW)
+                      directed_count, num_transactions, directed_count + num_transactions,
+                      type_count[ITEM_MID], type_count[ITEM_LOW], type_count[ITEM_HIGH],
+                      type_count[ITEM_CORNER], type_count[ITEM_FULL]), UVM_LOW)
     endtask
 endclass
 
@@ -319,11 +328,10 @@ import uvm_pkg::*;
 class ula_agent_config extends uvm_object;
     `uvm_object_utils(ula_agent_config)
 
-    bit is_active = UVM_ACTIVE;               // Habilita scoreboard por padrão
+    bit is_active = UVM_ACTIVE; // Agente ativo por padrão
 
-    function new(string name = "ula_env_config");
+    function new(string name = "ula_agent_config");
         super.new(name);
-        //agent_cfg = ula_agent_config::type_id::create("agent_cfg");
     endfunction
 endclass
 
@@ -332,14 +340,14 @@ endclass
 // BEGIN SOURCE: ula_agent.sv
 class ula_agent extends uvm_agent;
     `uvm_component_utils(ula_agent)
-    
+
     ula_driver    driver;
     ula_sequencer sequencer;
     ula_monitor   monitor;
 
     ula_agent_config cfg;
     uvm_analysis_port #(ula_item) agent_ap;
-    
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
         agent_ap = new("agent_ap", this);
@@ -347,27 +355,27 @@ class ula_agent extends uvm_agent;
     
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        
         // Obtém a configuração do agente
-        if (!uvm_config_db #(ula_agent_config)::get(this, "", "cfg", cfg))
+        if (!uvm_config_db#(ula_agent_config)::get(this, "", "cfg", cfg)) begin
             `uvm_fatal("AGENT_NO_CFG", "ula_agent_config not found for agent")
+        end
 
-	if (cfg.is_active == UVM_ACTIVE) begin
-           driver = ula_driver::type_id::create("driver", this);
-           sequencer = ula_sequencer::type_id::create("sequencer", this);
-	end
+        if (cfg.is_active == UVM_ACTIVE) begin
+            driver    = ula_driver::type_id::create("driver", this);
+            sequencer = ula_sequencer::type_id::create("sequencer", this);
+        end
 
-        monitor = ula_monitor::type_id::create("monitor",this);
+        monitor = ula_monitor::type_id::create("monitor", this);
     endfunction
     
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-	if (cfg.is_active == UVM_ACTIVE) begin
-           driver.seq_item_port.connect(sequencer.seq_item_export);
-	end
+        if (cfg.is_active == UVM_ACTIVE) begin
+            driver.seq_item_port.connect(sequencer.seq_item_export);
+        end
         monitor.item_collected_port.connect(agent_ap);
     endfunction
-    
+
 endclass
 
 // END SOURCE: ula_agent.sv
@@ -380,35 +388,33 @@ import uvm_pkg::*;
 class ula_scoreboard extends uvm_scoreboard;
     `uvm_component_utils(ula_scoreboard)
 
-    // Analysis port to receive observed transactions from monitor
+    // Recebe transações observadas pelo monitor.
     uvm_analysis_imp #(ula_item, ula_scoreboard) analysis_imp;
 
-    // Statistics
+    // Estatísticas
     int num_matches;
     int num_mismatches;
 
-    // Constructor
     function new(string name, uvm_component parent);
         super.new(name, parent);
         analysis_imp = new("analysis_imp", this);
     endfunction
 
-    // Build phase
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         num_matches    = 0;
         num_mismatches = 0;
     endfunction
 
-    // Write method ? called whenever monitor sends a transaction
+    // Chamado sempre que o monitor publica uma transação.
     function void write(ula_item trans);
         ula_item expected;
-        expected = new("expected");
+        expected = ula_item::type_id::create("expected");
 
-        // Compute expected outputs using reference model
+        // Calcula as saídas esperadas pelo modelo de referência.
         compute_expected(trans, expected);
 
-        // Compare with actual observed values
+        // Compara as saídas esperadas com as observadas.
         if (expected.result  !== trans.result ||
             expected.carry_o !== trans.carry_o ||
             expected.zero    !== trans.zero) begin
@@ -419,7 +425,7 @@ class ula_scoreboard extends uvm_scoreboard;
                            "Observado: result=0x%016h carry=%0b zero=%0b"},
                           trans.opr, trans.a, trans.b,
                           expected.result, expected.carry_o, expected.zero,
-                          trans.result, trans.carry_o, trans.zero) 
+                          trans.result, trans.carry_o, trans.zero)
             )
             num_mismatches++;
         end else begin
@@ -431,9 +437,7 @@ class ula_scoreboard extends uvm_scoreboard;
         end
     endfunction
 
-    // -----------------------------------------------
-    // Reference model ? exact replica of ALU behaviour
-    // -----------------------------------------------
+    // Modelo de referência que replica o comportamento da ULA.
     function void compute_expected(ula_item in, ula_item out);
         logic [63:0] temp_result;
         logic        overflow;
@@ -442,22 +446,22 @@ class ula_scoreboard extends uvm_scoreboard;
         overflow    = 1'b0;
 
         case (in.opr)
-            3'b000: begin  // ADD
+            ula_item::OP_ADD: begin
                 temp_result = {32'b0, in.a} + {32'b0, in.b};
                 overflow    = temp_result[32];
             end
 
-            3'b001: begin  // SUB
+            ula_item::OP_SUB: begin
                 temp_result = {32'b0, in.a} - {32'b0, in.b};
                 overflow    = temp_result[32];
             end
 
-            3'b010: begin  // MUL
+            ula_item::OP_MUL: begin
                 temp_result = {32'b0, in.a} * {32'b0, in.b};
                 overflow    = |temp_result[63:32];
             end
 
-            3'b011: begin  // DIV
+            ula_item::OP_DIV: begin
                 if (in.b == 32'b0) begin
                     temp_result = 64'b0;
                     overflow    = 1'b1;
@@ -467,17 +471,17 @@ class ula_scoreboard extends uvm_scoreboard;
                 end
             end
 
-            3'b100: begin  // AND
+            ula_item::OP_AND: begin
                 temp_result = {32'b0, in.a & in.b};
                 overflow    = 1'b0;
             end
 
-            3'b101: begin  // OR
+            ula_item::OP_OR: begin
                 temp_result = {32'b0, in.a | in.b};
                 overflow    = 1'b0;
             end
 
-            3'b110: begin  // NOT
+            ula_item::OP_NOT: begin
                 temp_result = {32'b0, ~in.a};
                 overflow    = 1'b0;
             end
@@ -490,10 +494,10 @@ class ula_scoreboard extends uvm_scoreboard;
 
         out.result  = temp_result;
         out.carry_o = overflow;
-        out.zero    = (out.result == 32'b0);
+        out.zero    = (out.result == 64'b0);
     endfunction
 
-    // Report phase ? print final statistics
+    // Exibe as estatísticas finais.
     function void report_phase(uvm_phase phase);
         super.report_phase(phase);
         `uvm_info(get_type_name(),
@@ -537,17 +541,17 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins not_op = {ula_item::OP_NOT};
         }
 
-        // Corner cases individuais: um hit em low/high nao substitui estes bins.
-        // Faixas disjuntas cobrem tambem os valores entre low, mid e high.
+        // Corner cases individuais: um hit em low/high não substitui estes bins.
+        // Faixas disjuntas cobrem também os valores entre low, mid e high.
         a_val : coverpoint item.a {
-            bins zero  = {32'd0};
-            bins one   = {32'd1};
-            bins max_unsigned = {32'hFFFFFFFF};
-            bins alternating_10 = {32'hAAAAAAAA}; // Testar OR e AND com 10101010
-            bins alternating_01 = {32'h55555555}; // Facilitar identificação de erros nas operações bitwise
-            bins low  = {[32'd2:32'd100]};
-            bins mid  = {[32'd1000:32'd2000]};
-            bins high = {[32'hFFFFFF00:32'hFFFFFFFE]};
+            bins zero           = {32'd0};
+            bins one            = {32'd1};
+            bins max_unsigned   = {32'hFFFFFFFF};
+            bins alternating_10 = {32'hAAAAAAAA};
+            bins alternating_01 = {32'h55555555};
+            bins low            = {[32'd2:32'd100]};
+            bins mid            = {[32'd1000:32'd2000]};
+            bins high           = {[32'hFFFFFF00:32'hFFFFFFFE]};
             bins other_values = {
                 [32'd101:32'd999],
                 [32'd2001:32'h55555554],
@@ -557,14 +561,14 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         }
 
         b_val : coverpoint item.b {
-            bins zero  = {32'd0};
-            bins one   = {32'd1};
-            bins max_unsigned = {32'hFFFFFFFF};
+            bins zero           = {32'd0};
+            bins one            = {32'd1};
+            bins max_unsigned   = {32'hFFFFFFFF};
             bins alternating_10 = {32'hAAAAAAAA};
             bins alternating_01 = {32'h55555555};
-            bins low  = {[32'd2:32'd100]};
-            bins mid  = {[32'd1000:32'd2000]};
-            bins high = {[32'hFFFFFF00:32'hFFFFFFFE]};
+            bins low            = {[32'd2:32'd100]};
+            bins mid            = {[32'd1000:32'd2000]};
+            bins high           = {[32'hFFFFFF00:32'hFFFFFFFE]};
             bins other_values = {
                 [32'd101:32'd999],
                 [32'd2001:32'h55555554],
@@ -573,7 +577,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             };
         }
 
-        // Bins explicitos participam da metrica, ao contrario de bins default.
+        // Bins explícitos participam da métrica, ao contrário de bins default.
         result_cp : coverpoint item.result {
             bins zero = {64'd0};
             bins one  = {64'd1};
@@ -597,16 +601,16 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins not_zero   = {0};
         }
 
-        // Cada operacao deve exercitar cada categoria de A e B.
+        // Cada operação deve exercitar cada categoria de A e B.
         opr_a_cross : cross opr_cp, a_val;
         opr_b_cross : cross opr_cp, b_val {
             // NOT usa somente A; B nao afeta o resultado.
             ignore_bins unused_b = binsof(opr_cp.not_op);
         }
 
-        // SUB deve exercitar emprestimo, igualdade e diferenca positiva.
+        // SUB deve exercitar empréstimo, igualdade e diferença positiva.
         sub_order_cp : coverpoint ((item.a < item.b) ? 0 :
-                                  (item.a == item.b) ? 1 : 2)
+                                   (item.a == item.b) ? 1 : 2)
             iff (item.opr == ula_item::OP_SUB) {
             bins borrow = {0};
             bins equal_operands = {1};
@@ -620,8 +624,8 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             bins other_divisors = {[32'd2:32'hFFFFFFFF]};
         }
 
-        // Verifica que os padroes alternados foram usados juntos nas
-        // operacoes binarias, alem dos hits individuais em cada operando.
+        // Verifica que os padrões alternados foram usados juntos nas
+        // operações binárias, além dos hits individuais em cada operando.
         alternating_pair_cp : coverpoint {item.a, item.b}
             iff (item.opr inside {ula_item::OP_AND, ula_item::OP_OR}) {
             bins complementary_10_01 = {64'hAAAAAAAA55555555};
@@ -638,7 +642,7 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         }
 
         // Apenas AND, OR e NOT nunca geram carry neste RTL.
-        // SUB com emprestimo e DIV por zero continuam sendo metas validas.
+        // SUB com empréstimo e DIV por zero continuam sendo metas válidas.
         opr_carry_cross : cross opr_cp, carry_cp {
             ignore_bins logical_carry =
                 (binsof(opr_cp) intersect {
@@ -646,15 +650,15 @@ class ula_coverage extends uvm_subscriber #(ula_item);
                 }) && binsof(carry_cp.carry);
         }
 
-        // Zero e nao zero sao alcancaveis em TODAS as operacoes.
+        // Zero e não zero são alcançáveis em todas as operações.
         // Ex.: AND(0, max)=0; OR(0, 0)=0; NOT(max)=0.
         opr_zero_cross : cross opr_cp, zero_cp;
     endgroup
 
-    // Construtor
     function new(string name, uvm_component parent);
         super.new(name, parent);
         cg_ula = new();
+        cg_ula.start();
         item   = new("item");
     endfunction
 
@@ -665,14 +669,15 @@ class ula_coverage extends uvm_subscriber #(ula_item);
             `uvm_fatal("COV_CFG", "COV_GOAL deve estar entre 0 e 100")
     endfunction
 
-    // Método write chamado pelo analysis port
+    // Chamado pelo analysis port para amostrar a transação observada.
     function void write(ula_item t);
-        if(t == null) return;
+        if (t == null) begin
+            return;
+        end
         item = t;
         cg_ula.sample();
         samples_observed++;
     endfunction
-
 
     function void report_metric(string metric, real percent,
                                 int covered, int total, int csv);
@@ -725,7 +730,9 @@ class ula_coverage extends uvm_subscriber #(ula_item);
         report_metric("opr_carry_cross", percent, covered, total, csv);
         percent = cg_ula.opr_zero_cross.get_inst_coverage(covered, total);
         report_metric("opr_zero_cross", percent, covered, total, csv);
-        if (csv != 0) $fclose(csv);
+        if (csv != 0) begin
+            $fclose(csv);
+        end
 
         if (samples_observed == 0 || coverage < coverage_goal)
             `uvm_error("COV_GOAL",
@@ -747,9 +754,9 @@ import uvm_pkg::*;
 class ula_env_config extends uvm_object;
     `uvm_object_utils(ula_env_config)
 
-    bit has_scoreboard = 1'b1;               // Habilita scoreboard por padrão
+    bit has_scoreboard = 1'b1; // Habilita o scoreboard por padrão
 
-    ula_agent_config agent_cfg;              // Configuração do agente
+    ula_agent_config agent_cfg; // Configuração do agente
 
     function new(string name = "ula_env_config");
         super.new(name);
@@ -763,7 +770,7 @@ endclass
 
 class ula_env extends uvm_env;
     `uvm_component_utils(ula_env)
-    
+
     ula_agent      agent;
     ula_scoreboard sb;
     ula_coverage   coverage;
@@ -778,33 +785,30 @@ class ula_env extends uvm_env;
         super.build_phase(phase);
 
         // Obtém a configuração do ambiente
-        if (!uvm_config_db #(ula_env_config)::get(this, "", "cfg", cfg))
+        if (!uvm_config_db#(ula_env_config)::get(this, "", "cfg", cfg)) begin
             `uvm_fatal("ENV_NO_CFG", "ula_env_config not found for env")
+        end
 
         // Passa a configuração do agente para o agente via config_db
-        uvm_config_db #(ula_agent_config)::set(this, "agent", "cfg", cfg.agent_cfg);
+        uvm_config_db#(ula_agent_config)::set(this, "agent", "cfg", cfg.agent_cfg);
 
         agent = ula_agent::type_id::create("agent", this);
 
-        // Cria o scoreboard somente se habilitado
+        // Cria o scoreboard somente quando habilitado.
         if (cfg.has_scoreboard) begin
             sb = ula_scoreboard::type_id::create("sb", this);
         end
 
-       coverage   = ula_coverage::type_id::create("coverage", this);
- 
+        coverage = ula_coverage::type_id::create("coverage", this);
     endfunction
     
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-        // Connect monitor's analysis port to scoreboard's import
-
         if (cfg.has_scoreboard) begin
             agent.agent_ap.connect(sb.analysis_imp);
         end
 
         agent.agent_ap.connect(coverage.analysis_export);
-
     endfunction
 endclass
 
@@ -816,12 +820,11 @@ import uvm_pkg::*;
 
 class ula_test extends uvm_test;
     `uvm_component_utils(ula_test)
-    
+
     ula_env env;
     ula_sequence seq;
     ula_env_config env_cfg;
 
-    int clock_delay;
     int requested_transactions;
     int requested_corners;
 
@@ -832,21 +835,15 @@ class ula_test extends uvm_test;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        // Cria e configura a configuração do ambiente
+        // Cria e configura o ambiente.
         env_cfg = ula_env_config::type_id::create("env_cfg");
-        
+
         // Exemplo 1: Agente ATIVO com scoreboard HABILITADO
         env_cfg.agent_cfg.is_active = UVM_ACTIVE;
         env_cfg.has_scoreboard      = 1'b1;
 
-	if ($value$plusargs("CLOCK_DELAY=%d", clock_delay))
-            `uvm_info(get_name(), $sformatf("Usando %0d CLOCK_DELAY", clock_delay), UVM_LOW)
-        // Exemplo 2: Agente PASSIVO com scoreboard DESABILITADO
-        // env_cfg.agent_cfg.is_active = UVM_PASSIVE;
-        // env_cfg.has_scoreboard      = 1'b0;
-
         // Armazena no config_db para que o ambiente possa recuperar
-        uvm_config_db #(ula_env_config)::set(this, "env", "cfg", env_cfg);
+        uvm_config_db#(ula_env_config)::set(this, "env", "cfg", env_cfg);
 
         env = ula_env::type_id::create("env", this);
         seq = ula_sequence::type_id::create("seq");
@@ -861,14 +858,14 @@ class ula_test extends uvm_test;
             seq.run_corners = requested_corners;
         end
     endfunction
-    
+
     virtual task run_phase(uvm_phase phase);
         phase.raise_objection(this);
         seq.start(env.agent.sequencer);
-        #100; // Tempo extra para finalizar
+        #100; // Tempo extra para finalizar o último monitoramento.
         phase.drop_objection(this);
     endtask
-    
+
 endclass
 
 // END SOURCE: ula_test.sv
@@ -880,54 +877,27 @@ import uvm_pkg::*;
 module top_tb;
 
     logic clk;
-    logic rst_n;
 
     ula_if u_if0(clk);
 
-    // DUT instance
     ula dut (
         u_if0.DUT
     );
 
     always #5 clk = ~clk;
 
-    // Reset generation
     initial begin
-        clk = 0;
-        u_if0.rst_n = 0;
-        repeat(2) @u_if0.clk;
-        u_if0.rst_n = 1;
-        
+        clk         = 1'b0;
+        u_if0.rst_n = 1'b0;
+        repeat (2) @(u_if0.clk);
+        u_if0.rst_n = 1'b1;
     end
 
-    // Reset generation
     initial begin
-        // Set virtual interface
         uvm_config_db#(virtual ula_if)::set(null, "uvm_test_top.env.agent.*", "vif", u_if0);
-
-        // Run test
         run_test("ula_test");
     end
 
 endmodule
-
-
-    // Monitor
-/*    initial begin
-        repeat(5) @u_if0.clk;
-        forever begin
-            @u_if0.clk;
-            if (u_if0.a != 0 || u_if0.b != 0) begin
-		if (u_if0.opr == 1) begin
-			@u_if0.clk;
-                	$display("[MON SOMA] a=%0d, b=%0d -> result=%0d, carry=%0d", 
-                         u_if0.a, u_if0.b, u_if0.result, u_if0.carry_o);
-		end else begin
-                	$display("[MON SUB] a=%0d, b=%0d -> result=%0d, carry=%0d", 
-                         u_if0.a, u_if0.b, u_if0.result, u_if0.carry_o);		
-		end
-            end
-        end
-    end*/
 
 // END SOURCE: top_tb.sv
