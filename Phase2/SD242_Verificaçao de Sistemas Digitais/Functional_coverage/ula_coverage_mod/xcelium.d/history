@@ -2,7 +2,4 @@
 // File created by:  xrun
 // Do not modify this file
 
-s1::(15Sep2026:18:50:41):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
-s2::(15Sep2026:19:56:45):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
-s3::(15Sep2026:20:38:46):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
-s4::(21Sep2026:18:59:15):( xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui )
+s1::(21Sep2026:20:23:11):( /tools/cadence/XCELIUM2309/tools/bin/64bit/xrun -64bit -access +rw -coverage all -covoverwrite -uvm -uvmhome /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2 -f files.f )

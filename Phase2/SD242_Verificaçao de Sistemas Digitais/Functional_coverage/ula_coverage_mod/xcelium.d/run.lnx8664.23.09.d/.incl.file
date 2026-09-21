@@ -1,6 +1,7 @@
 ./uvm_macros.svh
 ./macros/uvm_version_defines.svh
 ./macros/uvm_version.svh
+./macros/uvm_global_defines.svh
 ./macros/uvm_message_defines.svh
 ./macros/uvm_phase_defines.svh
 ./macros/uvm_object_defines.svh

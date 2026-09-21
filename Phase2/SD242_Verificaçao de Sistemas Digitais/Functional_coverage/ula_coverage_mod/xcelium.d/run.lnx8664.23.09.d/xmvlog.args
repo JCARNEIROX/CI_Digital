@@ -9,7 +9,6 @@
 -define
 UVM_PLI
 ula_if.sv
-ula_if.sv
 ula.sv
 ula_item.sv
 ula_driver.sv
@@ -29,11 +28,11 @@ top_tb.sv
 -HDLVAR
 ./xcelium.d/run.lnx8664.23.09.d/hdlrun.var
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/sv/src
 -DEFINE
 USE_PARAMETERIZED_WRAPPER
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/additions/sv
 -no_analogsolver
 -MESSAGES
 -UPDATE

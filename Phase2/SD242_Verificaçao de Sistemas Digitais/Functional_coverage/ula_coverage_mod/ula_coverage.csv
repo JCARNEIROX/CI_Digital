@@ -1,0 +1,15 @@
+metric,percent,covered_bins,total_bins
+opr_cp,100.000000,7,7
+a_val,100.000000,9,9
+b_val,100.000000,9,9
+result_cp,100.000000,6,6
+carry_cp,100.000000,2,2
+zero_cp,100.000000,2,2
+sub_order_cp,100.000000,3,3
+div_denominator_cp,100.000000,3,3
+alternating_pair_cp,100.000000,4,4
+opr_a_cross,100.000000,63,63
+opr_b_cross,100.000000,54,54
+logical_pattern_cross,100.000000,8,8
+opr_carry_cross,100.000000,11,11
+opr_zero_cross,100.000000,14,14

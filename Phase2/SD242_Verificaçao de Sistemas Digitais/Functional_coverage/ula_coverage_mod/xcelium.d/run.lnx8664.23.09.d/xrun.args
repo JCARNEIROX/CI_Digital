@@ -2,13 +2,14 @@
 // File created by:  xrun
 // Do not modify this file
 //
+-64bit
 -access
 +rw
 -coverage
 all
 -covoverwrite
 -uvm
-ula_if.sv
+-uvmhome
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2
 -f
 files.f
--gui

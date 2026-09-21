@@ -3,8 +3,8 @@
 // Do not modify this file
 //
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/sv/src
 -DEFINE
 USE_PARAMETERIZED_WRAPPER
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/additions/sv

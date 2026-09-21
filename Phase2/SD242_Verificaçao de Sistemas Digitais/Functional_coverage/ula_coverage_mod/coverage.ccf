@@ -1,4 +1,0 @@
-# Configuração de cobertura funcional para Xcelium.
-# Deve ser usada com: xrun -coverage all -covfile coverage.ccf ...
-select_functional
-select_coverage covergroup

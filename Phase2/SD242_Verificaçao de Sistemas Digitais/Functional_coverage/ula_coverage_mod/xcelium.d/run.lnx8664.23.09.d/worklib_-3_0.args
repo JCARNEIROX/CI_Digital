@@ -4,11 +4,11 @@
 //
 -RUNMODE
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/sv/src
 -DEFINE
 USE_PARAMETERIZED_WRAPPER
 -I_INCDIR
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/additions/sv
 -UPDATE
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib
@@ -19,5 +19,5 @@ worklib
 -UVMNOSINGLESTEP
 -define
 UVM_PLI
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/uvm_pkg.sv
-/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/cdns_uvm_pkg.sv
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/sv/src/uvm_pkg.sv
+/tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2/additions/sv/cdns_uvm_pkg.sv
