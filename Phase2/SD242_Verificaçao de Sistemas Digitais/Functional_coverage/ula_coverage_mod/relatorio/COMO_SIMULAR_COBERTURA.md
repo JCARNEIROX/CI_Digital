@@ -40,6 +40,12 @@ Scoreboard summary: Matches=..., Mismatches=...
 
 A primeira linha vem de `ula_coverage::report_phase`. Confira erros de compilação, erros fatais e a conclusão do teste antes de interpretar a métrica. A etapa 2 reativou `uvm_error` do scoreboard. Exija `Matches > 0`, `Mismatches=0`, ausência de erros UVM e a meta atingida em `COV_GOAL`. Consulte `COV_DETAIL` e `ula_coverage.csv` para os totais por coverpoint/cross.
 
+### Se aparecer `SVNOTY` em `uvm_sequence_item` ou `NOTDIR` nos macros UVM
+
+Cada arquivo de classes compilado separadamente precisa importar `uvm_pkg` e incluir `uvm_macros.svh`. Os fontes atuais já possuem estas duas linhas. Confirme também que a opção `-uvm` está presente e que os arquivos copiados para o laboratório correspondem à versão atual.
+
+Não acrescente `ula_if.sv` antes de `-f files.f`: a interface já está na primeira linha do arquivo de lista. A repetição causa o aviso `RECOME` e pode dificultar a leitura do log, embora não seja a causa dos erros UVM.
+
 ## 2. Abrir os resultados no IMC
 
 Na mesma pasta:

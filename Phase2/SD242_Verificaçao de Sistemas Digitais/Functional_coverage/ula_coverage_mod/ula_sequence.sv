@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_sequence extends uvm_sequence #(ula_item);
     `uvm_object_utils(ula_sequence)
 

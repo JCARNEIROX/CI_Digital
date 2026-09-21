@@ -245,3 +245,46 @@ python eda_playground/preparar.py --check
 - `monitor_depois.sv`: Icarus concluiu com `samples=19`, `errors=0` e os dez vetores observados.
 
 O Icarus não elabora a interface completa com `clocking block`/`modport` usada pelo UVM. Por isso, a validação RTL extrai a lógica da ULA para sinais locais; a compilação e a coleta de cobertura completas continuam pendentes no Xcelium.
+
+## Etapa 4 — Visibilidade do UVM em arquivos compilados separadamente
+
+**Data:** 21/09/2026.
+
+### Erro observado
+
+Na primeira execução local com Xcelium, `ula_item.sv` produziu `SVNOTY` para `uvm_sequence_item` e `NOTDIR` para `` `uvm_object_utils``. Os erros seguintes sobre `rand`, constraints, classes e `uvm_config_db` foram efeitos em cascata após o compilador deixar de reconhecer a classe UVM inicial.
+
+O comando também forneceu `ula_if.sv` explicitamente e por meio de `files.f`, produzindo o aviso `RECOME` de recompilação da interface.
+
+### Causa
+
+No arquivo agrupado do EDA Playground, um único `import uvm_pkg::*;` deixava o pacote visível para todas as classes seguintes. No fluxo `-f files.f`, cada fonte é compilado separadamente. Sete arquivos de classes não possuíam seu próprio `include` dos macros nem o `import` do pacote.
+
+### Alteração
+
+Foram acrescentadas as linhas abaixo no início de `ula_item.sv`, `ula_driver.sv`, `ula_monitor.sv`, `ula_sequencer.sv`, `ula_sequence.sv`, `ula_agent.sv` e `ula_env.sv`:
+
+```systemverilog
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+```
+
+O [diff da etapa 4](03_import_uvm_xcelium.diff) registra o antes/depois. O guia de execução também passou a registrar o diagnóstico desses códigos de erro.
+
+### Comando corrigido
+
+Use somente `files.f`, pois ele já contém `ula_if.sv`, e selecione explicitamente o arquivo de cobertura:
+
+```bash
+xrun -64bit -uvm -access +rw -coverage all -covfile coverage.ccf \
+  -svseed 1 -covworkdir cov_etapa2 -covtest etapa2_seed1 \
+  -f files.f \
+  +NUM_TRANSACTIONS=1000 +RUN_CORNERS=1 +COV_GOAL=95 \
+  -l etapa2_seed1.log
+```
+
+### Validação
+
+- Todos os arquivos de classes listados em `files.f` possuem agora `uvm_macros.svh` e `import uvm_pkg::*;` no próprio escopo de compilação.
+- `eda_playground/preparar.py --check` confirmou os 15 fontes preservados nas cópias agrupadas.
+- A nova compilação com Xcelium permanece pendente no computador do laboratório; esta máquina não possui `xrun` no PATH.

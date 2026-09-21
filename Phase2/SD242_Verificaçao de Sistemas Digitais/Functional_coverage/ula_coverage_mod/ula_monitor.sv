@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_monitor extends uvm_monitor;
     `uvm_component_utils(ula_monitor)
 

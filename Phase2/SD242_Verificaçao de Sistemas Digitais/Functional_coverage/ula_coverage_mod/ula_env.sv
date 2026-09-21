@@ -1,3 +1,5 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
 
 class ula_env extends uvm_env;
     `uvm_component_utils(ula_env)

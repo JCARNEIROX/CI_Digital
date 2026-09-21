@@ -4,6 +4,8 @@
 import uvm_pkg::*;
 
 // BEGIN SOURCE: ula_item.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
 
 class ula_item extends uvm_sequence_item;
     `uvm_object_utils(ula_item)
@@ -104,6 +106,9 @@ endclass
 // END SOURCE: ula_item.sv
 
 // BEGIN SOURCE: ula_driver.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_driver extends uvm_driver #(ula_item);
     `uvm_component_utils(ula_driver)
 
@@ -149,6 +154,9 @@ endclass
 // END SOURCE: ula_driver.sv
 
 // BEGIN SOURCE: ula_monitor.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_monitor extends uvm_monitor;
     `uvm_component_utils(ula_monitor)
 
@@ -205,6 +213,9 @@ endclass
 // END SOURCE: ula_monitor.sv
 
 // BEGIN SOURCE: ula_sequencer.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_sequencer extends uvm_sequencer #(ula_item);
     `uvm_component_utils(ula_sequencer)
 
@@ -217,6 +228,9 @@ endclass
 // END SOURCE: ula_sequencer.sv
 
 // BEGIN SOURCE: ula_sequence.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_sequence extends uvm_sequence #(ula_item);
     `uvm_object_utils(ula_sequence)
 
@@ -338,6 +352,9 @@ endclass
 // END SOURCE: ula_agent_config.sv
 
 // BEGIN SOURCE: ula_agent.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_agent extends uvm_agent;
     `uvm_component_utils(ula_agent)
 
@@ -767,6 +784,8 @@ endclass
 // END SOURCE: ula_env_config.sv
 
 // BEGIN SOURCE: ula_env.sv
+`include "uvm_macros.svh"
+import uvm_pkg::*;
 
 class ula_env extends uvm_env;
     `uvm_component_utils(ula_env)

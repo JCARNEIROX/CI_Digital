@@ -2,7 +2,6 @@
 `timescale 1ns/1ps
 
 // BEGIN SOURCE: ula_if.sv
-
 interface ula_if (input logic clk);
     logic        rst_n;
     logic [31:0] a;

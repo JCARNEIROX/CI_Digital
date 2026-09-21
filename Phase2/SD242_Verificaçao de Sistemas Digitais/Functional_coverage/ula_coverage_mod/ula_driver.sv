@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class ula_driver extends uvm_driver #(ula_item);
     `uvm_component_utils(ula_driver)
 

@@ -1,0 +1,55 @@
+--- antes/ula_item.sv
++++ depois/ula_item.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_item extends uvm_sequence_item;
+
+--- antes/ula_driver.sv
++++ depois/ula_driver.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_driver extends uvm_driver #(ula_item);
+
+--- antes/ula_monitor.sv
++++ depois/ula_monitor.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_monitor extends uvm_monitor;
+
+--- antes/ula_sequencer.sv
++++ depois/ula_sequencer.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_sequencer extends uvm_sequencer #(ula_item);
+
+--- antes/ula_sequence.sv
++++ depois/ula_sequence.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_sequence extends uvm_sequence #(ula_item);
+
+--- antes/ula_agent.sv
++++ depois/ula_agent.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_agent extends uvm_agent;
+
+--- antes/ula_env.sv
++++ depois/ula_env.sv
+@@
++`include "uvm_macros.svh"
++import uvm_pkg::*;
++
+ class ula_env extends uvm_env;
