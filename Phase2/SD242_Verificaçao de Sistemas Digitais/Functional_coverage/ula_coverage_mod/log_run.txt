@@ -1,3 +1,10 @@
 xrun -access +rw -coverage all -covoverwrite -uvm \
   -covfile coverage.ccf \
   -f files.f -gui &
+
+
+  XRUN_PATH=$(readlink -f "$(which xrun)")
+XRUN_ROOT=$(cd "$(dirname "$XRUN_PATH")/../.." && pwd)
+
+echo "$XRUN_ROOT"
+ls -la "$XRUN_ROOT/tools/methodology/UVM"
