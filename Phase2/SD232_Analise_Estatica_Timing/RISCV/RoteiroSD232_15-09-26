@@ -1,0 +1,36 @@
+Sintese lógica de RISC-V Single Cycle (SC) e Multi Cycle (MC).
+1.	Copiar a pasta RISCV a sua área de projeto.
+2.	Modificar o arquivo SDC (RISCV/SC/constraints) para o RISCV/SC single-cycle com as seguintes configurações:
+Clock: 50MHz
+Incerteza do clock: 1ns
+Atraso das entradas: 1ns
+Declarar como ideal nets os caminhos do clock e do reset.
+
+3.	Modificar o sript tcl (RISCV/SC/scripts) 
+4.	Rodar a síntese lógica do RISCV SC seguindo o roteiro da ferramenta Genus.
+Ir a pasta RISCV/SC/work
+genus -f ../scripts/setup_riscv_sc.tcl
+
+Após o final da síntese, usar o comando gui_show e visualize o netlist pela interface gráfica.
+
+Com os respectivos Reports, anotar os seguintes dados:
+Area:14917.014 um2
+Power:2.25455e-04
+Slack:7635 ps
+5.	Baseando-se nos dados obtidos anteriormente, calcular o período (ns) mínimo de clock que poderia suportar o RISCV SC? Qual seria a frequência máxima em Mhz?
+Para um periodo de 20ns de clock programado, e com o atraso de aproximadamente 7,635ns, sobram 12,365ns, portanto o período mínimo seria de 12,365ns com uma frequência
+de aproximadamente 80 MHz.
+
+6.	Modificar o script tcl do RISCV-SC para executar a síntese lógica do RISCV-MC (Multi-cycle pipelined).
+
+7.	Rodar a síntese lógica do RISCV MC seguindo o roteiro da ferramenta Genus.
+Ir a pasta RISCV/MC/work
+genus -f ../scripts/setup_riscv_mc.tcl
+
+Com os respectivos Reports, anotar os seguintes dados:
+Area: 17435.844 um2
+Power: 2.71515e-04 W
+Slack: 9726 ps
+
+8.	Baseando-se nos dados obtidos anteriormente, calcular o período (ns) mínimo de clock que poderia suportar o RISCV SC? Qual seria a frequência máxima em Mhz?
+Com a mesma lógica com o atraso obtido sobram 10,274 ns para o período que equivalem à uma frequência de aproximadamente 97 MHz.

@@ -1,4 +1,3 @@
-
 interface ula_if (input logic clk);
     logic        rst_n;
     logic [31:0] a;

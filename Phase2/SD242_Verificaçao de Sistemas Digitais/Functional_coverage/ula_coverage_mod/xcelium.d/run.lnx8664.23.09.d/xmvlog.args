@@ -11,7 +11,6 @@ UVM_PLI
 ula_if.sv
 ula_if.sv
 ula.sv
-top_tb.sv
 ula_item.sv
 ula_driver.sv
 ula_monitor.sv
@@ -24,6 +23,7 @@ ula_coverage.sv
 ula_env_config.sv
 ula_env.sv
 ula_test.sv
+top_tb.sv
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib
 -HDLVAR

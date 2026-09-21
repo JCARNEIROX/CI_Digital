@@ -1,0 +1,33 @@
+# Cadence Genus(TM) Synthesis Solution, Version 22.16-s078_1, built Jun 10 2024 14:32:57
+
+# Date: Tue Sep 01 20:08:37 2026
+# Host: saitama (x86_64 w/Linux 4.18.0-553.el8_10.x86_64) (16cores*16cpus*1physical cpu*Common KVM processor 16384KB)
+# OS:   Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+source genus_script.tcl
+report_timing -from weather_i[1] -to action_o_reg/D -unconstrained
+dc::create_clock -name clk -period 10 [dc::get_ports clk]
+dc::set_input_delay -clock [dc::get_clocks clk] 2 [dc::remove_from_collection [all_inputs] "[dc::get_ports clk]"]
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_output_delay -clock [dc::get_clocks clk] 1.5 [all_outputs]
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_clock_uncertainty 0.5 clk
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_clock_latency 1.25 clk
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_clock_latency 1.25 clk
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_timing -from weather_i[1] -to action_o_reg/D
+dc::set_load -pin_load 0.00 [dc::get_ports [all_outputs]]
+report_timing -to action_o
+report_design_rules
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_timing -to action_o
+report_design_rules
+dc::set_load -pin_load 0.300 [dc::get_ports [all_outputs]] ;# 300 fF
+report_timing -to action_o
+dc::set_load -pin_load 0.05 [dc::get_ports [all_outputs]] ;# 50 fF
+report_design_rules
+syn_opt
+report_design_rules
