@@ -1,1 +1,4 @@
 s1(21Sep2026:20:23:11):  /tools/cadence/XCELIUM2309/tools/bin/64bit/xrun -64bit -access +rw -coverage all -covoverwrite -uvm -uvmhome /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2 -f files.f 
+s2(21Sep2026:20:55:11):  xrun -access +rw -coverage all -covoverwrite -uvm ula_if.sv -f files.f -gui 
+s3(21Sep2026:20:55:24):  /tools/cadence/XCELIUM2309/tools/bin/64bit/xrun -64bit -access +rw -coverage all -covoverwrite -uvm -uvmhome /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2 -f files.f -gui 
+s4(21Sep2026:20:56:21):  /tools/cadence/XCELIUM2309/tools/bin/64bit/xrun -64bit -access +rw -coverage all -covoverwrite -uvm -uvmhome /tools/cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.2 -f files.f -gui 
