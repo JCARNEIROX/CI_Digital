@@ -1,0 +1,7243 @@
+[
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 71190,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 75206,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": "RCC_OscInitTypeDef",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 75358,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 93595,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": "RCC_OscInitTypeDef",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 93747,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 98951,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_processing_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 99030,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 99059,
+    "byte_size": 304,
+    "fields": [
+      {
+        "name": "config",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "sensor",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "sensor_id",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "processing",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "cal_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "proc_meta",
+        "tag": "DW_TAG_member",
+        "data_member_location": 264
+      },
+      {
+        "name": "proc_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 292
+      }
+    ]
+  },
+  {
+    "name": "acc_control_helper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 99200,
+    "byte_size": 304,
+    "fields": [
+      {
+        "name": "config",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "sensor",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "sensor_id",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "processing",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "cal_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "proc_meta",
+        "tag": "DW_TAG_member",
+        "data_member_location": 264
+      },
+      {
+        "name": "proc_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 292
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 102284,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 102447,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_processing_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 102526,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 122530,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": "RCC_OscInitTypeDef",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 122672,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "OscillatorType",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "LSEState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "HSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "HSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "LSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "MSIState",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "MSICalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "MSIClockRange",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "HSI48State",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "PLL",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 125578,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "Prescaler",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "Source",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "Polarity",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ReloadValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ErrorLimitValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "HSI48CalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "RCC_CRSInitTypeDef",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 125672,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "Prescaler",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "Source",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "Polarity",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ReloadValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ErrorLimitValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "HSI48CalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 125685,
+    "byte_size": 16,
+    "fields": [
+      {
+        "name": "ReloadValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSI48CalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "FreqErrorCapture",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "FreqErrorDirection",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      }
+    ]
+  },
+  {
+    "name": "RCC_CRSSynchroInfoTypeDef",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 125751,
+    "byte_size": 16,
+    "fields": [
+      {
+        "name": "ReloadValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "HSI48CalibrationValue",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "FreqErrorCapture",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "FreqErrorDirection",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 147171,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 149167,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 153484,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_processing_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 153563,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 1
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 154301,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 154561,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "data_clamped",
+        "tag": "DW_TAG_member",
+        "data_member_location": 5
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 7
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_callback_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 154648,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "data_clamped",
+        "tag": "DW_TAG_member",
+        "data_member_location": 5
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 7
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_config_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 154718,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "config",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "callback",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "callback_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 154809,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "subsweep_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "max_sweep_rate",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "cca_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "cca_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 154821,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_CCA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_STITCHED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_REORDERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_PILOT",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_BUFFER_REPRESENTATION",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_CBANK_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_LOW_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_HIGH_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_AREA_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_RX_FINE_DIP_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_BEGIN",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 11
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_END",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 12
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MARGIN_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 13
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_METADATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 14
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 15
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_INTERNAL_RESULT_INFO",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 16
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 17
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_PROFILE_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 18
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_HEADER_LENGTH",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 19
+      },
+      {
+        "name": "ACC_PROBE_ID_MEAS_SESSION_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 20
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_SPARSE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 21
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_LINEAR",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 22
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_STAGGERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 23
+      },
+      {
+        "name": "ACC_PROBE_ID_MAX",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 24
+      }
+    ]
+  },
+  {
+    "name": "acc_probe_id_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 154983,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_CCA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_STITCHED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_REORDERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_PILOT",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_BUFFER_REPRESENTATION",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_CBANK_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_LOW_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_HIGH_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_AREA_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_RX_FINE_DIP_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_BEGIN",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 11
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_END",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 12
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MARGIN_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 13
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_METADATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 14
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 15
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_INTERNAL_RESULT_INFO",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 16
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 17
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_PROFILE_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 18
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_HEADER_LENGTH",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 19
+      },
+      {
+        "name": "ACC_PROBE_ID_MEAS_SESSION_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 20
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_SPARSE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 21
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_LINEAR",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 22
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_STAGGERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 23
+      },
+      {
+        "name": "ACC_PROBE_ID_MAX",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 24
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 157073,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "CALIBRATION_NOT_STARTED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_1_PLL_CBANK_TEMP_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_2_PLL_IBIAS_VFAST2_LDO_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_3_DELAY_CBANK_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_4_BBA_VGA_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_5_AREA_INDEX_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_6_TX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_7_RX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_8_PHASE_ENHANCEMENT_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_9_PULSESHAPER_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "CALIBRATION_COMPLETE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_state_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 157151,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "CALIBRATION_NOT_STARTED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_1_PLL_CBANK_TEMP_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_2_PLL_IBIAS_VFAST2_LDO_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_3_DELAY_CBANK_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_4_BBA_VGA_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_5_AREA_INDEX_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_6_TX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_7_RX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_8_PHASE_ENHANCEMENT_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_9_PULSESHAPER_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "CALIBRATION_COMPLETE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_pulseshaper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157289,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "wg_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "wg_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "wg_pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ps_earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ps_start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "ps_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "ps_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "ps_shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "ps_rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157579,
+    "byte_size": 236,
+    "fields": [
+      {
+        "name": "temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vco_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "vco_ibias",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "delay_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "area_index",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vfast2_ldo",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      },
+      {
+        "name": "duration_p1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 86
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 88
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 136
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 138
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 188
+      },
+      {
+        "name": "pll_divisors",
+        "tag": "DW_TAG_member",
+        "data_member_location": 224
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_image_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157626,
+    "byte_size": 240,
+    "fields": [
+      {
+        "name": "result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "crc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 236
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157949,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_a121_context_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157973,
+    "byte_size": null,
+    "fields": []
+  },
+  {
+    "name": "acc_radar_engine_a121_context",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157990,
+    "byte_size": null,
+    "fields": []
+  },
+  {
+    "name": "acc_sensor_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 157995,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "magic_number",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "payload_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "sensor_id",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "started",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "calibration_state",
+        "tag": "DW_TAG_member",
+        "data_member_location": 13
+      },
+      {
+        "name": "radar_engine_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 158012,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "magic_number",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "payload_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "sensor_id",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "started",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "calibration_state",
+        "tag": "DW_TAG_member",
+        "data_member_location": 13
+      },
+      {
+        "name": "radar_engine_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 160095,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "CALIBRATION_NOT_STARTED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_1_PLL_CBANK_TEMP_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_2_PLL_IBIAS_VFAST2_LDO_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_3_DELAY_CBANK_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_4_BBA_VGA_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_5_AREA_INDEX_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_6_TX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_7_RX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_8_PHASE_ENHANCEMENT_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_9_PULSESHAPER_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "CALIBRATION_COMPLETE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_state_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 160173,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "CALIBRATION_NOT_STARTED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_1_PLL_CBANK_TEMP_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_2_PLL_IBIAS_VFAST2_LDO_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_3_DELAY_CBANK_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_4_BBA_VGA_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_5_AREA_INDEX_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_6_TX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_7_RX_FREQUENCY_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_8_PHASE_ENHANCEMENT_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "CALIBRATION_WAITING_FOR_9_PULSESHAPER_PROGRAM",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "CALIBRATION_COMPLETE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_pulseshaper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 160311,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "wg_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "wg_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "wg_pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ps_earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ps_start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "ps_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "ps_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "ps_shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "ps_rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 160601,
+    "byte_size": 236,
+    "fields": [
+      {
+        "name": "temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vco_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "vco_ibias",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "delay_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "area_index",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vfast2_ldo",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      },
+      {
+        "name": "duration_p1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 86
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 88
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 136
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 138
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 188
+      },
+      {
+        "name": "pll_divisors",
+        "tag": "DW_TAG_member",
+        "data_member_location": 224
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_image_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 160653,
+    "byte_size": 240,
+    "fields": [
+      {
+        "name": "result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "crc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 236
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_ps_wavelet_output_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 160718,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_ps_supply_output_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 160817,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 161304,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_ps_wavelet_output_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 163930,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_ps_supply_output_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 164023,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 168940,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_event_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 169006,
+    "byte_size": 4,
+    "fields": [
+      {
+        "name": "code",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 169023,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_buffer_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 169053,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 171290,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 173351,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "data_clamped",
+        "tag": "DW_TAG_member",
+        "data_member_location": 5
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 7
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_callback_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 173438,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "data_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "data_clamped",
+        "tag": "DW_TAG_member",
+        "data_member_location": 5
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 7
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_config_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 173503,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "config",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "callback",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "callback_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "acc_pipeline_a121_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 173609,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "subsweep_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "max_sweep_rate",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "cca_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "cca_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 174386,
+    "byte_size": 88,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_type",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "allowed_temperature_change",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": "acc_element_frame_aux_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 174556,
+    "byte_size": 88,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_type",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "allowed_temperature_change",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": "acc_element_sink_a121_callback_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 174763,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "callback_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "callback_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "callback",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 175098,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_payload_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 175248,
+    "byte_size": 30,
+    "fields": [
+      {
+        "name": "data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cca_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "cca_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "frame_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "frame_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "subsweep_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "subsweep_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 175312,
+    "byte_size": 60,
+    "fields": [
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "iq_imb_comp_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "spi_payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "payload_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "translation_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 175490,
+    "byte_size": 60,
+    "fields": [
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "iq_imb_comp_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "spi_payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "payload_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "translation_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      }
+    ]
+  },
+  {
+    "name": "pipeline_a121_context_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 175690,
+    "byte_size": 252,
+    "fields": [
+      {
+        "name": "source",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "source_output_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "frame_aux",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "frame_aux_input_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 148
+      },
+      {
+        "name": "frame_aux_output_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 150
+      },
+      {
+        "name": "frame",
+        "tag": "DW_TAG_member",
+        "data_member_location": 152
+      },
+      {
+        "name": "frame_input_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 156
+      },
+      {
+        "name": "frame_output_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 158
+      },
+      {
+        "name": "sink",
+        "tag": "DW_TAG_member",
+        "data_member_location": 160
+      },
+      {
+        "name": "sink_input_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 228
+      },
+      {
+        "name": "input_data_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 232
+      },
+      {
+        "name": "frame_scratch",
+        "tag": "DW_TAG_member",
+        "data_member_location": 236
+      },
+      {
+        "name": "callback_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 240
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulseshaper_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 177844,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "tx_ps_stages_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_ps_ref_bypass_diode_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tx_trig_ps_delay",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_trig_ps_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "tx_trig_ps_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "tx_trig_wg_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "tx_trig_wg_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "tx_trig_wg_width_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "pa_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulse_length_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 177943,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "tx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "rx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "rx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "rx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_calibration_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 178198,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "pll_mmd_range",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "pll_mmd_a",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "pll_mmd_b",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "pll_cpmp_ictrl_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "vco_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vco_bias_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "delay_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "vfast2_ldo_on_level",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "thresh1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "thresh2",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "area1_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "area1_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 26
+      },
+      {
+        "name": "area2_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "area2_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 30
+      },
+      {
+        "name": "area3_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "area3_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_subsweep_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 178596,
+    "byte_size": 86,
+    "fields": [
+      {
+        "name": "vga_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vga_bba_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tor_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "pulse_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "integration_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "integrator_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "measure_point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "lna1_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "rx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "init_tx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "head_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "tail_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "mid_coarse_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "first_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "mid_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "last_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "first_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "mid_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 74
+      },
+      {
+        "name": "last_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "coarse_incr_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 78
+      },
+      {
+        "name": "jump_0_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "jump_1_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 82
+      },
+      {
+        "name": "jump_2_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 178608,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 179125,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_pulseshaper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 179386,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "wg_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "wg_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "wg_pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ps_earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ps_start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "ps_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "ps_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "ps_shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "ps_rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 179676,
+    "byte_size": 236,
+    "fields": [
+      {
+        "name": "temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vco_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "vco_ibias",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "delay_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "area_index",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vfast2_ldo",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      },
+      {
+        "name": "duration_p1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 86
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 88
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 136
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 138
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 188
+      },
+      {
+        "name": "pll_divisors",
+        "tag": "DW_TAG_member",
+        "data_member_location": 224
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_image_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 179728,
+    "byte_size": 240,
+    "fields": [
+      {
+        "name": "result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "crc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 236
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180057,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 180080,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_CCA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_STITCHED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_REORDERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_PILOT",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_BUFFER_REPRESENTATION",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_CBANK_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_LOW_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_HIGH_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_AREA_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_RX_FINE_DIP_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_BEGIN",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 11
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_END",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 12
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MARGIN_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 13
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_METADATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 14
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 15
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_INTERNAL_RESULT_INFO",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 16
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 17
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_PROFILE_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 18
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_HEADER_LENGTH",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 19
+      },
+      {
+        "name": "ACC_PROBE_ID_MEAS_SESSION_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 20
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_SPARSE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 21
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_LINEAR",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 22
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_STAGGERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 23
+      },
+      {
+        "name": "ACC_PROBE_ID_MAX",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 24
+      }
+    ]
+  },
+  {
+    "name": "acc_probe_id_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 180242,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_CCA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_STITCHED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_DATA_REORDERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 3
+      },
+      {
+        "name": "ACC_PROBE_ID_ADC_OUTPUT_PILOT",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 4
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_BUFFER_REPRESENTATION",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 5
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_CBANK_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 6
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_LOW_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 7
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_DLY_DAC_HIGH_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 8
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_AREA_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 9
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_RX_FINE_DIP_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 10
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_BEGIN",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 11
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_CALIBRATION_END",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 12
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MARGIN_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 13
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_METADATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 14
+      },
+      {
+        "name": "ACC_PROBE_ID_SENSOR_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 15
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_INTERNAL_RESULT_INFO",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 16
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_MISSED_DATA",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 17
+      },
+      {
+        "name": "ACC_PROBE_ID_SERVICE_PROFILE_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 18
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_HEADER_LENGTH",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 19
+      },
+      {
+        "name": "ACC_PROBE_ID_MEAS_SESSION_PARAMETERS",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 20
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_SPARSE",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 21
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_LINEAR",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 22
+      },
+      {
+        "name": "ACC_PROBE_ID_SWEEP_SETTINGS_STAGGERED",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 23
+      },
+      {
+        "name": "ACC_PROBE_ID_MAX",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 24
+      }
+    ]
+  },
+  {
+    "name": "acc_payload_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180380,
+    "byte_size": 30,
+    "fields": [
+      {
+        "name": "data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cca_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "cca_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "frame_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "frame_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "subsweep_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "subsweep_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_a121_context_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180449,
+    "byte_size": 606,
+    "fields": [
+      {
+        "name": "shadow_parameters",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "sweeps_enabled",
+        "tag": "DW_TAG_member",
+        "data_member_location": 452
+      },
+      {
+        "name": "double_buffering",
+        "tag": "DW_TAG_member",
+        "data_member_location": 453
+      },
+      {
+        "name": "buffer_to_use",
+        "tag": "DW_TAG_member",
+        "data_member_location": 454
+      },
+      {
+        "name": "cal_temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 456
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 458
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 506
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 508
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 556
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 558
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_a121_context",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180466,
+    "byte_size": 606,
+    "fields": [
+      {
+        "name": "shadow_parameters",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "sweeps_enabled",
+        "tag": "DW_TAG_member",
+        "data_member_location": 452
+      },
+      {
+        "name": "double_buffering",
+        "tag": "DW_TAG_member",
+        "data_member_location": 453
+      },
+      {
+        "name": "buffer_to_use",
+        "tag": "DW_TAG_member",
+        "data_member_location": 454
+      },
+      {
+        "name": "cal_temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 456
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 458
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 506
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 508
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 556
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 558
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180620,
+    "byte_size": 60,
+    "fields": [
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "iq_imb_comp_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "spi_payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "payload_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "translation_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180798,
+    "byte_size": 60,
+    "fields": [
+      {
+        "name": "buffer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "iq_imb_comp_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "spi_payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "payload_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "payload_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "translation_metadata",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_event_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180845,
+    "byte_size": 4,
+    "fields": [
+      {
+        "name": "code",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 180862,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_buffer_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 180892,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_a121_context_internal_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180904,
+    "byte_size": 606,
+    "fields": [
+      {
+        "name": "shadow_parameters",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "sweeps_enabled",
+        "tag": "DW_TAG_member",
+        "data_member_location": 452
+      },
+      {
+        "name": "double_buffering",
+        "tag": "DW_TAG_member",
+        "data_member_location": 453
+      },
+      {
+        "name": "buffer_to_use",
+        "tag": "DW_TAG_member",
+        "data_member_location": 454
+      },
+      {
+        "name": "cal_temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 456
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 458
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 506
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 508
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 556
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 558
+      }
+    ]
+  },
+  {
+    "name": "acc_radar_engine_a121_memory_context_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 180951,
+    "byte_size": 8,
+    "fields": [
+      {
+        "name": "memory",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 183744,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 186215,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_event_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 186281,
+    "byte_size": 4,
+    "fields": [
+      {
+        "name": "code",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 186298,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_sensor_protocol_a121_buffer_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 186328,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_ANY",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_A",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      },
+      {
+        "name": "ACC_SENSOR_PROTOCOL_A121_BUFFER_B",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 2
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 187912,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "a121_diagnostics_register_desc_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 188107,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "desc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "regs",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "decode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      }
+    ]
+  },
+  {
+    "name": "a121_diagnostics_register_mask_desc_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 188305,
+    "byte_size": 8,
+    "fields": [
+      {
+        "name": "desc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mask",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulseshaper_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 189867,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "tx_ps_stages_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_ps_ref_bypass_diode_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tx_trig_ps_delay",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_trig_ps_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "tx_trig_ps_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "tx_trig_wg_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "tx_trig_wg_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "tx_trig_wg_width_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "pa_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulse_length_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 189966,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "tx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "rx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "rx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "rx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_calibration_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 190221,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "pll_mmd_range",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "pll_mmd_a",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "pll_mmd_b",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "pll_cpmp_ictrl_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "vco_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vco_bias_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "delay_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "vfast2_ldo_on_level",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "thresh1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "thresh2",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "area1_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "area1_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 26
+      },
+      {
+        "name": "area2_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "area2_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 30
+      },
+      {
+        "name": "area3_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "area3_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_subsweep_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 190619,
+    "byte_size": 86,
+    "fields": [
+      {
+        "name": "vga_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vga_bba_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tor_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "pulse_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "integration_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "integrator_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "measure_point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "lna1_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "rx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "init_tx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "head_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "tail_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "mid_coarse_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "first_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "mid_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "last_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "first_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "mid_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 74
+      },
+      {
+        "name": "last_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "coarse_incr_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 78
+      },
+      {
+        "name": "jump_0_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "jump_1_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 82
+      },
+      {
+        "name": "jump_2_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 190636,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 191115,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_pulseshaper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 191344,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "wg_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "wg_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "wg_pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ps_earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ps_start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "ps_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "ps_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "ps_shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "ps_rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 191639,
+    "byte_size": 236,
+    "fields": [
+      {
+        "name": "temp_adc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vco_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "vco_ibias",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "delay_cbank",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "area_index",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vfast2_ldo",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      },
+      {
+        "name": "duration_p1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 86
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern",
+        "tag": "DW_TAG_member",
+        "data_member_location": 88
+      },
+      {
+        "name": "iq_imb_comp_phase_pattern_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 136
+      },
+      {
+        "name": "iq_imb_comp",
+        "tag": "DW_TAG_member",
+        "data_member_location": 138
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 188
+      },
+      {
+        "name": "pll_divisors",
+        "tag": "DW_TAG_member",
+        "data_member_location": 224
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 192126,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_payload_metadata_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 192276,
+    "byte_size": 30,
+    "fields": [
+      {
+        "name": "data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "cca_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "cca_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "frame_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "frame_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "subsweep_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "subsweep_data_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      }
+    ]
+  },
+  {
+    "name": "acc_translation_a121_pulse_params_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 192526,
+    "byte_size": 32,
+    "fields": [
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "tx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "tx_trig_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "rx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "rx_trig_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 26
+      },
+      {
+        "name": "integrator_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "integration_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 30
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulseshaper_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 195399,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "tx_ps_stages_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_ps_ref_bypass_diode_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tx_trig_ps_delay",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_trig_ps_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "tx_trig_ps_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "tx_trig_wg_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "tx_trig_wg_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "tx_trig_wg_width_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "pa_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      }
+    ]
+  },
+  {
+    "name": "acc_calibration_a121_pulseshaper_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 195528,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "wg_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "wg_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "wg_pulse_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "ps_earliest_start",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "ps_start_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "ps_shortest_pulse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "ps_width_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "ps_shortest_rise_time",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "ps_rise_time_step_q16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 197856,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 200401,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 202153,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 208380,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 209728,
+    "byte_size": 88,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_type",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "allowed_temperature_change",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": "acc_element_frame_aux_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 209898,
+    "byte_size": 88,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "data_type",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "frame_delayed_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "saturation_data_valid_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "cal_temp_adc_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "saturation_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "temperature_data_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "allowed_temperature_change",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "temperature",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "data_saturated",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "frame_delayed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "calibration_needed",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": "acc_element_sink_a121_callback_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 211178,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "callback_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "callback_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "callback",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 211518,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulseshaper_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 212144,
+    "byte_size": 20,
+    "fields": [
+      {
+        "name": "tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "tx_ps_stages_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_ps_ref_bypass_diode_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tx_trig_ps_delay",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_trig_ps_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "tx_trig_ps_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "tx_trig_wg_width",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "tx_trig_wg_rst_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "tx_trig_wg_width_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "pa_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_pulse_length_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 212243,
+    "byte_size": 12,
+    "fields": [
+      {
+        "name": "tx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "rx_duration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "tx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "rx_sequence_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "tx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "rx_sequence_extension_bits",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_calibration_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 212498,
+    "byte_size": 36,
+    "fields": [
+      {
+        "name": "pll_mmd_range",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "pll_mmd_a",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "pll_mmd_b",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "pll_cpmp_ictrl_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "vco_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "vco_bias_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 10
+      },
+      {
+        "name": "delay_cbank_value",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "vfast2_ldo_on_level",
+        "tag": "DW_TAG_member",
+        "data_member_location": 14
+      },
+      {
+        "name": "rx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "tx_freq_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 18
+      },
+      {
+        "name": "thresh1",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "thresh2",
+        "tag": "DW_TAG_member",
+        "data_member_location": 22
+      },
+      {
+        "name": "area1_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 24
+      },
+      {
+        "name": "area1_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 26
+      },
+      {
+        "name": "area2_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 28
+      },
+      {
+        "name": "area2_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 30
+      },
+      {
+        "name": "area3_phase",
+        "tag": "DW_TAG_member",
+        "data_member_location": 32
+      },
+      {
+        "name": "area3_rxcoarse_offset",
+        "tag": "DW_TAG_member",
+        "data_member_location": 34
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_subsweep_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 212896,
+    "byte_size": 86,
+    "fields": [
+      {
+        "name": "vga_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "vga_bba_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 2
+      },
+      {
+        "name": "bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "tor_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 6
+      },
+      {
+        "name": "pulse_length",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "pulseshaper",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      },
+      {
+        "name": "integration_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "integrator_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "measure_point_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "lna1_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "rx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "init_tx_coarse",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "head_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "tail_rx_fine_base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "mid_coarse_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      },
+      {
+        "name": "first_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 66
+      },
+      {
+        "name": "mid_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 68
+      },
+      {
+        "name": "last_coarse_atom_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "first_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 72
+      },
+      {
+        "name": "mid_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 74
+      },
+      {
+        "name": "last_coarse_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 76
+      },
+      {
+        "name": "coarse_incr_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 78
+      },
+      {
+        "name": "jump_0_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 80
+      },
+      {
+        "name": "jump_1_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 82
+      },
+      {
+        "name": "jump_2_in_lut",
+        "tag": "DW_TAG_member",
+        "data_member_location": 84
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 212908,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_parameters_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 213387,
+    "byte_size": 452,
+    "fields": [
+      {
+        "name": "calibration",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "adc_output_format",
+        "tag": "DW_TAG_member",
+        "data_member_location": 36
+      },
+      {
+        "name": "inter_frame_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 38
+      },
+      {
+        "name": "inter_frame_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 40
+      },
+      {
+        "name": "frame_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 42
+      },
+      {
+        "name": "frame_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 44
+      },
+      {
+        "name": "frame_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 46
+      },
+      {
+        "name": "frame_rate_sync_to_sweep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 48
+      },
+      {
+        "name": "frame_double_buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 50
+      },
+      {
+        "name": "inter_sweep_idle_state_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 52
+      },
+      {
+        "name": "inter_sweep_idle_state_deep_sleep_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 54
+      },
+      {
+        "name": "sweep_rate_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "sweep_rate_ref_clk_31_16",
+        "tag": "DW_TAG_member",
+        "data_member_location": 58
+      },
+      {
+        "name": "sweep_rate_ref_clk_15_0",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "run_subsweep",
+        "tag": "DW_TAG_member",
+        "data_member_location": 62
+      },
+      {
+        "name": "subsweeps",
+        "tag": "DW_TAG_member",
+        "data_member_location": 70
+      },
+      {
+        "name": "run_generate_probe",
+        "tag": "DW_TAG_member",
+        "data_member_location": 414
+      },
+      {
+        "name": "probe_tx_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 416
+      },
+      {
+        "name": "probe_tx_ps_ref_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 418
+      },
+      {
+        "name": "extra_probe_count",
+        "tag": "DW_TAG_member",
+        "data_member_location": 420
+      },
+      {
+        "name": "disable_probe_only",
+        "tag": "DW_TAG_member",
+        "data_member_location": 422
+      },
+      {
+        "name": "probe_burst_period",
+        "tag": "DW_TAG_member",
+        "data_member_location": 424
+      },
+      {
+        "name": "probe_duty_cycle",
+        "tag": "DW_TAG_member",
+        "data_member_location": 426
+      },
+      {
+        "name": "high_speed_mode",
+        "tag": "DW_TAG_member",
+        "data_member_location": 428
+      },
+      {
+        "name": "sweep_repeats",
+        "tag": "DW_TAG_member",
+        "data_member_location": 430
+      },
+      {
+        "name": "sweep_repeats_run",
+        "tag": "DW_TAG_member",
+        "data_member_location": 432
+      },
+      {
+        "name": "cluster_pair_in_buf",
+        "tag": "DW_TAG_member",
+        "data_member_location": 434
+      },
+      {
+        "name": "delay_1_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 436
+      },
+      {
+        "name": "delay_4_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 438
+      },
+      {
+        "name": "delay_300_us_ref_clk",
+        "tag": "DW_TAG_member",
+        "data_member_location": 440
+      },
+      {
+        "name": "bufsat_upper_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 442
+      },
+      {
+        "name": "bufsat_lower_limit",
+        "tag": "DW_TAG_member",
+        "data_member_location": 444
+      },
+      {
+        "name": "free_running_en",
+        "tag": "DW_TAG_member",
+        "data_member_location": 446
+      },
+      {
+        "name": "run_cca_measurement",
+        "tag": "DW_TAG_member",
+        "data_member_location": 448
+      },
+      {
+        "name": "cca_bba_cal_ctrl",
+        "tag": "DW_TAG_member",
+        "data_member_location": 450
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_context_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 213492,
+    "byte_size": 4,
+    "fields": [
+      {
+        "name": "frame_count_not_good",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      }
+    ]
+  },
+  {
+    "name": null,
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 213504,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_A121_FRAME_GOOD",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_A121_FRAME_NOT_GOOD",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_status_t",
+    "tag": "DW_TAG_enumeration_type",
+    "die_offset": 213528,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "ACC_A121_FRAME_GOOD",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 0
+      },
+      {
+        "name": "ACC_A121_FRAME_NOT_GOOD",
+        "tag": "DW_TAG_enumerator",
+        "const_value": 1
+      }
+    ]
+  },
+  {
+    "name": "acc_cpd_a121_meas_session_result_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 213562,
+    "byte_size": 1,
+    "fields": [
+      {
+        "name": "status",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 213950,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "acc_element_sink_a121_callback_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 217177,
+    "byte_size": 68,
+    "fields": [
+      {
+        "name": "base",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "callback_result",
+        "tag": "DW_TAG_member",
+        "data_member_location": 56
+      },
+      {
+        "name": "callback_context",
+        "tag": "DW_TAG_member",
+        "data_member_location": 60
+      },
+      {
+        "name": "callback",
+        "tag": "DW_TAG_member",
+        "data_member_location": 64
+      }
+    ]
+  },
+  {
+    "name": "acc_hal_a121_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 217512,
+    "byte_size": 24,
+    "fields": [
+      {
+        "name": "max_spi_transfer_size",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "mem_alloc",
+        "tag": "DW_TAG_member",
+        "data_member_location": 4
+      },
+      {
+        "name": "mem_free",
+        "tag": "DW_TAG_member",
+        "data_member_location": 8
+      },
+      {
+        "name": "transfer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 12
+      },
+      {
+        "name": "log",
+        "tag": "DW_TAG_member",
+        "data_member_location": 16
+      },
+      {
+        "name": "optimization",
+        "tag": "DW_TAG_member",
+        "data_member_location": 20
+      }
+    ]
+  },
+  {
+    "name": "print_buffer_t",
+    "tag": "DW_TAG_structure_type",
+    "die_offset": 228977,
+    "byte_size": 202,
+    "fields": [
+      {
+        "name": "buffer",
+        "tag": "DW_TAG_member",
+        "data_member_location": 0
+      },
+      {
+        "name": "position",
+        "tag": "DW_TAG_member",
+        "data_member_location": 200
+      }
+    ]
+  }
+]
